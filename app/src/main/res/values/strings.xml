@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TheScoreTest</string>
+    <string name="presentation_module">Presentation</string>
 </resources>

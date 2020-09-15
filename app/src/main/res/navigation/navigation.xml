@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/navigation"
+                app:startDestination="@id/teamsListFragment">
+
+        <fragment
+                android:id="@+id/teamsListFragment"
+                android:name="com.skanderjabouzi.thescoretest.teams.TeamsListFragment"
+                android:label="Teams List" >
+            <action
+                    android:id="@+id/action_movieListFragment_to_movieDetailsFragment"
+                    app:destination="@id/teamDetailsFragment" />
+        </fragment>
+        <fragment
+                android:id="@+id/teamDetailsFragment"
+                android:name="com.skanderjabouzi.thescoretest.players.TeamPlayersFragment"
+                android:label="Team Detail" />
+
+</navigation>
