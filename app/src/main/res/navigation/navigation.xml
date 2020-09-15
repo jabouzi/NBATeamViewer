@@ -7,7 +7,7 @@
 
         <fragment
                 android:id="@+id/teamsListFragment"
-                android:name="com.skanderjabouzi.thescoretest.teams.TeamsListFragment"
+                android:name="com.skanderjabouzi.thescoretest.presentation.teams.TeamsListFragment"
                 android:label="Teams List" >
             <action
                     android:id="@+id/action_movieListFragment_to_movieDetailsFragment"
@@ -15,7 +15,7 @@
         </fragment>
         <fragment
                 android:id="@+id/teamDetailsFragment"
-                android:name="com.skanderjabouzi.thescoretest.players.TeamPlayersFragment"
+                android:name="com.skanderjabouzi.thescoretest.presentation.players.TeamPlayersFragment"
                 android:label="Team Detail" />
 
 </navigation>
