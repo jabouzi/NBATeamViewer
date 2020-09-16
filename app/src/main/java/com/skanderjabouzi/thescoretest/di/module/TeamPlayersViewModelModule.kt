@@ -12,5 +12,5 @@ abstract class TeamPlayersViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(TeamPlayersViewModel::class)
-    abstract fun bindsAddViewModelModule(viewModel: TeamPlayersViewModel): ViewModel
+    abstract fun bindsTeamPlayersViewModelModule(viewModel: TeamPlayersViewModel): ViewModel
 }

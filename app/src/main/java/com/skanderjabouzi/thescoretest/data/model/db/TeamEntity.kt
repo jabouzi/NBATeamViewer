@@ -1,10 +1,10 @@
-package com.skanderjabouzi.thescoretest.data.model
+package com.skanderjabouzi.thescoretest.data.model.db
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class Team (
+data class TeamEntity (
     @PrimaryKey
     val id : Int,
     val name : String,

@@ -8,6 +8,5 @@ import dagger.Module
 @Module(includes = [TeamsListFragmentModule::class])
 abstract class TeamClickListenerModule {
     @Binds
-    abstract fun bindMovieClickListener(movieListFragment: TeamsListFragment): TeamClickListener
-
+    abstract fun binTeamClickListener(teamsListFragment: TeamsListFragment): TeamClickListener
 }

@@ -1,4 +1,4 @@
-package com.skanderjabouzi.thescoretest.data.model
+package com.skanderjabouzi.thescoretest.data.model.net
 
 data class Player (
 	val position : String,

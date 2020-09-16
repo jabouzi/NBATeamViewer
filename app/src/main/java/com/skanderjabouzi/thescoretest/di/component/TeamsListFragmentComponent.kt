@@ -1,6 +1,6 @@
 package com.skanderjabouzi.thescoretest.di.components
 
-import com.skanderjabouzi.thescoretest.di.component.TeamsListAdapterModule
+import com.skanderjabouzi.thescoretest.di.module.TeamsListAdapterModule
 import com.skanderjabouzi.thescoretest.di.modules.TeamsListViewModelModule
 import com.skanderjabouzi.thescoretest.di.modules.ViewModelFactoryModule
 import com.skanderjabouzi.thescoretest.di.scope.FragmentScope

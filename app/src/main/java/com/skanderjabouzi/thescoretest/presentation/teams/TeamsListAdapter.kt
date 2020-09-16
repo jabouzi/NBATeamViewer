@@ -35,7 +35,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.skanderjabouzi.thescoretest.R
-import com.skanderjabouzi.thescoretest.data.model.Team
+import com.skanderjabouzi.thescoretest.data.model.net.Team
 import com.skanderjabouzi.thescoretest.domain.listener.TeamClickListener
 import kotlinx.android.synthetic.main.teams_item.view.*
 import javax.inject.Inject

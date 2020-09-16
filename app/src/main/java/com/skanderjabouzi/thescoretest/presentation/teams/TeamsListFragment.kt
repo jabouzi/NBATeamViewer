@@ -6,26 +6,29 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.skanderjabouzi.thescoretest.R
+import com.skanderjabouzi.thescoretest.presentation.ViewModelFactory
+import javax.inject.Inject
 
 class TeamsListFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = TeamsListFragment()
-    }
-
     private lateinit var viewModel: TeamsListViewModel
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        viewModel = ViewModelProvider(this).get(TeamsListViewModel::class.java)
         return inflater.inflate(R.layout.teams_list_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(TeamsListViewModel::class.java)
+
         // TODO: Use the ViewModel
     }
 

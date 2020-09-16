@@ -1,7 +1,5 @@
 package com.skanderjabouzi.thescoretest.data.net
 
-import com.skanderjabouzi.thescoretest.data.model.Players
-import com.skanderjabouzi.thescoretest.data.model.Teams
 import retrofit2.http.GET
 import retrofit2.http.Path
 

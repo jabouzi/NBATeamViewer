@@ -30,25 +30,15 @@
 
 package com.skanderjabouzi.thescoretest.data.db
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.skanderjabouzi.thescoretest.data.model.Player
-import com.skanderjabouzi.thescoretest.data.model.Players
-import com.skanderjabouzi.thescoretest.data.model.Team
+import com.skanderjabouzi.thescoretest.data.model.db.TeamEntity
 
 @Dao
 interface TeamDao {
 
   @Insert(onConflict = OnConflictStrategy.REPLACE)
-  fun insert(team: Team)
+  fun insert(team: TeamEntity)
 
-  @Query("select * from team")
-  fun getTeams(): LiveData<List<Team>>
-
-  @Insert(onConflict = OnConflictStrategy.REPLACE)
-  fun insert(players: Players)
-
-  @Query("SELECT * FROM players WHERE id = :id")
-  fun getPlayers(id: Int?): LiveData<List<Player>>
-
+  @Query("select * from teamentity")
+  fun getTeams(): List<TeamEntity>
 }

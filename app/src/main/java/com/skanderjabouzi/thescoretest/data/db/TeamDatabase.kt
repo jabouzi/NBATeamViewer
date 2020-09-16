@@ -30,34 +30,40 @@
 
 package com.skanderjabouzi.thescoretest.data.db
 
-import android.app.Application
+import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.skanderjabouzi.thescoretest.data.model.Players
-import com.skanderjabouzi.thescoretest.data.model.Team
+import com.skanderjabouzi.thescoretest.data.model.db.PlayerEntity
+import com.skanderjabouzi.thescoretest.data.model.db.TeamEntity
+import com.skanderjabouzi.thescoretest.data.model.net.Team
 
+@Database(
+  entities = [TeamEntity::class, PlayerEntity::class],
+  version = 1,
+  exportSchema = false
+)
 
-@Database(entities = [Team::class, Players::class], version = 1)
 abstract class TeamDatabase : RoomDatabase() {
+
+  companion object {
+
+    private const val DATABASE_NAME = "reader.db"
+
+    private var instance: TeamDatabase? = null
+
+    private fun create(context: Context): TeamDatabase =
+      Room.databaseBuilder(context, TeamDatabase::class.java, DATABASE_NAME)
+        .fallbackToDestructiveMigration()
+        .build()
+
+
+    fun getInstance(context: Context): TeamDatabase =
+      (instance ?: create(context)).also { instance = it }
+  }
 
   abstract fun teamDao(): TeamDao
 
-  companion object {
-    private val lock = Any()
-    private const val DB_NAME = "TeamDatabase"
-    private var INSTANCE: TeamDatabase? = null
-
-    fun getInstance(application: Application): TeamDatabase {
-      synchronized(TeamDatabase.lock) {
-        if (TeamDatabase.INSTANCE == null) {
-          TeamDatabase.INSTANCE =
-              Room.databaseBuilder(application, TeamDatabase::class.java, TeamDatabase.DB_NAME)
-                  .build()
-        }
-      }
-      return INSTANCE!!
-    }
-  }
+  abstract fun playersDao(): PlayersDao
 
 }

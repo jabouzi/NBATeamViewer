@@ -30,19 +30,23 @@
 
 package com.skanderjabouzi.thescoretest.data.net
 
-import androidx.lifecycle.LiveData
-import com.skanderjabouzi.thescoretest.data.model.Player
-import com.skanderjabouzi.thescoretest.data.model.Players
-import com.skanderjabouzi.thescoretest.data.model.Team
+import com.skanderjabouzi.thescoretest.data.model.db.PlayerEntity
+import com.skanderjabouzi.thescoretest.data.model.db.TeamEntity
+import com.skanderjabouzi.thescoretest.data.model.net.Player
+import com.skanderjabouzi.thescoretest.data.model.net.Team
 
 interface TeamsRepository {
 
-  fun getSavedTeams(): LiveData<List<Team>>
+  suspend fun getSavedTeams(): List<TeamEntity>
 
-  fun getPlayers(teamId: Int): LiveData<List<Player>>
+  suspend fun getSavedPlayers(teamId: Int): List<PlayerEntity>
 
-  fun saveTeam(team: Team)
+  suspend fun saveTeam(team: TeamEntity)
 
-  fun savePlayers(player: Players)
+  suspend fun savePlayers(player: List<PlayerEntity>)
+
+  suspend fun getTeams(): List<Team>
+
+  suspend fun getPlayers(teamId: Int): List<Player>
 
 }
