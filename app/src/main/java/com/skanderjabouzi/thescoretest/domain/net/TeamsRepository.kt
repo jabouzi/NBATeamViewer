@@ -31,6 +31,7 @@
 package com.skanderjabouzi.thescoretest.data.net
 
 import androidx.lifecycle.LiveData
+import com.skanderjabouzi.thescoretest.data.model.Player
 import com.skanderjabouzi.thescoretest.data.model.Players
 import com.skanderjabouzi.thescoretest.data.model.Team
 
@@ -38,10 +39,10 @@ interface TeamsRepository {
 
   fun getSavedTeams(): LiveData<List<Team>>
 
-  fun getPlayers(teamId: Int): LiveData<Players?>
+  fun getPlayers(teamId: Int): LiveData<List<Player>>
 
   fun saveTeam(team: Team)
 
-  fun savePlayers(player: Players): LiveData<Players>
+  fun savePlayers(player: Players)
 
 }

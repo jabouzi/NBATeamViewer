@@ -33,6 +33,20 @@ android {
         jvmTarget = "1.8"
     }
 
+    flavorDimensions "theScoreTest"
+    productFlavors {
+        local {
+            dimension "theScoreTest"
+            buildConfigField 'String', 'TYPE', '"local"'
+            buildConfigField 'String', 'BASE_URL',  '"http://skanderjabouzi.com/thescoretest/"';
+        }
+        mock {
+            dimension "theScoreTest"
+            buildConfigField 'String', 'TYPE', '"mock"'
+            buildConfigField 'String', 'BASE_URL',  '"http:/mock.api/"';
+        }
+    }
+
 }
 
 dependencies {
@@ -64,8 +78,8 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:1.1.2"
     androidTestImplementation "androidx.test.espresso:espresso-core:3.3.0"
 
-    implementation project(":di")
-    implementation project(":domain")
-    implementation project(":presentation")
-    implementation project(":data")
+//    implementation project(":di")
+//    implementation project(":domain")
+//    implementation project(":presentation")
+//    implementation project(":data")
 }

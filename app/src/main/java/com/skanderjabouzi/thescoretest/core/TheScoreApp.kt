@@ -1,7 +1,7 @@
 package com.skanderjabouzi.thescoretest.core
 
 import android.app.Application
-import com.raywenderlich.wewatch.data.db.TeamDatabase
+import com.skanderjabouzi.thescoretest.data.db.TeamDatabase
 
 class TheScoreApp: Application() {
     lateinit var db: TeamDatabase

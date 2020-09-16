@@ -28,7 +28,7 @@
  * THE SOFTWARE.
  */
 
-package com.raywenderlich.wewatch.data.db
+package com.skanderjabouzi.thescoretest.data.db
 
 import android.app.Application
 import androidx.room.Database

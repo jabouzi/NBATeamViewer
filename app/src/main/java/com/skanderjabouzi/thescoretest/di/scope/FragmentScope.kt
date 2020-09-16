@@ -1,4 +1,4 @@
-package com.raywenderlich.wewatch.di.scope
+package com.skanderjabouzi.thescoretest.di.scope
 
 import javax.inject.Scope
 

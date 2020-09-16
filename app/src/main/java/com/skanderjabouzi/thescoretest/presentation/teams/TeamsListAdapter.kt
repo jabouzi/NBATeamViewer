@@ -33,52 +33,44 @@ package com.skanderjabouzi.thescoretest.presentation.teams
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.raywenderlich.wewatch.BuildConfig
-import com.raywenderlich.wewatch.R
-import com.raywenderlich.wewatch.data.model.Movie
-import com.raywenderlich.wewatch.listener.MovieClickListener
-import com.raywenderlich.wewatch.listener.SearchClickListener
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_movie_search.view.*
+import com.skanderjabouzi.thescoretest.R
+import com.skanderjabouzi.thescoretest.data.model.Team
+import com.skanderjabouzi.thescoretest.domain.listener.TeamClickListener
+import kotlinx.android.synthetic.main.teams_item.view.*
 import javax.inject.Inject
 
-class TeamsListAdapter @Inject constructor(private val itemClickListener: SearchClickListener) :
-        RecyclerView.Adapter<TeamsListAdapter.MovieHolder>() {
+class TeamsListAdapter @Inject constructor(private val itemClickListener: TeamClickListener) :
+        RecyclerView.Adapter<TeamsListAdapter.TeamHolder>() {
 
-  private val movies = mutableListOf<Movie>()
+  private val teams = mutableListOf<Team>()
 
-  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieHolder {
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamHolder {
     val view = LayoutInflater.from(parent.context)
-        .inflate(R.layout.item_movie_search, parent, false)
-    return MovieHolder(view)
+        .inflate(R.layout.teams_item, parent, false)
+    return TeamHolder(view)
   }
 
-  override fun getItemCount(): Int = movies.size ?: 0
+  override fun getItemCount(): Int = teams.size ?: 0
 
-  override fun onBindViewHolder(holder: MovieHolder, position: Int) {
-      holder.bind(movies[position], position, itemClickListener)
+  override fun onBindViewHolder(holder: TeamHolder, position: Int) {
+      holder.bind(teams[position], position, itemClickListener)
   }
 
-  fun setMovies(movieList: List<Movie>) {
-    this.movies.clear()
-    this.movies.addAll(movieList)
+  fun setMovies(movieList: List<Team>) {
+    this.teams.clear()
+    this.teams.addAll(movieList)
     notifyDataSetChanged()
   }
 
 
-  inner class MovieHolder(val view: View) : RecyclerView.ViewHolder(view) {
-    fun bind(movie: Movie, position: Int, itemClickListener: SearchClickListener) = with(view) {
-      searchTitleTextView.text = movie.title
-      searchReleaseDateTextView.text = movie.releaseDate
+  inner class TeamHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    fun bind(team: Team, position: Int, itemClickListener: TeamClickListener) = with(view) {
+      itemView.team_name_value.text = team.name
+      itemView.team_wins_value.text = team.wins.toString()
+      itemView.team_losses_value.text = team.losses.toString()
       itemView.setOnClickListener {
-        movies?.get(position).let { it -> itemClickListener.onItemClick(it) }
-      }
-      if (movie.posterPath != null)
-        Picasso.get().load(BuildConfig.TMDB_IMAGEURL + movie.posterPath).into(searchImageView)
-      else {
-        searchImageView.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.ic_local_movies_gray, null))
+        teams?.get(position).let { it -> itemClickListener.onItemClick(it) }
       }
     }
   }

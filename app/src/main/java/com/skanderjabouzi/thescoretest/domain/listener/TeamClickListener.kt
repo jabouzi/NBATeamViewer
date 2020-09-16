@@ -1,5 +1,7 @@
 package com.skanderjabouzi.thescoretest.domain.listener
 
+import com.skanderjabouzi.thescoretest.data.model.Team
+
 interface TeamClickListener {
-    fun onItemClick(id: Int)
+    fun onItemClick(team: Team)
 }

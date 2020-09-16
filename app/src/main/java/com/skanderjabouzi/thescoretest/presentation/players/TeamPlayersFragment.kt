@@ -1,12 +1,12 @@
 package com.skanderjabouzi.thescoretest.presentation.players
 
-import androidx.lifecycle.ViewModelProviders
-import android.os.Bundle
 import androidx.fragment.app.Fragment
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.skanderjabouzi.thescoretest.presentation.R
+import androidx.lifecycle.ViewModelProviders
+import com.skanderjabouzi.thescoretest.R
 
 
 class TeamPlayersFragment : Fragment() {

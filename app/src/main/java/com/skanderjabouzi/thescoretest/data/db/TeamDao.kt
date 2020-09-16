@@ -28,10 +28,11 @@
  * THE SOFTWARE.
  */
 
-package com.raywenderlich.wewatch.data.db
+package com.skanderjabouzi.thescoretest.data.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.skanderjabouzi.thescoretest.data.model.Player
 import com.skanderjabouzi.thescoretest.data.model.Players
 import com.skanderjabouzi.thescoretest.data.model.Team
 
@@ -48,6 +49,6 @@ interface TeamDao {
   fun insert(players: Players)
 
   @Query("SELECT * FROM players WHERE id = :id")
-  fun getPlayers(id: Int?)
+  fun getPlayers(id: Int?): LiveData<List<Player>>
 
 }
