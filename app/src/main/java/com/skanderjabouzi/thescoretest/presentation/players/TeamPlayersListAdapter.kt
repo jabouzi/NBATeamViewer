@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.skanderjabouzi.thescoretest.R
 import com.skanderjabouzi.thescoretest.data.model.net.Player
 import kotlinx.android.synthetic.main.players_item.view.*
+import javax.inject.Inject
 
-class TeamPlayersListAdapter
+class TeamPlayersListAdapter @Inject constructor()
   : RecyclerView.Adapter<TeamPlayersListAdapter.PlayerViewHolder>() {
 
   lateinit var players: List<Player>

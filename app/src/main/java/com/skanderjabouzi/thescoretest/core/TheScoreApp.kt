@@ -2,6 +2,7 @@ package com.skanderjabouzi.thescoretest.core
 
 import android.app.Application
 import com.skanderjabouzi.thescoretest.data.db.TeamDatabase
+import com.skanderjabouzi.thescoretest.di.components.AppComponent
 
 class TheScoreApp: Application() {
     lateinit var db: TeamDatabase
@@ -19,11 +20,11 @@ class TheScoreApp: Application() {
 
     override fun onCreate() {
         super.onCreate()
-        db = MovieDatabase.getInstance(this)
+        db = TeamDatabase.getInstance(this)
         INSTANCE = this
     }
 
     companion object {
-        lateinit var INSTANCE: App
+        lateinit var INSTANCE: TheScoreApp
     }
 }

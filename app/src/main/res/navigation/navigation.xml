@@ -10,7 +10,7 @@
                 android:name="com.skanderjabouzi.thescoretest.presentation.teams.TeamsListFragment"
                 android:label="Teams List" >
             <action
-                    android:id="@+id/action_movieListFragment_to_movieDetailsFragment"
+                    android:id="@+id/action_teamsListFragment_to_teamPlayersFragment"
                     app:destination="@id/teamDetailsFragment" />
         </fragment>
         <fragment

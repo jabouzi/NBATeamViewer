@@ -7,11 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.skanderjabouzi.thescoretest.R
+import com.skanderjabouzi.thescoretest.core.TheScoreApp
+import com.skanderjabouzi.thescoretest.data.model.net.Team
+import com.skanderjabouzi.thescoretest.domain.listener.TeamClickListener
 import com.skanderjabouzi.thescoretest.presentation.ViewModelFactory
 import javax.inject.Inject
 
-class TeamsListFragment : Fragment() {
+class TeamsListFragment : Fragment(), TeamClickListener {
 
     private lateinit var viewModel: TeamsListViewModel
 
@@ -22,6 +26,7 @@ class TeamsListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        TheScoreApp.INSTANCE.appComponent.getTeamsListFragmentComponent().inject(this)
         viewModel = ViewModelProvider(this).get(TeamsListViewModel::class.java)
         return inflater.inflate(R.layout.teams_list_fragment, container, false)
     }
@@ -31,5 +36,14 @@ class TeamsListFragment : Fragment() {
 
         // TODO: Use the ViewModel
     }
+
+    override fun onItemClick(team: Team) {
+        val teamBumble = Bundle().apply {
+            putSerializable("team", team)
+        }
+        view?.findNavController()?.navigate(
+            R.id.action_teamsListFragment_to_teamPlayersFragment, teamBumble)
+    }
+
 
 }

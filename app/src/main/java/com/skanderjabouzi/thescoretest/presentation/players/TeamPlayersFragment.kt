@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.skanderjabouzi.thescoretest.R
 import com.skanderjabouzi.thescoretest.core.TheScoreApp
 import com.skanderjabouzi.thescoretest.presentation.ViewModelFactory
@@ -23,7 +22,7 @@ class TeamPlayersFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        TheScoreApp.INSTANCE.appComponent
+        TheScoreApp.INSTANCE.appComponent.getTeamPlayersFragmentComponent().inject(this)
         viewModel = ViewModelProvider(this, viewModelFactory)[TeamPlayersViewModel::class.java]
         return inflater.inflate(R.layout.team_detail_fragment, container, false)
     }
@@ -32,5 +31,4 @@ class TeamPlayersFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         // TODO: Use the ViewModel
     }
-
 }

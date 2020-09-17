@@ -1,4 +1,4 @@
-package com.skanderjabouzi.thescoretest.di.modules
+package com.skanderjabouzi.thescoretest.di.module
 
 import com.skanderjabouzi.thescoretest.di.scope.AppScope
 import com.skanderjabouzi.thescoretest.BuildConfig
