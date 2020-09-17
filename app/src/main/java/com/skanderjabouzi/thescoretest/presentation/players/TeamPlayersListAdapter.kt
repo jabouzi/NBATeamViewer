@@ -42,7 +42,7 @@ class TeamPlayersListAdapter @Inject constructor()
     fun bind(player: Player) {
       itemView.player_name_value.text = player.full_name
       itemView.player_position_value.text = player.position
-      itemView.player_number_value.text = player.number.toString()
+      itemView.player_number_value.text = player.number
     }
   }
 }

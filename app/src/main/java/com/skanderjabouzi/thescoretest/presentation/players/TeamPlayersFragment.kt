@@ -2,6 +2,7 @@ package com.skanderjabouzi.thescoretest.presentation.players
 
 import androidx.fragment.app.Fragment
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -72,6 +73,7 @@ class TeamPlayersFragment : Fragment() {
             players_titles.player_team_values.team_name_value.text = it.name
             players_titles.player_team_values.team_wins_value.text = it.wins.toString()
             players_titles.player_team_values.team_losses_value.text = it.losses.toString()
+            Log.e("Team", "$it")
         }
     }
 

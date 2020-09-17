@@ -9,7 +9,7 @@ data class PlayerEntity (
 	val id: Int? = null,
 	val teamId: Int,
 	val position : String,
-	val number : Int,
+	val number : String,
 	val full_name : String,
 	val height : String,
 	val weight : String,
