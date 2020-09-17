@@ -43,7 +43,7 @@ interface TeamsRepository {
 
   suspend fun saveTeams(teams: List<TeamEntity>)
 
-  suspend fun savePlayers(player: List<PlayerEntity>)
+  suspend fun savePlayers(players: List<PlayerEntity>)
 
   suspend fun getTeams(): List<Team>
 

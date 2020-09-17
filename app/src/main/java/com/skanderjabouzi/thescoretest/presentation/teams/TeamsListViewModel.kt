@@ -18,23 +18,14 @@ class TeamsListViewModel @Inject constructor(val usecase: GetTeamsListUseCase) :
     val teams: LiveData<List<Team>>
         get() = _teams
 
-    fun searchMovie() {
+    fun getTeams() {
         viewModelScope.launch {
             try {
                 val listResult = usecase.getTeams()
-                Log.e("listResult", "$listResult")
                 _teams.value = listResult
             } catch (e: Exception) {
                 Log.e("listResult", "${e.localizedMessage}")
                 _teams.value = null
-            }
-        }
-    }
-
-    fun saveMovie(team: Team) {
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-//                usecase.saveMovie(movie)
             }
         }
     }

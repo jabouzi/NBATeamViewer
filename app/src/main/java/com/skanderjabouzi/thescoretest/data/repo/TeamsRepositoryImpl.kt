@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 class TeamsRepositoryImpl @Inject constructor() : TeamsRepository {
 
-  @Inject lateinit var retrofitClient: RetrofitClient
+  @set:Inject public var retrofitClient: RetrofitClient
   private val teamDao: TeamDao = TheScoreApp.INSTANCE.db.teamDao()
   private val playersDao: PlayersDao = TheScoreApp.INSTANCE.db.playersDao()
 

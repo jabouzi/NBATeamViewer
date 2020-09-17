@@ -1,7 +1,8 @@
 package com.skanderjabouzi.thescoretest.di.module
 
-import com.skanderjabouzi.thescoretest.di.scope.AppScope
+import com.google.gson.GsonBuilder
 import com.skanderjabouzi.thescoretest.BuildConfig
+import com.skanderjabouzi.thescoretest.di.scope.AppScope
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -21,7 +22,10 @@ class RetrofitModule {
     @AppScope
     @Provides
     fun provideGsonFactory(): GsonConverterFactory {
-        return GsonConverterFactory.create()
+        val gson = GsonBuilder()
+            .setLenient()
+            .create()
+        return GsonConverterFactory.create(gson)
     }
 
     @AppScope

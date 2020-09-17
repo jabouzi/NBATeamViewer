@@ -57,7 +57,7 @@ class TeamsListAdapter @Inject constructor(private val itemClickListener: TeamCl
       holder.bind(teams[position], position, itemClickListener)
   }
 
-  fun setMovies(movieList: List<Team>) {
+  fun setTeams(movieList: List<Team>) {
     this.teams.clear()
     this.teams.addAll(movieList)
     notifyDataSetChanged()

@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="24dp">
 
     <TextView
         android:id="@+id/team_name_value"
@@ -11,7 +12,6 @@
         android:layout_height="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
         android:text="Toronto Raptors"
         android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/team_wins_value"
@@ -19,26 +19,24 @@
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
-        android:id="@+id/team_wins_value"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginTop="24dp"
-        android:gravity="left"
-        android:text="70"
-        android:textColor="@android:color/black"
-        app:layout_constraintEnd_toStartOf="@+id/team_losses_value"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+            android:id="@+id/team_wins_value"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginEnd="50dp"
+            android:gravity="left"
+            android:text="70"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toStartOf="@+id/team_losses_value"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginRight="50dp"></TextView>
 
     <TextView
-        android:id="@+id/team_losses_value"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="24dp"
-        android:text="10"
-        android:textColor="@android:color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+            android:id="@+id/team_losses_value"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:text="10"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginRight="8dp"></TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

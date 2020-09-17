@@ -6,13 +6,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.skanderjabouzi.thescoretest.R
 import com.skanderjabouzi.thescoretest.data.model.net.Player
+import com.skanderjabouzi.thescoretest.data.model.net.Team
 import kotlinx.android.synthetic.main.players_item.view.*
 import javax.inject.Inject
 
 class TeamPlayersListAdapter @Inject constructor()
   : RecyclerView.Adapter<TeamPlayersListAdapter.PlayerViewHolder>() {
 
-  lateinit var players: List<Player>
+  private var players = mutableListOf<Player>()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlayerViewHolder {
     val view =
@@ -29,6 +30,12 @@ class TeamPlayersListAdapter @Inject constructor()
 
   override fun onBindViewHolder(holder: PlayerViewHolder, position: Int) {
     holder.bind(players[position])
+  }
+
+  fun setPlayers(playerList: List<Player>) {
+    this.players.clear()
+    this.players.addAll(playerList)
+    notifyDataSetChanged()
   }
 
   inner class PlayerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

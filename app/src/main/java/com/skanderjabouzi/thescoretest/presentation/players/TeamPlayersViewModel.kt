@@ -18,7 +18,7 @@ class TeamPlayersViewModel @Inject constructor(val usecase: GetTeamPlayersUseCas
     val players: LiveData<List<Player>>
         get() = _players
 
-    fun searchMovie(teamId: Int) {
+    fun getPlayers(teamId: Int) {
         viewModelScope.launch {
             try {
                 val listResult = usecase.getTeamPlayers(teamId)

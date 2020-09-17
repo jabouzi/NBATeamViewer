@@ -1,36 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:id="@+id/coordinator_layout_toolbar_view"
-  android:layout_width="match_parent"
-  android:layout_height="wrap_content">
+<com.google.android.material.appbar.AppBarLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-  <!-- The 'AppBarLayout' object holds the 'Toolbar' and the 'TabLayout', declaring its own 'theme' (in this case, white font is used) -->
-  <com.google.android.material.appbar.AppBarLayout
-    android:id="@+id/app_bar_toolbar_view"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
-    android:elevation="4dp"
-    android:theme="@style/TopBarStyle"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+  <androidx.appcompat.widget.Toolbar
+          android:id="@+id/toolbar"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:minHeight="?attr/actionBarSize"
+          app:titleTextColor="@android:color/white"
+          app:contentInsetLeft="0dp"
+          app:contentInsetStart="0dp"
+          app:layout_scrollFlags="scroll|enterAlways">
 
-    <androidx.appcompat.widget.Toolbar
-      android:id="@+id/toolbar_toolbar_view"
-      android:layout_width="match_parent"
-      android:layout_height="?attr/actionBarSize"
-      android:elevation="3dp"
-      android:gravity="center"
-      android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-      app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    <TextView
+            android:id="@+id/team_toolbar_title"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            app:titleTextColor="@android:color/black"
+            android:layout_gravity="center_horizontal"
+    />
 
-    <com.google.android.material.tabs.TabLayout
-      android:id="@+id/tab_layout_toolbar_view"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center_horizontal"
-      android:visibility="gone"
-      app:tabMode="scrollable" />
+    <TextView
+            android:id="@+id/players_toolbar_title"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            app:titleTextColor="@android:color/black"
+            android:layout_gravity="left"
+    />
 
-  </com.google.android.material.appbar.AppBarLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+  </androidx.appcompat.widget.Toolbar>
+
+  <include android:id="@+id/teams_titles" layout="@layout/teams_titles"></include>
+
+  <include android:id="@+id/players_titles" layout="@layout/players_titles"></include>
+
+</com.google.android.material.appbar.AppBarLayout>

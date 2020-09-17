@@ -1,5 +1,6 @@
 package com.skanderjabouzi.thescoretest.data.net
 
+import android.util.Log
 import com.skanderjabouzi.thescoretest.data.model.net.Players
 import com.skanderjabouzi.thescoretest.data.model.net.Teams
 import retrofit2.Retrofit
@@ -14,6 +15,7 @@ class RetrofitClient @Inject constructor(val retrofit: Retrofit) {
   }
 
   suspend fun getTeams(): Teams {
+    Log.e("Retrofit", retrofit.baseUrl().toString())
     return teamsApi.getTeams()
   }
 

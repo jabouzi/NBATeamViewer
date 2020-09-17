@@ -1,6 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TheScoreTest</string>
-    <string name="presentation_module">Presentation</string>
     <string name="error_occured">An error occured</string>
     <string name="ok">OK</string>
     <string name="teams_list">Teams List</string>

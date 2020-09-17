@@ -1,20 +1,33 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/colorBlack</item>
+    </style>
+    <style name="AppThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <style name="CustomTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:textSelectHandleLeft">@drawable/zero_pixel_transparent</item>
+        <item name="android:textSelectHandleRight">@drawable/zero_pixel_transparent</item>
+        <item name="android:textSelectHandle">@drawable/zero_pixel_transparent</item>
+        <item name="android:textColorHighlight">#FFF</item>
+    </style>
+    <style name="AppTheme.Launcher">
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
     <style name="TopBarStyle" parent="@style/Theme.MaterialComponents.Light.DarkActionBar">
         <item name="android:textColorPrimary">@color/backgroundLight</item>
     </style>
-
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
 </resources>

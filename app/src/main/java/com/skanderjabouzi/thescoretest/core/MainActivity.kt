@@ -1,5 +1,7 @@
 package com.skanderjabouzi.thescoretest.core
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -18,6 +20,12 @@ class MainActivity : AppCompatActivity(){
     navigationController = findNavController(R.id.navigationHostFragment)
   }
 
-  override fun onSupportNavigateUp() = navigationController.navigateUp()
+  override fun onBackPressed() {}
+
+  companion object {
+    fun getIntent(context: Context): Intent {
+      return Intent(context, MainActivity::class.java)
+    }
+  }
 
 }
