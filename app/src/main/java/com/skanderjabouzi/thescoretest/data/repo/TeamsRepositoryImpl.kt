@@ -30,8 +30,10 @@ class TeamsRepositoryImpl @Inject constructor() : TeamsRepository {
     return playersDao.getPlayers(teamId)
   }
 
-  override suspend fun saveTeam(team: TeamEntity) {
-    teamDao.insert(team)
+  override suspend fun saveTeams(teams: List<TeamEntity>) {
+    for (team in teams) {
+      teamDao.insert(team)
+    }
   }
 
   override suspend fun savePlayers(players: List<PlayerEntity>) {

@@ -41,7 +41,7 @@ interface TeamsRepository {
 
   suspend fun getSavedPlayers(teamId: Int): List<PlayerEntity>
 
-  suspend fun saveTeam(team: TeamEntity)
+  suspend fun saveTeams(teams: List<TeamEntity>)
 
   suspend fun savePlayers(player: List<PlayerEntity>)
 
