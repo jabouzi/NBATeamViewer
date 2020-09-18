@@ -2,6 +2,7 @@ package com.skanderjabouzi.thescoretest.di.module
 
 import com.google.gson.GsonBuilder
 import com.skanderjabouzi.thescoretest.BuildConfig
+import com.skanderjabouzi.thescoretest.data.net.MockInterceptor
 import com.skanderjabouzi.thescoretest.di.scope.AppScope
 import dagger.Module
 import dagger.Provides
@@ -34,6 +35,9 @@ class RetrofitModule {
         val logging = HttpLoggingInterceptor()
         val builder = OkHttpClient.Builder()
         builder.addInterceptor(logging)
+        if (BuildConfig.FLAVOR.equals("mock")) {
+            builder.addInterceptor(MockInterceptor())
+        }
         return builder.build()
     }
 

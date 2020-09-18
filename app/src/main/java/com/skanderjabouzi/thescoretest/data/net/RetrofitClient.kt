@@ -15,7 +15,6 @@ class RetrofitClient @Inject constructor(val retrofit: Retrofit) {
   }
 
   suspend fun getTeams(): Teams {
-    Log.e("Retrofit", retrofit.baseUrl().toString())
     return teamsApi.getTeams()
   }
 

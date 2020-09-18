@@ -7,7 +7,7 @@ android {
     compileSdkVersion 30
     defaultConfig {
         applicationId "com.skanderjabouzi.thescoretest"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -33,9 +33,9 @@ android {
 
     flavorDimensions "theScoreTest"
     productFlavors {
-        local {
+        dev {
             dimension "theScoreTest"
-            buildConfigField 'String', 'TYPE', '"local"'
+            buildConfigField 'String', 'TYPE', '"dev"'
             buildConfigField 'String', 'BASE_URL',  '"http://skanderjabouzi.com/thescoretest/"';
         }
         mock {
@@ -44,7 +44,12 @@ android {
             buildConfigField 'String', 'BASE_URL',  '"http:/mock.api/"';
         }
     }
-
+    android.variantFilter { variant ->
+        if(variant.buildType.name.equals('release')
+                && !variant.getFlavors().get(0).name.equals('production')) {
+            variant.setIgnore(true);
+        }
+    }
 }
 
 dependencies {
@@ -75,9 +80,4 @@ dependencies {
     testImplementation "junit:junit:4.13"
     androidTestImplementation "androidx.test.ext:junit:1.1.2"
     androidTestImplementation "androidx.test.espresso:espresso-core:3.3.0"
-
-//    implementation project(":di")
-//    implementation project(":domain")
-//    implementation project(":presentation")
-//    implementation project(":data")
 }
