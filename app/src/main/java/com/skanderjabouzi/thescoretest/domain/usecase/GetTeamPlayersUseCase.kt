@@ -3,14 +3,13 @@ package com.skanderjabouzi.thescoretest.domain.listener.usecase
 import com.skanderjabouzi.thescoretest.data.model.net.Player
 import com.skanderjabouzi.thescoretest.data.net.TeamsRepository
 import com.skanderjabouzi.thescoretest.domain.usecase.PlayerEntityConverter
+import com.skanderjabouzi.thescoretest.domain.usecase.SortType
 import kotlinx.coroutines.*
 import okhttp3.internal.wait
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-class GetTeamPlayersUseCase @Inject constructor(val repository: TeamsRepository): CoroutineScope {
-
-    private val parentJob: Job = SupervisorJob()
+class GetTeamPlayersUseCase @Inject constructor(val repository: TeamsRepository) {
 
     suspend fun getTeamPlayers(teamId: Int): List<Player> {
         var players: List<Player>
@@ -23,6 +22,39 @@ class GetTeamPlayersUseCase @Inject constructor(val repository: TeamsRepository)
         }
 
         return players
+    }
+
+    suspend fun sortByName(teamId: Int): List<Player> {
+        val player = getTeamPlayers(teamId)
+        if (sortByName == SortType.ASCENDING) {
+            sortByName = SortType.DESCENDING
+            return player.sortedWith(compareBy({ it.full_name }))
+        } else {
+            sortByName = SortType.ASCENDING
+            return player.sortedWith(compareByDescending({ it.full_name }))
+        }
+    }
+
+    suspend fun sortByPosition(teamId: Int): List<Player> {
+        val player = getTeamPlayers(teamId)
+        if (sortByPosition == SortType.ASCENDING) {
+            sortByPosition = SortType.DESCENDING
+            return player.sortedWith(compareBy({ it.position }))
+        } else {
+            sortByPosition = SortType.ASCENDING
+            return player.sortedWith(compareByDescending({ it.position }))
+        }
+    }
+
+    suspend fun sortByNumber(teamId: Int): List<Player> {
+        val player = getTeamPlayers(teamId)
+        if (sortByNumber == SortType.ASCENDING) {
+            sortByNumber = SortType.DESCENDING
+            return player.sortedWith(compareByDescending({ it.number.toInt() }))
+        } else {
+            sortByNumber = SortType.ASCENDING
+            return player.sortedWith(compareBy({ it.number.toInt() }))
+        }
     }
 
     suspend private fun getTeamPlayersFromApi(teamId: Int): List<Player> {
@@ -43,7 +75,9 @@ class GetTeamPlayersUseCase @Inject constructor(val repository: TeamsRepository)
         repository.savePlayers(PlayerEntityConverter.playerListToPlayerEntityList(teamId, players))
     }
 
-    override val coroutineContext: CoroutineContext
-        get() = Dispatchers.Main + parentJob
-
+    companion object {
+        var sortByName: SortType = SortType.ASCENDING
+        var sortByPosition: SortType = SortType.ASCENDING
+        var sortByNumber: SortType = SortType.ASCENDING
+    }
 }

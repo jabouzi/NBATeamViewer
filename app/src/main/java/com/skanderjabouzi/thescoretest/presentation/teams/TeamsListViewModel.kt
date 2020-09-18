@@ -21,11 +21,43 @@ class TeamsListViewModel @Inject constructor(val usecase: GetTeamsListUseCase) :
     fun getTeams() {
         viewModelScope.launch {
             try {
-                val listResult = usecase.getTeams()
-                _teams.value = listResult
+                _teams.value = usecase.getTeams()
             } catch (e: Exception) {
                 Log.e("listResult", "${e.localizedMessage}")
                 _teams.value = null
+            }
+        }
+    }
+
+    fun sortByName() {
+        viewModelScope.launch {
+            try {
+                _teams.value = usecase.sortByName()
+            } catch (e: Exception) {
+                Log.e("listResult", "${e.localizedMessage}")
+                _teams.value = null
+            }
+        }
+    }
+
+    fun sortByWins() {
+        viewModelScope.launch {
+            try {
+                _teams.value = usecase.sortByWins()
+            } catch (e: Exception) {
+                    Log.e("listResult", "${e.localizedMessage}")
+                _teams.value = null
+            }
+        }
+    }
+
+    fun sortByLosses() {
+        viewModelScope.launch {
+            try {
+                _teams.value = usecase.sortByLosses()
+            } catch (e: Exception) {
+                Log.e("listResult", "${e.localizedMessage}")
+            _teams.value = null
             }
         }
     }

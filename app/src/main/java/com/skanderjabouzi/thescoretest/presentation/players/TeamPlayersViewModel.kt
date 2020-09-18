@@ -6,9 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.skanderjabouzi.thescoretest.data.model.net.Player
-import com.skanderjabouzi.thescoretest.data.model.net.Team
 import com.skanderjabouzi.thescoretest.domain.listener.usecase.GetTeamPlayersUseCase
-import com.skanderjabouzi.thescoretest.domain.listener.usecase.GetTeamsListUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -21,9 +19,40 @@ class TeamPlayersViewModel @Inject constructor(val usecase: GetTeamPlayersUseCas
     fun getPlayers(teamId: Int) {
         viewModelScope.launch {
             try {
-                val listResult = usecase.getTeamPlayers(teamId)
-                Log.e("listResult", "$listResult")
-                _players.value = listResult
+                _players.value = usecase.getTeamPlayers(teamId)
+            } catch (e: Exception) {
+                Log.e("listResult", "${e.localizedMessage}")
+                _players.value = null
+            }
+        }
+    }
+
+    fun sortByName(teamId: Int) {
+        viewModelScope.launch {
+            try {
+                _players.value = usecase.sortByName(teamId)
+            } catch (e: Exception) {
+                Log.e("listResult", "${e.localizedMessage}")
+                _players.value = null
+            }
+        }
+    }
+
+    fun sortByPosition(teamId: Int) {
+        viewModelScope.launch {
+            try {
+                _players.value = usecase.sortByPosition(teamId)
+            } catch (e: Exception) {
+                Log.e("listResult", "${e.localizedMessage}")
+                _players.value = null
+            }
+        }
+    }
+
+    fun sortByNumber(teamId: Int) {
+        viewModelScope.launch {
+            try {
+                _players.value = usecase.sortByNumber(teamId)
             } catch (e: Exception) {
                 Log.e("listResult", "${e.localizedMessage}")
                 _players.value = null

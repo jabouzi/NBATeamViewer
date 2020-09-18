@@ -4,15 +4,14 @@ import android.util.Log
 import com.skanderjabouzi.thescoretest.data.model.net.Player
 import com.skanderjabouzi.thescoretest.data.model.net.Team
 import com.skanderjabouzi.thescoretest.data.net.TeamsRepository
+import com.skanderjabouzi.thescoretest.domain.usecase.SortType
 import com.skanderjabouzi.thescoretest.domain.usecase.TeamEntityConverter
 import kotlinx.coroutines.*
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-class GetTeamsListUseCase @Inject constructor(val repository: TeamsRepository): CoroutineScope {
+class GetTeamsListUseCase @Inject constructor(val repository: TeamsRepository) {
 
-    private val parentJob: Job = SupervisorJob()
-    
     suspend fun getTeams(): List<Team> {
         var teams: List<Team> = listOf()
         withContext(Dispatchers.IO) {
@@ -23,6 +22,40 @@ class GetTeamsListUseCase @Inject constructor(val repository: TeamsRepository): 
             }
         }
         return teams
+    }
+
+    suspend fun sortByName(): List<Team> {
+        val teams = getTeams()
+        if (sortByName == SortType.ASCENDING) {
+            sortByName = SortType.DESCENDING
+            return teams.sortedWith(compareBy({ it.name }))
+        } else {
+            sortByName = SortType.ASCENDING
+            return teams.sortedWith(compareByDescending({ it.name }))
+        }
+
+    }
+
+    suspend fun sortByWins(): List<Team> {
+        val teams = getTeams()
+        if (sortByWins == SortType.ASCENDING) {
+            sortByWins = SortType.DESCENDING
+            return teams.sortedWith(compareBy({ it.wins }))
+        } else {
+            sortByWins = SortType.ASCENDING
+            return teams.sortedWith(compareByDescending({ it.wins }))
+        }
+    }
+
+    suspend fun sortByLosses(): List<Team> {
+        val teams = getTeams()
+        if (sortByLosses == SortType.ASCENDING) {
+            sortByLosses = SortType.DESCENDING
+            return teams.sortedWith(compareBy({ it.losses }))
+        } else {
+            sortByLosses = SortType.ASCENDING
+            return teams.sortedWith(compareByDescending({ it.losses }))
+        }
     }
 
     suspend private fun getTeamsFromApi(): List<Team> {
@@ -41,6 +74,9 @@ class GetTeamsListUseCase @Inject constructor(val repository: TeamsRepository): 
         repository.saveTeams(TeamEntityConverter.teamListToTeamEntityList(teams))
     }
 
-    override val coroutineContext: CoroutineContext
-        get() = Dispatchers.Main + parentJob
+    companion object {
+        var sortByName: SortType = SortType.ASCENDING
+        var sortByWins: SortType = SortType.ASCENDING
+        var sortByLosses: SortType = SortType.ASCENDING
+    }
 }

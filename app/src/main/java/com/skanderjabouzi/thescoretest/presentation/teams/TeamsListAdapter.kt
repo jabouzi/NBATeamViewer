@@ -57,18 +57,18 @@ class TeamsListAdapter @Inject constructor(private val itemClickListener: TeamCl
       holder.bind(teams[position], position, itemClickListener)
   }
 
-  fun setTeams(movieList: List<Team>) {
+  fun setTeams(teamsList: List<Team>) {
     this.teams.clear()
-    this.teams.addAll(movieList)
+    this.teams.addAll(teamsList)
     notifyDataSetChanged()
   }
 
 
   inner class TeamHolder(val view: View) : RecyclerView.ViewHolder(view) {
     fun bind(team: Team, position: Int, itemClickListener: TeamClickListener) = with(view) {
-      itemView.team_name_value.text = team.name
-      itemView.team_wins_value.text = team.wins.toString()
-      itemView.team_losses_value.text = team.losses.toString()
+      itemView.team_name_value.text = team.name.trim()
+      itemView.team_wins_value.text = team.wins.toString().trim()
+      itemView.team_losses_value.text = team.losses.toString().trim()
       itemView.setOnClickListener {
         teams?.get(position).let { it -> itemClickListener.onItemClick(it) }
       }

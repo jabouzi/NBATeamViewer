@@ -3,6 +3,7 @@ package com.skanderjabouzi.thescoretest.presentation.teams
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
@@ -24,6 +25,7 @@ import com.skanderjabouzi.thescoretest.presentation.snack
 import kotlinx.android.synthetic.main.teams_list_fragment.*
 import kotlinx.android.synthetic.main.toolbar_layout.*
 import kotlinx.android.synthetic.main.toolbar_layout.view.*
+import retrofit2.Response.error
 import javax.inject.Inject
 
 class TeamsListFragment : Fragment(), TeamClickListener {
@@ -59,28 +61,37 @@ class TeamsListFragment : Fragment(), TeamClickListener {
         toolbar.players_toolbar_title.isVisible = false
         players_titles.isVisible = false
 
+        setMenu(view)
+
         adapter = TeamsListAdapter(this)
         teamsRecyclerView.adapter = adapter
         showLoading()
-
+        setRetryButton()
         getTeams()
     }
 
     private fun showLoading() {
         teamsRecyclerView.isEnabled = false
-        teamsProgressBar.visibility = View.VISIBLE
+        teamsProgressBar.isVisible = true
+    }
+
+    private fun setRetryButton() {
+        teamsRetryButton.setOnClickListener {
+            teamsRetryButton.isVisible = false
+            teamsErroMessage.isVisible = false
+            showLoading()
+            getTeams()
+        }
     }
 
     private fun hideLoading() {
         teamsRecyclerView.isEnabled = true
-        teamsProgressBar.visibility = View.GONE
+        teamsProgressBar.isVisible = false
     }
 
     private fun showMessage() {
-        teamsLayout.snack(getString(R.string.error_occured), Snackbar.LENGTH_INDEFINITE) {
-            action(getString(R.string.ok)) {
-            }
-        }
+        teamsRetryButton.isVisible = true
+        teamsErroMessage.isVisible = true
     }
 
     private fun getTeams() {
@@ -96,6 +107,23 @@ class TeamsListFragment : Fragment(), TeamClickListener {
                 adapter.setTeams(teams)
             }
         })
+    }
+
+    private fun setMenu(view: View) {
+        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+        toolbar.inflateMenu(R.menu.teams_menu)
+        toolbar.setOnMenuItemClickListener {
+            onOptionsItemSelected(it)
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_sort_by_name -> viewModel.sortByName()
+            R.id.action_sort_by_wins -> viewModel.sortByWins()
+            R.id.action_sort_by_losses -> viewModel.sortByLosses()
+        }
+        return true
     }
 
     override fun onItemClick(team: Team) {

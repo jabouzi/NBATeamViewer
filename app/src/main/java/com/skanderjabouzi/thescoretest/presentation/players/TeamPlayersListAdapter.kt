@@ -40,9 +40,9 @@ class TeamPlayersListAdapter @Inject constructor()
 
   inner class PlayerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(player: Player) {
-      itemView.player_name_value.text = player.full_name
-      itemView.player_position_value.text = player.position
-      itemView.player_number_value.text = player.number
+      itemView.player_name_value.text = player.full_name.trim()
+      itemView.player_position_value.text = player.position.trim()
+      itemView.player_number_value.text = player.number.trim()
     }
   }
 }

@@ -2,8 +2,8 @@ package com.skanderjabouzi.thescoretest.presentation.players
 
 import androidx.fragment.app.Fragment
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
@@ -13,13 +13,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.snackbar.Snackbar
 import com.skanderjabouzi.thescoretest.R
 import com.skanderjabouzi.thescoretest.core.TheScoreApp
 import com.skanderjabouzi.thescoretest.data.model.net.Team
 import com.skanderjabouzi.thescoretest.presentation.ViewModelFactory
-import com.skanderjabouzi.thescoretest.presentation.action
-import com.skanderjabouzi.thescoretest.presentation.snack
 import kotlinx.android.synthetic.main.players_titles.view.*
 import kotlinx.android.synthetic.main.team_players_fragment.*
 import kotlinx.android.synthetic.main.teams_item.view.*
@@ -62,10 +59,16 @@ class TeamPlayersFragment : Fragment() {
         toolbar.team_toolbar_title.isVisible = false
         teams_titles.isVisible = false
 
+        setMenu(view)
+
         adapter = TeamPlayersListAdapter()
         playersRecyclerView.adapter = adapter
         showLoading()
+        setRetryButton()
+        getTeamBundle()
+    }
 
+    private fun getTeamBundle() {
         val team = arguments?.getSerializable("team") as Team
         team?.let {
             viewModel.getPlayers(it.id)
@@ -73,7 +76,15 @@ class TeamPlayersFragment : Fragment() {
             players_titles.player_team_values.team_name_value.text = it.name
             players_titles.player_team_values.team_wins_value.text = it.wins.toString()
             players_titles.player_team_values.team_losses_value.text = it.losses.toString()
-            Log.e("Team", "$it")
+        }
+    }
+
+    private fun setRetryButton() {
+        playersRetryButton.setOnClickListener {
+            playersRetryButton.isVisible = false
+            playersErroMessage.isVisible = false
+            showLoading()
+            getPlayers(teamId)
         }
     }
 
@@ -88,14 +99,29 @@ class TeamPlayersFragment : Fragment() {
     }
 
     private fun showMessage() {
-        playersLayout.snack(getString(R.string.error_occured), Snackbar.LENGTH_INDEFINITE) {
-            action(getString(R.string.ok)) {
-            }
-        }
+        playersRetryButton.isVisible = true
+        playersErroMessage.isVisible = true
     }
 
     private fun getPlayers(teamId: Int) {
         viewModel.getPlayers(teamId)
+    }
+
+    private fun setMenu(view: View) {
+        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+        toolbar.inflateMenu(R.menu.players_menu)
+        toolbar.setOnMenuItemClickListener {
+            onOptionsItemSelected(it)
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_sort_by_name -> viewModel.sortByName(teamId)
+            R.id.action_sort_by_position -> viewModel.sortByPosition(teamId)
+            R.id.action_sort_by_number -> viewModel.sortByNumber(teamId)
+        }
+        return true
     }
 
     private fun observePlayers() {

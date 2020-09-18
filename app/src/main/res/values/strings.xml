@@ -5,4 +5,10 @@
     <string name="ok">OK</string>
     <string name="teams_list">Teams List</string>
     <string name="players_list">Players List</string>
+    <string name="retry">Retry</string>
+    <string name="sort_by_name">Sort by name</string>
+    <string name="sort_by_wins">Sort by wins</string>
+    <string name="sort_by_losses">Sort by losses</string>
+    <string name="sort_by_position">Sort by position</string>
+    <string name="sort_by_number">Sort by number</string>
 </resources>

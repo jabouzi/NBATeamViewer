@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#FFFFFF</color>
-    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorPrimaryDark">@color/colorLightGrey</color>
     <color name="colorAccent">@color/colorGreenDark</color>
     <color name="colorToolbar">#FFFFFF</color>
     <color name="colorTranspartent">#00000000</color>
