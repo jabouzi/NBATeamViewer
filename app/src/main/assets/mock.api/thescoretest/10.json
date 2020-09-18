@@ -1,0 +1,149 @@
+{
+    "id": 10,
+    "players": [
+       {
+            "position": "G",
+            "number": "5",
+            "full_name": "Beasley, Malik",
+            "height": "6 ft 4 in (1.93 m)",
+            "weight": "187 lb (85 kg)",
+            "date_of_birth": "1996–11–26",
+            "from": "Florida State"
+        },
+        {
+            "position": "G/F",
+            "number": "23",
+            "full_name": "Culver, Jarrett",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "195 lb (88 kg)",
+            "date_of_birth": "1999–02–20",
+            "from": "Texas Tech"
+        },
+        {
+            "position": "G/F",
+            "number": "12",
+            "full_name": "Evans, Jacob",
+            "height": "6 ft 4 in (1.93 m)",
+            "weight": "210 lb (95 kg)",
+            "date_of_birth": "1997–06–18",
+            "from": "Cincinnati"
+        },
+        {
+            "position": "F",
+            "number": "41",
+            "full_name": "Hernangómez, Juan",
+            "height": "6 ft 9 in (2.06 m)",
+            "weight": "214 lb (97 kg)",
+            "date_of_birth": "1995–09–28",
+            "from": "Spain"
+        },
+        {
+            "position": "F",
+            "number": "16",
+            "full_name": "Johnson, James",
+            "height": "6 ft 7 in (2.01 m)",
+            "weight": "240 lb (109 kg)",
+            "date_of_birth": "1987–02–20",
+            "from": "Wake Forest"
+        },
+        {
+            "position": "F",
+            "number": "10",
+            "full_name": "Layman, Jake",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "209 lb (95 kg)",
+            "date_of_birth": "1994–03–07",
+            "from": "Maryland"
+        },
+        {
+            "position": "F",
+            "number": "30",
+            "full_name": "Martin, Kelan (TW)",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "230 lb (104 kg)",
+            "date_of_birth": "1995–08–03",
+            "from": "Butler"
+        },
+        {
+            "position": "G",
+            "number": "6",
+            "full_name": "McLaughlin, Jordan (TW)",
+            "height": "5 ft 11 in (1.80 m)",
+            "weight": "185 lb (84 kg)",
+            "date_of_birth": "1996–04–09",
+            "from": "Southern California"
+        },
+        {
+            "position": "G",
+            "number": "4",
+            "full_name": "Nowell, Jaylen",
+            "height": "6 ft 4 in (1.93 m)",
+            "weight": "201 lb (91 kg)",
+            "date_of_birth": "1999–07–09",
+            "from": "Washington"
+        },
+        {
+            "position": "G",
+            "number": "20",
+            "full_name": "Okogie, Josh",
+            "height": "6 ft 4 in (1.93 m)",
+            "weight": "213 lb (97 kg)",
+            "date_of_birth": "1998–09–01",
+            "from": "Georgia Tech"
+        },
+        {
+            "position": "F/C",
+            "number": "11",
+            "full_name": "Reid, Naz",
+            "height": "6 ft 9 in (2.06 m)",
+            "weight": "264 lb (120 kg)",
+            "date_of_birth": "1999–08–26",
+            "from": "LSU"
+        },
+        {
+            "position": "G",
+            "number": "0",
+            "full_name": "Russell, D'Angelo",
+            "height": "6 ft 4 in (1.93 m)",
+            "weight": "193 lb (88 kg)",
+            "date_of_birth": "1996–02–23",
+            "from": "Ohio State"
+        },
+        {
+            "position": "F",
+            "number": "14",
+            "full_name": "Spellman, Omari",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "245 lb (111 kg)",
+            "date_of_birth": "1997–07–21",
+            "from": "Villanova"
+        },
+        {
+            "position": "F/C",
+            "number": "32",
+            "full_name": "Towns, Karl-Anthony",
+            "height": "6 ft 11 in (2.11 m)",
+            "weight": "248 lb (112 kg)",
+            "date_of_birth": "1995–11–15",
+            "from": "Kentucky"
+        },
+        {
+            "position": "G/F",
+            "number": "1",
+            "full_name": "Turner, Evan",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "220 lb (100 kg)",
+            "date_of_birth": "1988–06–10",
+            "from": "Ohio State"
+        },
+        {
+            "position": "F",
+            "number": "3",
+            "full_name": "Vanderbilt, Jarred",
+            "height": "6 ft 9 in (2.06 m)",
+            "weight": "214 lb (97 kg)",
+            "date_of_birth": "1999–04–03",
+            "from": "Kentucky"
+        }
+    ]
+}

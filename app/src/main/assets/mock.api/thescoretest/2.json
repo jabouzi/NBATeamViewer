@@ -1,0 +1,158 @@
+{
+    "id": 2,
+    "players": [
+        {
+            "position": "F",
+            "number": "5",
+            "full_name": "Caboclo, Bruno",
+            "height": "6 ft 9 in (2.06 m)",
+            "weight": "218 lb (99 kg)",
+            "date_of_birth": "1995–09–21",
+            "from": "Brazil"
+        },
+        {
+            "position": "F",
+            "number": "9",
+            "full_name": "Carroll, DeMarre",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "215 lb (98 kg)",
+            "date_of_birth": "1986–07–27",
+            "from": "Missouri"
+        },
+        {
+            "position": "C",
+            "number": "19",
+            "full_name": "Chandler, Tyson",
+            "height": "7 ft 0 in (2.13 m)",
+            "weight": "235 lb (107 kg)",
+            "date_of_birth": "1982–10–02",
+            "from": "Dominguez HS (CA)"
+        },
+        {
+            "position": "G",
+            "number": "3",
+            "full_name": "Clemons, Chris",
+            "height": "5 ft 9 in (1.75 m)",
+            "weight": "180 lb (82 kg)",
+            "date_of_birth": "1997–07–23",
+            "from": "Campbell"
+        },
+        {
+            "position": "F",
+            "number": "33",
+            "full_name": "Covington, Robert",
+            "height": "6 ft 7 in (2.01 m)",
+            "weight": "209 lb (95 kg)",
+            "date_of_birth": "1990–12–14",
+            "from": "Tennessee State"
+        },
+        {
+            "position": "G",
+            "number": "21",
+            "full_name": "Frazier, Michael (TW)",
+            "height": "6 ft 3 in (1.91 m)",
+            "weight": "200 lb (91 kg)",
+            "date_of_birth": "1994–03–08",
+            "from": "Florida"
+        },
+        {
+            "position": "F",
+            "number": "32",
+            "full_name": "Green, Jeff",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "235 lb (107 kg)",
+            "date_of_birth": "1986–08–28",
+            "from": "Georgetown"
+        },
+        {
+            "position": "G",
+            "number": "10",
+            "full_name": "Gordon, Eric ",
+            "height": "6 ft 3 in (1.91 m)",
+            "weight": "215 lb (98 kg)",
+            "date_of_birth": "1988–12–25",
+            "from": "Indiana"
+        },
+        {
+            "position": "G",
+            "number": "13",
+            "full_name": "Harden, James",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "220 lb (100 kg)",
+            "date_of_birth": "1989–08–26",
+            "from": "Arizona State"
+        },
+        {
+            "position": "G/F",
+            "number": "4",
+            "full_name": "House, Danuel",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "220 lb (100 kg)",
+            "date_of_birth": "1993–06–07",
+            "from": "Texas A&M"
+        },
+        {
+            "position": "F",
+            "number": "12",
+            "full_name": "Mbah a Moute, Luc",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "230 lb (104 kg)",
+            "date_of_birth": "1986–09–09",
+            "from": "UCLA"
+        },
+        {
+            "position": "G",
+            "number": "16",
+            "full_name": "McLemore, Ben",
+            "height": "6 ft 3 in (1.91 m)",
+            "weight": "189 lb (86 kg)",
+            "date_of_birth": "1993–02–11",
+            "from": "Kansas"
+        },
+        {
+            "position": "G/F",
+            "number": "–",
+            "full_name": "Nwaba, David ",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "219 lb (99 kg)",
+            "date_of_birth": "1993–01–14",
+            "from": "Cal Poly San Luis Obispo"
+        },
+        {
+            "position": "G",
+            "number": "25",
+            "full_name": "Rivers, Austin",
+            "height": "6 ft 3 in (1.91 m)",
+            "weight": "200 lb (91 kg)",
+            "date_of_birth": "1992–08–01",
+            "from": "Duke"
+        },
+        {
+            "position": "G/F",
+            "number": "18",
+            "full_name": "Sefolosha, Thabo",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "215 lb (98 kg)",
+            "date_of_birth": "1984–05–02",
+            "from": "Switzerland"
+        },
+        {
+            "position": "F",
+            "number": "17",
+            "full_name": "Tucker, P. J.",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "245 lb (111 kg)",
+            "date_of_birth": "1985–05–05",
+            "from": "Texas"
+        },
+        {
+            "position": "G",
+            "number": "0",
+            "full_name": "Westbrook, Russell",
+            "height": "6 ft 3 in (1.91 m)",
+            "weight": "200 lb (91 kg)",
+            "date_of_birth": "1988–11–12",
+            "from": "UCLA"
+        }
+    ]
+}

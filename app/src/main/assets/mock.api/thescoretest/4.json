@@ -1,0 +1,167 @@
+{
+    "id": 4,
+    "players": [
+                {
+            "position": "G",
+            "number": "5",
+            "full_name": "Barea, J. J. (FA)",
+            "height": "5 ft 10 in (1.78 m)",
+            "weight": "180 lb (82 kg)",
+            "date_of_birth": "1984–06–26",
+            "from": "Northeastern"
+        },
+        {
+            "position": "G",
+            "number": "13",
+            "full_name": "Brunson, Jalen ",
+            "height": "6 ft 1 in (1.85 m)",
+            "weight": "190 lb (86 kg)",
+            "date_of_birth": "1996–08–31",
+            "from": "Villanova"
+        },
+        {
+            "position": "G",
+            "number": "32",
+            "full_name": "Burke, Trey (FA)",
+            "height": "6 ft 0 in (1.83 m)",
+            "weight": "185 lb (84 kg)",
+            "date_of_birth": "1992–11–12",
+            "from": "Michigan"
+        },
+        {
+            "position": "C",
+            "number": "33",
+            "full_name": "Cauley-Stein, Willie",
+            "height": "7 ft 0 in (2.13 m)",
+            "weight": "240 lb (109 kg)",
+            "date_of_birth": "1993–08–18",
+            "from": "Kentucky"
+        },
+        {
+            "position": "G",
+            "number": "3",
+            "full_name": "Cleveland, Antonius (TW, FA)",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "195 lb (88 kg)",
+            "date_of_birth": "1994–02–02",
+            "from": "Southeast Missouri State"
+        },
+        {
+            "position": "G",
+            "number": "30",
+            "full_name": "Curry, Seth",
+            "height": "6 ft 2 in (1.88 m)",
+            "weight": "185 lb (84 kg)",
+            "date_of_birth": "1990–08–23",
+            "from": "Duke"
+        },
+        {
+            "position": "G/F",
+            "number": "77",
+            "full_name": "Dončić, Luka",
+            "height": "6 ft 7 in (2.01 m)",
+            "weight": "230 lb (104 kg)",
+            "date_of_birth": "1999–02–28",
+            "from": "Slovenia"
+        },
+        {
+            "position": "F",
+            "number": "10",
+            "full_name": "Finney-Smith, Dorian",
+            "height": "6 ft 7 in (2.01 m)",
+            "weight": "220 lb (100 kg)",
+            "date_of_birth": "1993–05–04",
+            "from": "Florida"
+        },
+        {
+            "position": "G/F",
+            "number": "11",
+            "full_name": "Hardaway, Tim",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "205 lb (93 kg)",
+            "date_of_birth": "1992–03–16",
+            "from": "Michigan"
+        },
+        {
+            "position": "F",
+            "number": "44",
+            "full_name": "Jackson, Justin",
+            "height": "6 ft 7 in (2.01 m)",
+            "weight": "220 lb (100 kg)",
+            "date_of_birth": "1995–03–28",
+            "from": "North Carolina"
+        },
+        {
+            "position": "F",
+            "number": "9",
+            "full_name": "Kidd-Gilchrist, Michael (FA)",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "232 lb (105 kg)",
+            "date_of_birth": "1993–09–26",
+            "from": "Kentucky"
+        },
+        {
+            "position": "F",
+            "number": "42",
+            "full_name": "Kleber, Maxi",
+            "height": "6 ft 10 in (2.08 m)",
+            "weight": "240 lb (109 kg)",
+            "date_of_birth": "1992–01–29",
+            "from": "Germany"
+        },
+        {
+            "position": "G",
+            "number": "1",
+            "full_name": "Lee, Courtney  (FA)",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "215 lb (98 kg)",
+            "date_of_birth": "1985–10–03",
+            "from": "Western Kentucky"
+        },
+        {
+            "position": "C",
+            "number": "51",
+            "full_name": "Marjanović, Boban",
+            "height": "7 ft 4 in (2.24 m)",
+            "weight": "290 lb (132 kg)",
+            "date_of_birth": "1988–08–15",
+            "from": "Serbia"
+        },
+        {
+            "position": "F/C",
+            "number": "6",
+            "full_name": "Porziņģis, Kristaps ",
+            "height": "7 ft 3 in (2.21 m)",
+            "weight": "240 lb (109 kg)",
+            "date_of_birth": "1995–08–02",
+            "from": "Latvia"
+        },
+        {
+            "position": "F/C",
+            "number": "7",
+            "full_name": "Powell, Dwight ",
+            "height": "6 ft 10 in (2.08 m)",
+            "weight": "240 lb (109 kg)",
+            "date_of_birth": "1991–07–20",
+            "from": "Stanford"
+        },
+        {
+            "position": "G/F",
+            "number": "23",
+            "full_name": "Reaves, Josh (TW, FA)",
+            "height": "6 ft 4 in (1.93 m)",
+            "weight": "214 lb (97 kg)",
+            "date_of_birth": "1997–06–04",
+            "from": "Penn State"
+        },
+        {
+            "position": "G",
+            "number": "55",
+            "full_name": "Wright, Delon",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "185 lb (84 kg)",
+            "date_of_birth": "1992–04–26",
+            "from": "Utah"
+        }
+    ]
+}

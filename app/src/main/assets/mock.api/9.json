@@ -1,0 +1,158 @@
+{
+    "id": 9,
+    "players": [
+        {
+            "position": "C",
+            "number": "12",
+            "full_name": "Adams, Steven",
+            "height": "6 ft 11 in (2.11 m)",
+            "weight": "265 lb (120 kg)",
+            "date_of_birth": "1993–07–20",
+            "from": "Pittsburgh"
+        },
+        {
+            "position": "G/F",
+            "number": "7",
+            "full_name": "Bazley, Darius",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "208 lb (94 kg)",
+            "date_of_birth": "2000–06–12",
+            "from": "Princeton HS (OH)"
+        },
+        {
+            "position": "G/F",
+            "number": "30",
+            "full_name": "Burton, Deonte",
+            "height": "6 ft 4 in (1.93 m)",
+            "weight": "240 lb (109 kg)",
+            "date_of_birth": "1994–01–31",
+            "from": "Iowa State"
+        },
+        {
+            "position": "G",
+            "number": "6",
+            "full_name": "Diallo, Hamidou",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "202 lb (92 kg)",
+            "date_of_birth": "1998–07–31",
+            "from": "Kentucky"
+        },
+        {
+            "position": "G",
+            "number": "5",
+            "full_name": "Dort, Luguentz",
+            "height": "6 ft 3 in (1.91 m)",
+            "weight": "215 lb (98 kg)",
+            "date_of_birth": "1999–04–19",
+            "from": "Arizona State"
+        },
+        {
+            "position": "G",
+            "number": "23",
+            "full_name": "Ferguson, Terrance",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "190 lb (86 kg)",
+            "date_of_birth": "1998–05–17",
+            "from": "Advanced Prep International (TX)"
+        },
+        {
+            "position": "F",
+            "number": "8",
+            "full_name": "Gallinari, Danilo (FA)",
+            "height": "6 ft 10 in (2.08 m)",
+            "weight": "233 lb (106 kg)",
+            "date_of_birth": "1988–08–08",
+            "from": "Italy"
+        },
+        {
+            "position": "G/F",
+            "number": "2",
+            "full_name": "Gilgeous-Alexander, Shai",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "180 lb (82 kg)",
+            "date_of_birth": "1998–07–12",
+            "from": "Kentucky"
+        },
+        {
+            "position": "G",
+            "number": "14",
+            "full_name": "Hall, Devon (TW)",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "215 lb (98 kg)",
+            "date_of_birth": "1995–07–07",
+            "from": "Virginia"
+        },
+        {
+            "position": "F",
+            "number": "15",
+            "full_name": "Hervey, Kevin (TW, FA)",
+            "height": "6 ft 9 in (2.06 m)",
+            "weight": "230 lb (104 kg)",
+            "date_of_birth": "1996–07–09",
+            "from": "Texas–Arlington"
+        },
+        {
+            "position": "F/C",
+            "number": "33",
+            "full_name": "Muscala, Mike",
+            "height": "6 ft 10 in (2.08 m)",
+            "weight": "240 lb (109 kg)",
+            "date_of_birth": "1991–07–01",
+            "from": "Bucknell"
+        },
+        {
+            "position": "F",
+            "number": "11",
+            "full_name": "Nader, Abdel",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "225 lb (102 kg)",
+            "date_of_birth": "1993–09–25",
+            "from": "Iowa State"
+        },
+        {
+            "position": "F/C",
+            "number": "9",
+            "full_name": "Noel, Nerlens (FA)",
+            "height": "6 ft 10 in (2.08 m)",
+            "weight": "220 lb (100 kg)",
+            "date_of_birth": "1994–04–10",
+            "from": "Kentucky"
+        },
+        {
+            "position": "G",
+            "number": "3",
+            "full_name": "Paul, Chris",
+            "height": "6 ft 1 in (1.85 m)",
+            "weight": "175 lb (79 kg)",
+            "date_of_birth": "1985–05–06",
+            "from": "Wake Forest"
+        },
+        {
+            "position": "G/F",
+            "number": "21",
+            "full_name": "Roberson, André (FA)",
+            "height": "6 ft 7 in (2.01 m)",
+            "weight": "210 lb (95 kg)",
+            "date_of_birth": "1991–12–04",
+            "from": "Colorado"
+        },
+        {
+            "position": "F",
+            "number": "22",
+            "full_name": "Roby, Isaiah ",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "230 lb (104 kg)",
+            "date_of_birth": "1998–02–03",
+            "from": "Nebraska"
+        },
+        {
+            "position": "G",
+            "number": "17",
+            "full_name": "Schröder, Dennis",
+            "height": "6 ft 1 in (1.85 m)",
+            "weight": "172 lb (78 kg)",
+            "date_of_birth": "1993–09–15",
+            "from": "Germany"
+        }
+    ]
+}

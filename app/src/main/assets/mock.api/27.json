@@ -1,0 +1,167 @@
+{
+    "id": 27,
+    "players": [
+        {
+            "position": "G",
+            "number": "0",
+            "full_name": "Alexander-Walker, Nickeil",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "205 lb (93 kg)",
+            "date_of_birth": "1998–09–02",
+            "from": "Virginia Tech"
+        },
+        {
+            "position": "G",
+            "number": "2",
+            "full_name": "Ball, Lonzo",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "190 lb (86 kg)",
+            "date_of_birth": "1997–10–27",
+            "from": "UCLA"
+        },
+        {
+            "position": "F",
+            "number": "45",
+            "full_name": "Cheatham, Zylan (TW)",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "220 lb (100 kg)",
+            "date_of_birth": "1995–11–17",
+            "from": "Arizona State"
+        },
+        {
+            "position": "F",
+            "number": "22",
+            "full_name": "Favors, Derrick",
+            "height": "6 ft 9 in (2.06 m)",
+            "weight": "265 lb (120 kg)",
+            "date_of_birth": "1991–07–15",
+            "from": "Georgia Tech"
+        },
+        {
+            "position": "G",
+            "number": "5",
+            "full_name": "Gray, Josh (TW)",
+            "height": "6 ft 0 in (1.83 m)",
+            "weight": "180 lb (82 kg)",
+            "date_of_birth": "1993–09–09",
+            "from": "LSU"
+        },
+        {
+            "position": "G",
+            "number": "3",
+            "full_name": "Hart, Josh",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "215 lb (98 kg)",
+            "date_of_birth": "1995–03–06",
+            "from": "Villanova"
+        },
+        {
+            "position": "F/C",
+            "number": "10",
+            "full_name": "Hayes, Jaxson",
+            "height": "6 ft 11 in (2.11 m)",
+            "weight": "220 lb (100 kg)",
+            "date_of_birth": "2000–05–23",
+            "from": "Texas"
+        },
+        {
+            "position": "G",
+            "number": "11",
+            "full_name": "Holiday, Jrue",
+            "height": "6 ft 3 in (1.91 m)",
+            "weight": "205 lb (93 kg)",
+            "date_of_birth": "1990–06–12",
+            "from": "UCLA"
+        },
+        {
+            "position": "F",
+            "number": "14",
+            "full_name": "Ingram, Brandon",
+            "height": "6 ft 7 in (2.01 m)",
+            "weight": "190 lb (86 kg)",
+            "date_of_birth": "1997–09–02",
+            "from": "Duke"
+        },
+        {
+            "position": "G",
+            "number": "15",
+            "full_name": "Jackson, Frank",
+            "height": "6 ft 3 in (1.91 m)",
+            "weight": "205 lb (93 kg)",
+            "date_of_birth": "1998–05–04",
+            "from": "Duke"
+        },
+        {
+            "position": "F",
+            "number": "20",
+            "full_name": "Melli, Nicolò",
+            "height": "6 ft 9 in (2.06 m)",
+            "weight": "236 lb (107 kg)",
+            "date_of_birth": "1991–01–26",
+            "from": "Italy"
+        },
+        {
+            "position": "F",
+            "number": "21",
+            "full_name": "Miller, Darius ",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "225 lb (102 kg)",
+            "date_of_birth": "1990–03–21",
+            "from": "Kentucky"
+        },
+        {
+            "position": "G",
+            "number": "55",
+            "full_name": "Moore, E'Twaun",
+            "height": "6 ft 3 in (1.91 m)",
+            "weight": "191 lb (87 kg)",
+            "date_of_birth": "1989–02–25",
+            "from": "Purdue"
+        },
+        {
+            "position": "F/C",
+            "number": "9",
+            "full_name": "Okafor, Jahlil",
+            "height": "6 ft 10 in (2.08 m)",
+            "weight": "270 lb (122 kg)",
+            "date_of_birth": "1995–12–15",
+            "from": "Duke"
+        },
+        {
+            "position": "G",
+            "number": "4",
+            "full_name": "Redick, JJ",
+            "height": "6 ft 3 in (1.91 m)",
+            "weight": "200 lb (91 kg)",
+            "date_of_birth": "1984–06–24",
+            "from": "Duke"
+        },
+        {
+            "position": "G",
+            "number": "12",
+            "full_name": "Thornwell, Sindarius",
+            "height": "6 ft 4 in (1.93 m)",
+            "weight": "215 lb (98 kg)",
+            "date_of_birth": "1994–11–15",
+            "from": "South Carolina"
+        },
+        {
+            "position": "G/F",
+            "number": "34",
+            "full_name": "Williams, Kenrich",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "210 lb (95 kg)",
+            "date_of_birth": "1994–12–02",
+            "from": "TCU"
+        },
+        {
+            "position": "F",
+            "number": "1",
+            "full_name": "Williamson, Zion",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "284 lb (129 kg)",
+            "date_of_birth": "2000–07–06",
+            "from": "Duke"
+        }
+    ]
+}
