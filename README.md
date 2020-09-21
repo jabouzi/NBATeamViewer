@@ -1,4 +1,4 @@
-# The Score test app
+# The NBA Team Viewer test app
 
 Copyright (c) 2020 Skander Jabouzi
 
