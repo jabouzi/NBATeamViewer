@@ -1,5 +1,6 @@
 package com.skanderjabouzi.thescoretest.domain.listener.usecase
 
+import android.util.Log
 import com.skanderjabouzi.thescoretest.data.model.net.Player
 import com.skanderjabouzi.thescoretest.data.net.TeamsRepository
 import com.skanderjabouzi.thescoretest.domain.usecase.PlayerEntityConverter
@@ -50,21 +51,21 @@ class GetTeamPlayersUseCase @Inject constructor(val repository: TeamsRepository)
         val player = getTeamPlayers(teamId)
         if (sortByNumber == SortType.ASCENDING) {
             sortByNumber = SortType.DESCENDING
-            return player.sortedWith(compareByDescending({ it.number.toInt() }))
+            return player.sortedWith(compareBy({ convertToInt(it.number) }))
         } else {
             sortByNumber = SortType.ASCENDING
-            return player.sortedWith(compareBy({ it.number.toInt() }))
+            return player.sortedWith(compareByDescending({ convertToInt(it.number) }))
         }
     }
 
-    suspend private fun getTeamPlayersFromApi(teamId: Int): List<Player> {
+    suspend fun getTeamPlayersFromApi(teamId: Int): List<Player> {
         var players: List<Player> = listOf()
         players = repository.getPlayers(teamId)
 
         return players
     }
 
-    suspend private fun getTeamPlayersFromDb(teamId: Int): List<Player> {
+    suspend fun getTeamPlayersFromDb(teamId: Int): List<Player> {
         var players: List<Player> = listOf()
         players = PlayerEntityConverter.playerEntityListToPlayerList(repository.getSavedPlayers(teamId))
 
@@ -73,6 +74,17 @@ class GetTeamPlayersUseCase @Inject constructor(val repository: TeamsRepository)
 
     suspend private fun savePlayersToDb(teamId: Int, players: List<Player>) {
         repository.savePlayers(PlayerEntityConverter.playerListToPlayerEntityList(teamId, players))
+    }
+
+    private fun convertToInt(strNbr: String): Int {
+        var res = 0
+        try {
+            res = strNbr.toInt()
+        } catch (e: Exception) {
+            Log.e("PlayersUseCase", e.localizedMessage)
+        }
+
+        return res
     }
 
     companion object {

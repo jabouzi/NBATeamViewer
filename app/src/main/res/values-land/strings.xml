@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="error_occured">An error occured</string>
-    <string name="ok">OK</string>
-    <string name="teams_list">Teams List</string>
-    <string name="players_list">Players List</string>
-    <string name="retry">Retry</string>
-</resources>
