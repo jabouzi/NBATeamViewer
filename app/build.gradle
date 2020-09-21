@@ -32,15 +32,15 @@ android {
         jvmTarget = "1.8"
     }
 
-    flavorDimensions "theScoreTest"
+    flavorDimensions "NBATeamViewer"
     productFlavors {
         dev {
-            dimension "theScoreTest"
+            dimension "NBATeamViewer"
             buildConfigField 'String', 'TYPE', '"dev"'
-            buildConfigField 'String', 'BASE_URL',  '"http://skanderjabouzi.com/thescoretest/"';
+            buildConfigField 'String', 'BASE_URL',  '"http://skanderjabouzi.com/nbateamviewer/"';
         }
         mock {
-            dimension "theScoreTest"
+            dimension "NBATeamViewer"
             buildConfigField 'String', 'TYPE', '"mock"'
             buildConfigField 'String', 'BASE_URL',  '"http:/mock.api/"';
         }

@@ -14,18 +14,14 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.snackbar.Snackbar
 import com.skanderjabouzi.nbateamviewer.R
-import com.skanderjabouzi.nbateamviewer.core.TheScoreApp
+import com.skanderjabouzi.nbateamviewer.core.App
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
 import com.skanderjabouzi.nbateamviewer.domain.listener.TeamClickListener
 import com.skanderjabouzi.nbateamviewer.presentation.ViewModelFactory
-import com.skanderjabouzi.nbateamviewer.presentation.action
-import com.skanderjabouzi.nbateamviewer.presentation.snack
 import kotlinx.android.synthetic.main.teams_list_fragment.*
 import kotlinx.android.synthetic.main.toolbar_layout.*
 import kotlinx.android.synthetic.main.toolbar_layout.view.*
-import retrofit2.Response.error
 import javax.inject.Inject
 
 class TeamsListFragment : Fragment(), TeamClickListener {
@@ -40,7 +36,7 @@ class TeamsListFragment : Fragment(), TeamClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        TheScoreApp.INSTANCE.appComponent.getTeamsListFragmentComponent().inject(this)
+        App.INSTANCE.appComponent.getTeamsListFragmentComponent().inject(this)
         viewModel = ViewModelProvider(this, viewModelFactory).get(TeamsListViewModel::class.java)
         return inflater.inflate(R.layout.teams_list_fragment, container, false)
     }

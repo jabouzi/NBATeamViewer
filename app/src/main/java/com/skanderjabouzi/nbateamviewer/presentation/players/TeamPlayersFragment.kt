@@ -14,7 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.skanderjabouzi.nbateamviewer.R
-import com.skanderjabouzi.nbateamviewer.core.TheScoreApp
+import com.skanderjabouzi.nbateamviewer.core.App
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
 import com.skanderjabouzi.nbateamviewer.presentation.ViewModelFactory
 import kotlinx.android.synthetic.main.players_titles.view.*
@@ -38,7 +38,7 @@ class TeamPlayersFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        TheScoreApp.INSTANCE.appComponent.getTeamPlayersFragmentComponent().inject(this)
+        App.INSTANCE.appComponent.getTeamPlayersFragmentComponent().inject(this)
         viewModel = ViewModelProvider(this, viewModelFactory)[TeamPlayersViewModel::class.java]
         return inflater.inflate(R.layout.team_players_fragment, container, false)
     }

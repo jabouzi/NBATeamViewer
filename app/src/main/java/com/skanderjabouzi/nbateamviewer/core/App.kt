@@ -5,7 +5,7 @@ import com.skanderjabouzi.nbateamviewer.data.db.TeamDatabase
 import com.skanderjabouzi.nbateamviewer.di.components.AppComponent
 import com.skanderjabouzi.nbateamviewer.di.components.DaggerAppComponent
 
-class TheScoreApp: Application() {
+class App: Application() {
     lateinit var db: TeamDatabase
     val appComponent: AppComponent by lazy { initDagger() }
 
@@ -26,6 +26,6 @@ class TheScoreApp: Application() {
     }
 
     companion object {
-        lateinit var INSTANCE: TheScoreApp
+        lateinit var INSTANCE: App
     }
 }

@@ -2,7 +2,7 @@ package com.skanderjabouzi.nbateamviewer.data.net
 
 import android.content.Context
 import android.util.Log
-import com.skanderjabouzi.nbateamviewer.core.TheScoreApp
+import com.skanderjabouzi.nbateamviewer.core.App
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.ResponseBody.Companion.toResponseBody
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 class MockInterceptor @Inject constructor() : Interceptor {
 
-    @set:Inject var context: Context = TheScoreApp.INSTANCE.applicationContext
+    @set:Inject var context: Context = App.INSTANCE.applicationContext
 
     private var contentType = "application/json"
 

@@ -1,12 +1,11 @@
 package com.skanderjabouzi.nbateamviewer.data.repo
 
-import com.skanderjabouzi.nbateamviewer.core.TheScoreApp
+import com.skanderjabouzi.nbateamviewer.core.App
 import com.skanderjabouzi.nbateamviewer.data.db.PlayersDao
 import com.skanderjabouzi.nbateamviewer.data.db.TeamDao
 import com.skanderjabouzi.nbateamviewer.data.model.db.PlayerEntity
 import com.skanderjabouzi.nbateamviewer.data.model.db.TeamEntity
 import com.skanderjabouzi.nbateamviewer.data.model.net.Player
-import com.skanderjabouzi.nbateamviewer.data.model.net.Players
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
 import com.skanderjabouzi.nbateamviewer.data.net.RetrofitClient
 import com.skanderjabouzi.nbateamviewer.data.net.TeamsRepository
@@ -15,11 +14,11 @@ import javax.inject.Inject
 class TeamsRepositoryImpl @Inject constructor() : TeamsRepository {
 
   @set:Inject var retrofitClient: RetrofitClient
-  private val teamDao: TeamDao = TheScoreApp.INSTANCE.db.teamDao()
-  private val playersDao: PlayersDao = TheScoreApp.INSTANCE.db.playersDao()
+  private val teamDao: TeamDao = App.INSTANCE.db.teamDao()
+  private val playersDao: PlayersDao = App.INSTANCE.db.playersDao()
 
   init {
-    retrofitClient = TheScoreApp.INSTANCE.appComponent.getRetrofitClient()
+    retrofitClient = App.INSTANCE.appComponent.getRetrofitClient()
   }
 
   override suspend fun getSavedTeams(): List<TeamEntity> {

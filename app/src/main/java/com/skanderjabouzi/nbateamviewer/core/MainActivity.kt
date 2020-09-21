@@ -9,7 +9,6 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.skanderjabouzi.nbateamviewer.R
-import com.skanderjabouzi.nbateamviewer.domain.usecase.ConnectionType
 import com.skanderjabouzi.nbateamviewer.domain.usecase.ConnectionType.*
 import com.skanderjabouzi.nbateamviewer.presentation.action
 import com.skanderjabouzi.nbateamviewer.presentation.snack
@@ -26,7 +25,7 @@ class MainActivity : AppCompatActivity(){
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
     navigationController = findNavController(R.id.navigationHostFragment)
-    val connectivityLiveData = ConnectivityLiveData(TheScoreApp.INSTANCE)
+    val connectivityLiveData = ConnectivityLiveData(App.INSTANCE)
     connectivityLiveData.observe(this, Observer<Boolean>(){
       when (it) {
         true -> if (STATE == NOT_CONNECTED) {
