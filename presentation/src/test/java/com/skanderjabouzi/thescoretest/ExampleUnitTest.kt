@@ -1,4 +1,4 @@
-package com.skanderjabouzi.thescoretest
+package com.skanderjabouzi.nbateamviewer
 
 import org.junit.Test
 
