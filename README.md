@@ -6,6 +6,6 @@ Copyright (c) 2020 Skander Jabouzi
 * Unit tests and UI tests are available
 * Please use mockDebug flavor for UI tests.
 * I changed the payload for better usage with the app
-* The assets contains all the payloads
+* The asset folder contains all the payloads
 * The data is from Wikipedia 
 * I used my personal webserver to host the payloads
