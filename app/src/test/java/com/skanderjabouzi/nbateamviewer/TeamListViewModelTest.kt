@@ -6,8 +6,10 @@ import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.whenever
 import com.skanderjabouzi.nbateamviewer.data.model.net.Player
 import com.skanderjabouzi.nbateamviewer.data.model.net.Players
-import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.GetTeamPlayersUseCase
-import com.skanderjabouzi.nbateamviewer.presentation.players.TeamPlayersViewModel
+import com.skanderjabouzi.nbateamviewer.data.model.net.Team
+import com.skanderjabouzi.nbateamviewer.data.model.net.Teams
+import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.GetTeamsListUseCase
+import com.skanderjabouzi.nbateamviewer.presentation.teams.TeamsListViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.newSingleThreadContext
 import kotlinx.coroutines.runBlocking
@@ -18,7 +20,7 @@ import org.junit.*
 import org.mockito.*
 
 
-class TeamPlayersViewModelTest: BaseTest() {
+class TeamListViewModelTest: BaseTest() {
 
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
 
@@ -26,9 +28,9 @@ class TeamPlayersViewModelTest: BaseTest() {
     var rule = InstantTaskExecutorRule()
 
     @Mock
-    lateinit var usecase: GetTeamPlayersUseCase
+    lateinit var usecase: GetTeamsListUseCase
 
-    lateinit var viewModel: TeamPlayersViewModel
+    lateinit var viewModel: TeamsListViewModel
 
     @Captor
     private lateinit var argumentCaptor: ArgumentCaptor<List<Player>>
@@ -38,7 +40,7 @@ class TeamPlayersViewModelTest: BaseTest() {
     fun setUp() {
         Dispatchers.setMain(mainThreadSurrogate)
         MockitoAnnotations.initMocks(this)
-        viewModel = TeamPlayersViewModel(usecase)
+        viewModel = TeamsListViewModel(usecase)
     }
 
     @After
@@ -50,70 +52,70 @@ class TeamPlayersViewModelTest: BaseTest() {
     @Test
     fun `run getPlayers not null and validate response`() {
         runBlocking {
-            doReturn(dummyPlayers).whenever(usecase).getTeamPlayers(ArgumentMatchers.anyInt())
-            viewModel.getPlayers(2)
+            doReturn(dummyTeams).whenever(usecase).getTeams()
+            viewModel.getTeams()
             Assert.assertThat(
-                LiveDataTestUtil.getValue(viewModel.players), `is`(dummyPlayers)
+                LiveDataTestUtil.getValue(viewModel.teams), `is`(dummyTeams)
             )
-            Mockito.verify(usecase).getTeamPlayers(2)
+            Mockito.verify(usecase).getTeams()
         }
     }
 
     @Test
     fun `run getPlayers null and validate response`() {
         runBlocking {
-            doReturn(dummyPlayersNull).whenever(usecase).getTeamPlayers(ArgumentMatchers.anyInt())
-            viewModel.getPlayers(1)
+            doReturn(dummyTeamsNull).whenever(usecase).getTeams()
+            viewModel.getTeams()
             Assert.assertThat(
-                LiveDataTestUtil.getValue(viewModel.players), `is`(dummyPlayersNull)
+                LiveDataTestUtil.getValue(viewModel.teams), `is`(dummyTeamsNull)
             )
-            Mockito.verify(usecase).getTeamPlayers(1)
+            Mockito.verify(usecase).getTeams()
         }
     }
 
     @Test
     fun `run sortByName and validate response`() {
         runBlocking {
-            doReturn(dummyPlayers).whenever(usecase).sortByName(ArgumentMatchers.anyInt())
-            viewModel.sortByName(1)
+            doReturn(dummyTeams).whenever(usecase).sortByName()
+            viewModel.sortByName()
             Assert.assertThat(
-                LiveDataTestUtil.getValue(viewModel.players), `is`(dummyPlayers)
+                LiveDataTestUtil.getValue(viewModel.teams), `is`(dummyTeams)
             )
-            Mockito.verify(usecase).sortByName(1)
+            Mockito.verify(usecase).sortByName()
         }
     }
 
     @Test
     fun `run sortByPosition and validate response`() {
         runBlocking {
-            doReturn(dummyPlayers).whenever(usecase).sortByPosition(ArgumentMatchers.anyInt())
-            viewModel.sortByPosition(1)
+            doReturn(dummyTeams).whenever(usecase).sortByWins()
+            viewModel.sortByWins()
             Assert.assertThat(
-                LiveDataTestUtil.getValue(viewModel.players), `is`(dummyPlayers)
+                LiveDataTestUtil.getValue(viewModel.teams), `is`(dummyTeams)
             )
-            Mockito.verify(usecase).sortByPosition(1)
+            Mockito.verify(usecase).sortByWins()
         }
     }
 
     @Test
     fun `run sortByNumber and validate response`() {
         runBlocking {
-            doReturn(dummyPlayers).whenever(usecase).sortByNumber(ArgumentMatchers.anyInt())
-            viewModel.sortByNumber(1)
+            doReturn(dummyTeams).whenever(usecase).sortByLosses()
+            viewModel.sortByLosses()
             Assert.assertThat(
-                LiveDataTestUtil.getValue(viewModel.players), `is`(dummyPlayers)
+                LiveDataTestUtil.getValue(viewModel.teams), `is`(dummyTeams)
             )
-            Mockito.verify(usecase).sortByNumber(1)
+            Mockito.verify(usecase).sortByLosses()
         }
     }
 
-    private val dummyPlayers: List<Player>?
+    private val dummyTeams: List<Team>?
         get() {
             val gson = GsonBuilder().create()
-            return gson.fromJson(readJsonFile("mock.api/1.json"), Players::class.java).players
+            return gson.fromJson(readJsonFile("mock.api/teams.json"), Teams::class.java).teams
         }
 
-    private val dummyPlayersNull: Players?
+    private val dummyTeamsNull: Players?
         get() {
             return null
         }
