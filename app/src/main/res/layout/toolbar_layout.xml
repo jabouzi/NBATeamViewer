@@ -12,8 +12,8 @@
           android:layout_height="wrap_content"
           android:minHeight="?attr/actionBarSize"
           app:titleTextColor="@android:color/white"
-          app:contentInsetLeft="0dp"
-          app:contentInsetStart="0dp"
+          app:contentInsetLeft="@dimen/zero"
+          app:contentInsetStart="@dimen/zero"
           app:layout_scrollFlags="scroll|enterAlways">
 
     <TextView

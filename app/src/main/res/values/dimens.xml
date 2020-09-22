@@ -52,8 +52,8 @@
     <dimen name="extramegalarge">48dp</dimen>
     <dimen name="xxxhugelarge">49dp</dimen>
     <dimen name="xxhugelarge">50dp</dimen>
-    <dimen name="xhugelarge">51dp</dimen>
-    <dimen name="hugelarge">52dp</dimen>
+    <dimen name="xhugelarge">60dp</dimen>
+    <dimen name="hugelarge">70dp</dimen>
 
     <dimen name="onehundred">100dp</dimen>
     <dimen name="onefifty">150dp</dimen>

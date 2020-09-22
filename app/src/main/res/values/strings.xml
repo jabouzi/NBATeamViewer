@@ -15,4 +15,10 @@
     <string name="mobile_on">Mobile data turned ON</string>
     <string name="no_connection">Connection turned OFF</string>
     <string name="connection_on">Connection is on</string>
+    <string name="full_name">Full name</string>
+    <string name="position">Position</string>
+    <string name="number">Number</string>
+    <string name="team">Team</string>
+    <string name="wins">Wins</string>
+    <string name="losses">Losses</string>
 </resources>

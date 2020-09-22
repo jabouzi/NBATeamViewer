@@ -9,16 +9,23 @@ import android.view.View
 import android.widget.*
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
+import androidx.annotation.IdRes
+import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.RecyclerView
+import androidx.test.InstrumentationRegistry
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu
 import androidx.test.espresso.matcher.BoundedMatcher
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.textfield.TextInputLayout
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
+
 
 // https://github.com/agoda-com/Kakao/blob/914d9bcdf50fc2c6f1771bcb359844132f66b99b/kakao/src/main/kotlin/com/agoda/kakao/Matchers.kt
 
@@ -222,8 +229,10 @@ class ListViewViewAdapterSizeMatcher(private val size: Int) : BoundedMatcher<Vie
  * @param drawable Drawable instance to be matched (default is null)
  * @param toBitmap Lambda with custom Drawable -> Bitmap converter (default is null)
  */
-class DrawableMatcher(@DrawableRes private val resId: Int = -1, private val drawable: Drawable? = null,
-                      private val toBitmap: ((drawable: Drawable) -> Bitmap)? = null)
+class DrawableMatcher(
+    @DrawableRes private val resId: Int = -1, private val drawable: Drawable? = null,
+    private val toBitmap: ((drawable: Drawable) -> Bitmap)? = null
+)
     : TypeSafeMatcher<View>(View::class.java) {
 
     override fun describeTo(desc: Description) {
@@ -338,8 +347,10 @@ class TextInputLayoutCounterEnabledMatcher(private val enabled: Boolean) : TypeS
  * @param resId Background color resource to be matched (default is -1)
  * @param colorCode Background color string code to be matched (default is null)
  */
-class BackgroundColorMatcher(@ColorRes private val resId: Int = -1,
-                             private val colorCode: String? = null) : TypeSafeMatcher<View>() {
+class BackgroundColorMatcher(
+    @ColorRes private val resId: Int = -1,
+    private val colorCode: String? = null
+) : TypeSafeMatcher<View>() {
 
     override fun matchesSafely(item: View?): Boolean {
         if (resId == -1 && colorCode.isNullOrEmpty()) {
@@ -359,7 +370,7 @@ class BackgroundColorMatcher(@ColorRes private val resId: Int = -1,
                     when (current) {
                         is ColorDrawable -> current.color == expectedColor
                         is GradientDrawable -> if (android.os.Build.VERSION.SDK_INT >= 24) {
-                            current.color.defaultColor == expectedColor
+                            current.color?.defaultColor == expectedColor
                         } else {
                             false // not much I can do here
                         }

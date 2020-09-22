@@ -10,8 +10,8 @@
     <!-- Your product logo - 144dp color version of your app icon -->
     <item
         android:drawable="@drawable/logo"
-        android:width="200dp"
-        android:height="200dp"
+        android:width="@dimen/twohundred"
+        android:height="@dimen/twohundred"
         android:gravity="center"/>
 
 </layer-list>

@@ -2,17 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="24dp">
+    android:layout_marginTop="@dimen/medium">
 
     <TextView
         android:id="@+id/team_name_value"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="Toronto Raptors"
+        android:layout_width="@dimen/zero"
+        android:layout_height="@dimen/midmedium"
+        android:layout_marginEnd="@dimen/tiny"
+        android:layout_marginStart="@dimen/tiny"
+        tools:text="Toronto Raptors"
         android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/team_wins_value"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,10 +22,10 @@
     <TextView
             android:id="@+id/team_wins_value"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="@dimen/midmedium"
             android:layout_marginEnd="50dp"
             android:gravity="left"
-            android:text="70"
+            tools:text="70"
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toStartOf="@+id/team_losses_value"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginRight="50dp"></TextView>
@@ -32,11 +33,11 @@
     <TextView
             android:id="@+id/team_losses_value"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_marginEnd="8dp"
-            android:text="10"
+            android:layout_height="@dimen/midmedium"
+            android:layout_marginEnd="@dimen/tiny"
+            tools:text="10"
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginRight="8dp"></TextView>
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginRight="@dimen/tiny"></TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
