@@ -1,2 +1,3 @@
-rootProject.name="NBATeamViewer"
+include(":notificartion")
 include(":app")
+rootProject.name="NBATeamViewer"

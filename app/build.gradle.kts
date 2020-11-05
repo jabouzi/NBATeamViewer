@@ -59,9 +59,6 @@ android {
             ignore = true
         }
     }
-//    testOptions {
-//        unitTests.includeAndroidResources = true
-//    }
 }
 
 dependencies {
