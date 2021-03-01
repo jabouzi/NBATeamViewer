@@ -1,10 +1,7 @@
 package com.skanderjabouzi.nbateamviewer.presentation.teams
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
 import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.GetTeamsListUseCase
 import kotlinx.coroutines.Dispatchers
@@ -22,6 +19,9 @@ class TeamsListViewModel @Inject constructor(val usecase: GetTeamsListUseCase) :
         viewModelScope.launch {
             try {
                 _teams.value = usecase.getTeams()
+//                _teams.value = liveData {
+//                    emit(usecase.getTeams())
+//                }
             } catch (e: Exception) {
                 Log.e("listResult", "${e.localizedMessage}")
                 _teams.value = null
