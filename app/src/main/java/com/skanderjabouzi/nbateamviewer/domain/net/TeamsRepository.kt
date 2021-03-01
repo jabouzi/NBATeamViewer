@@ -28,7 +28,7 @@
  * THE SOFTWARE.
  */
 
-package com.skanderjabouzi.nbateamviewer.data.net
+package com.skanderjabouzi.nbateamviewer.domain.net
 
 import com.skanderjabouzi.nbateamviewer.data.model.db.PlayerEntity
 import com.skanderjabouzi.nbateamviewer.data.model.db.TeamEntity

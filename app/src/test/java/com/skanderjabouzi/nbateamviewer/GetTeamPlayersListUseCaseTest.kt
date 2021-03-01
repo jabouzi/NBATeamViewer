@@ -9,7 +9,7 @@ import com.nhaarman.mockitokotlin2.whenever
 import com.skanderjabouzi.nbateamviewer.data.model.db.PlayerEntity
 import com.skanderjabouzi.nbateamviewer.data.model.net.Player
 import com.skanderjabouzi.nbateamviewer.data.model.net.Players
-import com.skanderjabouzi.nbateamviewer.data.net.TeamsRepository
+import com.skanderjabouzi.nbateamviewer.domain.net.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.GetTeamPlayersUseCase
 import com.skanderjabouzi.nbateamviewer.domain.usecase.PlayerEntityConverter
 import com.skanderjabouzi.nbateamviewer.domain.usecase.SortType

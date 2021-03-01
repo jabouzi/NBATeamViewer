@@ -1,4 +1,4 @@
-package com.skanderjabouzi.nbateamviewer.data.repo
+package com.skanderjabouzi.nbateamviewer.domain.net
 
 import com.skanderjabouzi.nbateamviewer.core.App
 import com.skanderjabouzi.nbateamviewer.data.db.PlayersDao
@@ -8,7 +8,7 @@ import com.skanderjabouzi.nbateamviewer.data.model.db.TeamEntity
 import com.skanderjabouzi.nbateamviewer.data.model.net.Player
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
 import com.skanderjabouzi.nbateamviewer.data.net.RetrofitClient
-import com.skanderjabouzi.nbateamviewer.data.net.TeamsRepository
+import com.skanderjabouzi.nbateamviewer.domain.net.TeamsRepository
 import javax.inject.Inject
 
 class TeamsRepositoryImpl @Inject constructor() : TeamsRepository {

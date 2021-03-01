@@ -10,7 +10,7 @@ import com.skanderjabouzi.nbateamviewer.BaseTest
 import com.skanderjabouzi.nbateamviewer.data.model.db.TeamEntity
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
 import com.skanderjabouzi.nbateamviewer.data.model.net.Teams
-import com.skanderjabouzi.nbateamviewer.data.net.TeamsRepository
+import com.skanderjabouzi.nbateamviewer.domain.net.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.GetTeamsListUseCase
 import com.skanderjabouzi.nbateamviewer.domain.usecase.SortType
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamEntityConverter
