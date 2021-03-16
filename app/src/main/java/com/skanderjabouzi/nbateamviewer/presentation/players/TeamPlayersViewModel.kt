@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.skanderjabouzi.nbateamviewer.data.model.net.Player
 import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.GetTeamPlayersUseCase
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -17,7 +18,8 @@ class TeamPlayersViewModel @Inject constructor(val usecase: GetTeamPlayersUseCas
         get() = _players
 
     fun getPlayers(teamId: Int) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.Main) {
+            Log.e("## TeamPlayersViewModel", "${Thread.currentThread().name}")
             try {
                 _players.value = usecase.getTeamPlayers(teamId)
             } catch (e: Exception) {
@@ -28,7 +30,7 @@ class TeamPlayersViewModel @Inject constructor(val usecase: GetTeamPlayersUseCas
     }
 
     fun sortByName(teamId: Int) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.Main) {
             try {
                 _players.value = usecase.sortByName(teamId)
             } catch (e: Exception) {
@@ -39,7 +41,7 @@ class TeamPlayersViewModel @Inject constructor(val usecase: GetTeamPlayersUseCas
     }
 
     fun sortByPosition(teamId: Int) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.Main) {
             try {
                 _players.value = usecase.sortByPosition(teamId)
             } catch (e: Exception) {
@@ -50,7 +52,7 @@ class TeamPlayersViewModel @Inject constructor(val usecase: GetTeamPlayersUseCas
     }
 
     fun sortByNumber(teamId: Int) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.Main) {
             try {
                 _players.value = usecase.sortByNumber(teamId)
             } catch (e: Exception) {

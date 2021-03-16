@@ -1,36 +1,43 @@
 package com.skanderjabouzi.nbateamviewer.domain.listener.usecase
 
+import android.util.Log
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
 import com.skanderjabouzi.nbateamviewer.domain.net.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.domain.usecase.SortType
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamEntityConverter
 import kotlinx.coroutines.*
 import javax.inject.Inject
+import kotlin.coroutines.coroutineContext
 
 class GetTeamsListUseCase @Inject constructor(val repository: TeamsRepository) {
 
     suspend fun getTeams(): List<Team> {
         var teams: List<Team> = listOf()
-        withContext(Dispatchers.IO) {
-            teams = getTeamsFromDb()
-            if (teams.isNullOrEmpty()) {
-                teams = getTeamsFromApi()
-                saveTeamsToDb(teams)
-            }
+        Log.e("## GetTeamsListUseCase", "${Thread.currentThread().name}")
+        Log.e("## GetTeamsListUseCase", "${coroutineContext}")
+        teams = getTeamsFromDb()
+        if (teams.isNullOrEmpty()) {
+            teams = getTeamsFromApi()
+            saveTeamsToDb(teams)
         }
         return teams
     }
 
     suspend fun sortByName(): List<Team> {
-        val teams = getTeams()
-        if (sortByName == SortType.ASCENDING) {
-            sortByName = SortType.DESCENDING
-            return teams.sortedWith(compareBy({ it.name }))
-        } else {
-            sortByName = SortType.ASCENDING
-            return teams.sortedWith(compareByDescending({ it.name }))
+        var teams: List<Team> = listOf()
+        withContext(Dispatchers.Default) {
+            Log.e("## sortByName", "${Thread.currentThread().name}")
+            Log.e("## sortByName", "${coroutineContext}")
+            teams = getTeams()
+            if (sortByName == SortType.ASCENDING) {
+                sortByName = SortType.DESCENDING
+                teams = teams.sortedWith(compareBy({ it.name }))
+            } else {
+                sortByName = SortType.ASCENDING
+                teams = teams.sortedWith(compareByDescending({ it.name }))
+            }
         }
-
+        return teams
     }
 
     suspend fun sortByWins(): List<Team> {

@@ -37,8 +37,8 @@ import com.skanderjabouzi.nbateamviewer.data.model.db.TeamEntity
 interface TeamDao {
 
   @Insert(onConflict = OnConflictStrategy.REPLACE)
-  fun insert(team: TeamEntity)
+  suspend fun insert(team: TeamEntity)
 
   @Query("select * from teamentity")
-  fun getTeams(): List<TeamEntity>
+  suspend fun getTeams(): List<TeamEntity>
 }
