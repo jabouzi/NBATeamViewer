@@ -15,7 +15,7 @@ import kotlinx.coroutines.newSingleThreadContext
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
-import org.hamcrest.Matchers.`is`
+import org.hamcrest.core.Is.`is`
 import org.junit.*
 import org.mockito.*
 

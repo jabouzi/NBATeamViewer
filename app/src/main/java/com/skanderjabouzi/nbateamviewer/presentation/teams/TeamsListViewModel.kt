@@ -17,8 +17,8 @@ class TeamsListViewModel @Inject constructor(val usecase: GetTeamsListUseCase) :
 
     fun getTeams() {
         viewModelScope.launch {
-            Log.e("## TeamsListViewModel", "${Thread.currentThread().name}")
-            Log.e("## TeamsListViewModel", "${this.coroutineContext}")
+//            Log.e("## TeamsListViewModel", "${Thread.currentThread().name}")
+//            Log.e("## TeamsListViewModel", "${this.coroutineContext}")
             try {
                 _teams.value = usecase.getTeams()
 //                _teams.value = liveData {
