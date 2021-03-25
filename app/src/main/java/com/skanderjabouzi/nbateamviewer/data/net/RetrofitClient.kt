@@ -1,12 +1,10 @@
 package com.skanderjabouzi.nbateamviewer.data.net
 
-import android.util.Log
 import com.skanderjabouzi.nbateamviewer.data.model.net.Players
 import com.skanderjabouzi.nbateamviewer.data.model.net.Teams
 import retrofit2.Retrofit
-import javax.inject.Inject
 
-class RetrofitClient @Inject constructor(val retrofit: Retrofit) {
+class RetrofitClient (val retrofit: Retrofit) {
 
   private val teamsApi: TeamsApi
 

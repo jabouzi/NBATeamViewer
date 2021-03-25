@@ -15,28 +15,23 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.skanderjabouzi.nbateamviewer.R
-import com.skanderjabouzi.nbateamviewer.core.App
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
 import com.skanderjabouzi.nbateamviewer.domain.listener.TeamClickListener
 import com.skanderjabouzi.nbateamviewer.presentation.ViewModelFactory
 import kotlinx.android.synthetic.main.teams_list_fragment.*
 import kotlinx.android.synthetic.main.toolbar_layout.*
 import kotlinx.android.synthetic.main.toolbar_layout.view.*
-import javax.inject.Inject
 
 class TeamsListFragment : Fragment(), TeamClickListener {
 
     private lateinit var viewModel: TeamsListViewModel
-    @Inject
     lateinit var adapter: TeamsListAdapter
-    @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        App.INSTANCE.appComponent.getTeamsListFragmentComponent().inject(this)
         viewModel = ViewModelProvider(this, viewModelFactory).get(TeamsListViewModel::class.java)
         return inflater.inflate(R.layout.teams_list_fragment, container, false)
     }

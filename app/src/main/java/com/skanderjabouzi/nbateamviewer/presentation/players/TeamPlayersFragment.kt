@@ -14,7 +14,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.skanderjabouzi.nbateamviewer.R
-import com.skanderjabouzi.nbateamviewer.core.App
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
 import com.skanderjabouzi.nbateamviewer.presentation.ViewModelFactory
 import kotlinx.android.synthetic.main.players_titles.view.*
@@ -22,15 +21,12 @@ import kotlinx.android.synthetic.main.team_players_fragment.*
 import kotlinx.android.synthetic.main.teams_item.view.*
 import kotlinx.android.synthetic.main.toolbar_layout.*
 import kotlinx.android.synthetic.main.toolbar_layout.view.*
-import javax.inject.Inject
 
 
 class TeamPlayersFragment : Fragment() {
 
     private lateinit var viewModel: TeamPlayersViewModel
-    @Inject
     lateinit var adapter: TeamPlayersListAdapter
-    @Inject
     lateinit var viewModelFactory: ViewModelFactory
     var teamId = 0
 
@@ -38,7 +34,6 @@ class TeamPlayersFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        App.INSTANCE.appComponent.getTeamPlayersFragmentComponent().inject(this)
         viewModel = ViewModelProvider(this, viewModelFactory)[TeamPlayersViewModel::class.java]
         return inflater.inflate(R.layout.team_players_fragment, container, false)
     }

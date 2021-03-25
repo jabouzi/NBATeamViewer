@@ -3,8 +3,7 @@ package com.skanderjabouzi.nbateamviewer.domain.usecase
 import com.skanderjabouzi.nbateamviewer.data.model.db.TeamEntity
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
 
-class TeamEntityConverter {
-    companion object {
+object TeamEntityConverter {
         fun teamEntityToTeam(entity: TeamEntity): Team {
             return Team(
                 entity.id,
@@ -40,5 +39,4 @@ class TeamEntityConverter {
 
             return entities
         }
-    }
 }

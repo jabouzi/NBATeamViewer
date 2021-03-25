@@ -4,12 +4,9 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
 import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.GetTeamsListUseCase
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
-class TeamsListViewModel @Inject constructor(val usecase: GetTeamsListUseCase) : ViewModel() {
+class TeamsListViewModel (val usecase: GetTeamsListUseCase) : ViewModel() {
     private val _teams = MutableLiveData<List<Team>>()
 
     val teams: LiveData<List<Team>>

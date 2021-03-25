@@ -11,11 +11,10 @@ import java.io.IOException
 import java.io.InputStreamReader
 import java.net.URI
 import java.util.*
-import javax.inject.Inject
 
-class MockInterceptor @Inject constructor() : Interceptor {
+class MockInterceptor: Interceptor {
 
-    @set:Inject var context: Context = App.INSTANCE.applicationContext
+    var context: Context = App.INSTANCE.applicationContext
 
     private var contentType = "application/json"
 

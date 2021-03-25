@@ -6,11 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.skanderjabouzi.nbateamviewer.R
 import com.skanderjabouzi.nbateamviewer.data.model.net.Player
-import com.skanderjabouzi.nbateamviewer.data.model.net.Team
 import kotlinx.android.synthetic.main.players_item.view.*
-import javax.inject.Inject
 
-class TeamPlayersListAdapter @Inject constructor()
+class TeamPlayersListAdapter
   : RecyclerView.Adapter<TeamPlayersListAdapter.PlayerViewHolder>() {
 
   private var players = mutableListOf<Player>()

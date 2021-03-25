@@ -74,8 +74,6 @@ dependencies {
     implementation("androidx.room:room-runtime:2.2.6")
     implementation("androidx.room:room-ktx:2.2.6")
     kapt("androidx.room:room-compiler:2.2.6")
-    api("com.google.dagger:dagger:2.28.3")
-    kapt("com.google.dagger:dagger-compiler:2.28.3")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")

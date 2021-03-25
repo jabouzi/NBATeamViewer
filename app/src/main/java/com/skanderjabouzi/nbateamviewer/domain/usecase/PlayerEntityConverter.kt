@@ -3,8 +3,7 @@ package com.skanderjabouzi.nbateamviewer.domain.usecase
 import com.skanderjabouzi.nbateamviewer.data.model.db.PlayerEntity
 import com.skanderjabouzi.nbateamviewer.data.model.net.Player
 
-class PlayerEntityConverter {
-    companion object {
+object PlayerEntityConverter {
         fun playerEntityToPlayer(entity: PlayerEntity): Player {
             return Player(
                 entity.position,
@@ -48,5 +47,4 @@ class PlayerEntityConverter {
 
             return entities
         }
-    }
 }

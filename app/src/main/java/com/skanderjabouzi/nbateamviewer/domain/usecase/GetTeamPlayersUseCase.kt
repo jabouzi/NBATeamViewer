@@ -6,11 +6,8 @@ import com.skanderjabouzi.nbateamviewer.domain.net.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.domain.usecase.PlayerEntityConverter
 import com.skanderjabouzi.nbateamviewer.domain.usecase.SortType
 import kotlinx.coroutines.*
-import okhttp3.internal.wait
-import javax.inject.Inject
-import kotlin.coroutines.CoroutineContext
 
-class GetTeamPlayersUseCase @Inject constructor(val repository: TeamsRepository) {
+class GetTeamPlayersUseCase (val repository: TeamsRepository) {
 
     suspend fun getTeamPlayers(teamId: Int): List<Player> {
         var players: List<Player>

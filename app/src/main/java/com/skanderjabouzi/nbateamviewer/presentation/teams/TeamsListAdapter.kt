@@ -38,9 +38,8 @@ import com.skanderjabouzi.nbateamviewer.R
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
 import com.skanderjabouzi.nbateamviewer.domain.listener.TeamClickListener
 import kotlinx.android.synthetic.main.teams_item.view.*
-import javax.inject.Inject
 
-class TeamsListAdapter @Inject constructor(private val itemClickListener: TeamClickListener) :
+class TeamsListAdapter (private val itemClickListener: TeamClickListener) :
         RecyclerView.Adapter<TeamsListAdapter.TeamHolder>() {
 
   private val teams = mutableListOf<Team>()

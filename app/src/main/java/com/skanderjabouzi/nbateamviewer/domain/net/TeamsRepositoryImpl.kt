@@ -8,17 +8,15 @@ import com.skanderjabouzi.nbateamviewer.data.model.db.TeamEntity
 import com.skanderjabouzi.nbateamviewer.data.model.net.Player
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
 import com.skanderjabouzi.nbateamviewer.data.net.RetrofitClient
-import com.skanderjabouzi.nbateamviewer.domain.net.TeamsRepository
-import javax.inject.Inject
 
-class TeamsRepositoryImpl @Inject constructor() : TeamsRepository {
+class TeamsRepositoryImpl: TeamsRepository {
 
-  @set:Inject var retrofitClient: RetrofitClient
+  lateinit var retrofitClient: RetrofitClient
   private val teamDao: TeamDao = App.INSTANCE.db.teamDao()
   private val playersDao: PlayersDao = App.INSTANCE.db.playersDao()
 
   init {
-    retrofitClient = App.INSTANCE.appComponent.getRetrofitClient()
+    //retrofitClient = RetrofitClient()
   }
 
   override suspend fun getSavedTeams(): List<TeamEntity> {

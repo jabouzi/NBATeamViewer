@@ -9,9 +9,8 @@ import com.skanderjabouzi.nbateamviewer.data.model.net.Player
 import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.GetTeamPlayersUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-class TeamPlayersViewModel @Inject constructor(val usecase: GetTeamPlayersUseCase) : ViewModel() {
+class TeamPlayersViewModel (val usecase: GetTeamPlayersUseCase) : ViewModel() {
     private val _players = MutableLiveData<List<Player>>()
 
     val players: LiveData<List<Player>>
