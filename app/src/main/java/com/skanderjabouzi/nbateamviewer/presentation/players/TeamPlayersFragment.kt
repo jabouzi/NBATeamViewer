@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -15,6 +16,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.skanderjabouzi.nbateamviewer.R
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
+import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.TeamPlayersUseCase
+import com.skanderjabouzi.nbateamviewer.domain.net.TeamsRepositoryImpl
 import com.skanderjabouzi.nbateamviewer.presentation.ViewModelFactory
 import kotlinx.android.synthetic.main.players_titles.view.*
 import kotlinx.android.synthetic.main.team_players_fragment.*
@@ -25,16 +28,16 @@ import kotlinx.android.synthetic.main.toolbar_layout.view.*
 
 class TeamPlayersFragment : Fragment() {
 
-    private lateinit var viewModel: TeamPlayersViewModel
+    private val viewModel: TeamPlayersViewModel by viewModels()
     lateinit var adapter: TeamPlayersListAdapter
-    lateinit var viewModelFactory: ViewModelFactory
+    //var viewModelFactory: ViewModelFactory = ViewModelFactory(this)
     var teamId = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this, viewModelFactory)[TeamPlayersViewModel::class.java]
+        //viewModel = ViewModelProvider(this, viewModelFactory)[TeamPlayersViewModel::class.java]
         return inflater.inflate(R.layout.team_players_fragment, container, false)
     }
 

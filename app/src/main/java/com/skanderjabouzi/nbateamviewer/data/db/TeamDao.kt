@@ -30,6 +30,7 @@
 
 package com.skanderjabouzi.nbateamviewer.data.db
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.skanderjabouzi.nbateamviewer.data.model.db.TeamEntity
 

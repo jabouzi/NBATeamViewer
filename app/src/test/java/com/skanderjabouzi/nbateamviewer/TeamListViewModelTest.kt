@@ -8,7 +8,7 @@ import com.skanderjabouzi.nbateamviewer.data.model.net.Player
 import com.skanderjabouzi.nbateamviewer.data.model.net.Players
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
 import com.skanderjabouzi.nbateamviewer.data.model.net.Teams
-import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.GetTeamsListUseCase
+import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.TeamsListUseCase
 import com.skanderjabouzi.nbateamviewer.presentation.teams.TeamsListViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.newSingleThreadContext
@@ -28,7 +28,7 @@ class TeamListViewModelTest: BaseTest() {
     var rule = InstantTaskExecutorRule()
 
     @Mock
-    lateinit var usecase: GetTeamsListUseCase
+    lateinit var usecase: TeamsListUseCase
 
     lateinit var viewModel: TeamsListViewModel
 

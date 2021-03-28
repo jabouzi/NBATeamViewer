@@ -12,9 +12,7 @@ import java.io.InputStreamReader
 import java.net.URI
 import java.util.*
 
-class MockInterceptor: Interceptor {
-
-    var context: Context = App.INSTANCE.applicationContext
+class MockInterceptor(val context: Context): Interceptor {
 
     private var contentType = "application/json"
 

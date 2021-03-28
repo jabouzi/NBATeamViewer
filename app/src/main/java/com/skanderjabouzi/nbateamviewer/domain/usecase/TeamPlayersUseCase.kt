@@ -7,7 +7,7 @@ import com.skanderjabouzi.nbateamviewer.domain.usecase.PlayerEntityConverter
 import com.skanderjabouzi.nbateamviewer.domain.usecase.SortType
 import kotlinx.coroutines.*
 
-class GetTeamPlayersUseCase (val repository: TeamsRepository) {
+class TeamPlayersUseCase (val repository: TeamsRepository) {
 
     suspend fun getTeamPlayers(teamId: Int): List<Player> {
         var players: List<Player>

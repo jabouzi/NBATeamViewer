@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -17,6 +18,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.skanderjabouzi.nbateamviewer.R
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
 import com.skanderjabouzi.nbateamviewer.domain.listener.TeamClickListener
+import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.TeamsListUseCase
+import com.skanderjabouzi.nbateamviewer.domain.net.TeamsRepositoryImpl
 import com.skanderjabouzi.nbateamviewer.presentation.ViewModelFactory
 import kotlinx.android.synthetic.main.teams_list_fragment.*
 import kotlinx.android.synthetic.main.toolbar_layout.*
@@ -24,15 +27,15 @@ import kotlinx.android.synthetic.main.toolbar_layout.view.*
 
 class TeamsListFragment : Fragment(), TeamClickListener {
 
-    private lateinit var viewModel: TeamsListViewModel
+    val viewModel: TeamsListViewModel by viewModels()
     lateinit var adapter: TeamsListAdapter
-    lateinit var viewModelFactory: ViewModelFactory
+    //lateinit var viewModelFactory: ViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this, viewModelFactory).get(TeamsListViewModel::class.java)
+        //viewModel = ViewModelProvider(this, viewModelFactory).get(TeamsListViewModel::class.java)
         return inflater.inflate(R.layout.teams_list_fragment, container, false)
     }
 

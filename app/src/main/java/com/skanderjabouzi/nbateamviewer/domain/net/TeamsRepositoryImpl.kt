@@ -1,23 +1,30 @@
 package com.skanderjabouzi.nbateamviewer.domain.net
 
-import com.skanderjabouzi.nbateamviewer.core.App
+import android.content.Context
 import com.skanderjabouzi.nbateamviewer.data.db.PlayersDao
 import com.skanderjabouzi.nbateamviewer.data.db.TeamDao
+import com.skanderjabouzi.nbateamviewer.data.db.TeamDatabase
 import com.skanderjabouzi.nbateamviewer.data.model.db.PlayerEntity
 import com.skanderjabouzi.nbateamviewer.data.model.db.TeamEntity
 import com.skanderjabouzi.nbateamviewer.data.model.net.Player
+import com.skanderjabouzi.nbateamviewer.data.model.net.Players
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
+import com.skanderjabouzi.nbateamviewer.data.model.net.Teams
+import com.skanderjabouzi.nbateamviewer.data.net.NBAResult
+import com.skanderjabouzi.nbateamviewer.data.net.Network
 import com.skanderjabouzi.nbateamviewer.data.net.RetrofitClient
 
-class TeamsRepositoryImpl: TeamsRepository {
+class TeamsRepositoryImpl(val context: Context): TeamsRepository {
 
-  lateinit var retrofitClient: RetrofitClient
-  private val teamDao: TeamDao = App.INSTANCE.db.teamDao()
-  private val playersDao: PlayersDao = App.INSTANCE.db.playersDao()
+  var db = TeamDatabase.getInstance(context)
+  var retrofitClient: RetrofitClient
+  private val teamDao: TeamDao = db.teamDao()
+  private val playersDao: PlayersDao = db.playersDao()
 
   init {
-    //retrofitClient = RetrofitClient()
+    retrofitClient = RetrofitClient(Network.getRetrofit(context))
   }
+
 
   override suspend fun getSavedTeams(): List<TeamEntity> {
     return teamDao.getTeams()

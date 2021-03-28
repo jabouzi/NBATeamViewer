@@ -8,25 +8,22 @@ import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamEntityConverter
 import kotlinx.coroutines.*
 import kotlin.coroutines.coroutineContext
 
-class GetTeamsListUseCase (val repository: TeamsRepository) {
+class TeamsListUseCase (val repository: TeamsRepository) {
 
     suspend fun getTeams(): List<Team> {
         var teams: List<Team> = listOf()
-        Log.e("## GetTeamsListUseCase", "${Thread.currentThread().name}")
-        Log.e("## GetTeamsListUseCase", "${coroutineContext}")
-        teams = getTeamsFromDb()
-        if (teams.isNullOrEmpty()) {
-            teams = getTeamsFromApi()
-            saveTeamsToDb(teams)
+        withContext(Dispatchers.IO) {
+            teams = getTeamsFromDb()
+            if (teams.isNullOrEmpty()) {
+                teams = getTeamsFromApi()
+                saveTeamsToDb(teams)
+            }
         }
         return teams
     }
 
     suspend fun sortByName(): List<Team> {
         var teams: List<Team> = listOf()
-        withContext(Dispatchers.Default) {
-            Log.e("## sortByName", "${Thread.currentThread().name}")
-            Log.e("## sortByName", "${coroutineContext}")
             teams = getTeams()
             if (sortByName == SortType.ASCENDING) {
                 sortByName = SortType.DESCENDING
@@ -35,7 +32,6 @@ class GetTeamsListUseCase (val repository: TeamsRepository) {
                 sortByName = SortType.ASCENDING
                 teams = teams.sortedWith(compareByDescending({ it.name }))
             }
-        }
         return teams
     }
 

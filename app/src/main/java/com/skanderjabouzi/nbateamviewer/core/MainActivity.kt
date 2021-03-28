@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(){
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
     navigationController = findNavController(R.id.navigationHostFragment)
-    val connectivityLiveData = ConnectivityLiveData(App.INSTANCE)
+    val connectivityLiveData = ConnectivityLiveData((application))
     connectivityLiveData.observe(this, Observer<Boolean>(){
       when (it) {
         true -> if (STATE == NOT_CONNECTED) {

@@ -1,26 +1,25 @@
 package com.skanderjabouzi.nbateamviewer.presentation.teams
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
-import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.GetTeamsListUseCase
+import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.TeamsListUseCase
+import com.skanderjabouzi.nbateamviewer.domain.net.TeamsRepositoryImpl
 import kotlinx.coroutines.launch
 
-class TeamsListViewModel (val usecase: GetTeamsListUseCase) : ViewModel() {
+class TeamsListViewModel (application: Application) : AndroidViewModel(application) {
     private val _teams = MutableLiveData<List<Team>>()
+    var teamsRepository = TeamsRepositoryImpl(application)
+    val usecase = TeamsListUseCase(teamsRepository)
 
     val teams: LiveData<List<Team>>
         get() = _teams
 
     fun getTeams() {
         viewModelScope.launch {
-//            Log.e("## TeamsListViewModel", "${Thread.currentThread().name}")
-//            Log.e("## TeamsListViewModel", "${this.coroutineContext}")
             try {
                 _teams.value = usecase.getTeams()
-//                _teams.value = liveData {
-//                    emit(usecase.getTeams())
-//                }
             } catch (e: Exception) {
                 Log.e("listResult", "${e.localizedMessage}")
                 _teams.value = null

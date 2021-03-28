@@ -10,7 +10,7 @@ import com.skanderjabouzi.nbateamviewer.data.model.db.PlayerEntity
 import com.skanderjabouzi.nbateamviewer.data.model.net.Player
 import com.skanderjabouzi.nbateamviewer.data.model.net.Players
 import com.skanderjabouzi.nbateamviewer.domain.net.TeamsRepository
-import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.GetTeamPlayersUseCase
+import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.TeamPlayersUseCase
 import com.skanderjabouzi.nbateamviewer.domain.usecase.PlayerEntityConverter
 import com.skanderjabouzi.nbateamviewer.domain.usecase.SortType
 import kotlinx.coroutines.*
@@ -33,12 +33,12 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
     @Mock
     private lateinit var repository: TeamsRepository
 
-    private lateinit var usecase: GetTeamPlayersUseCase
+    private lateinit var usecase: TeamPlayersUseCase
 
     @Before
     fun setUp() {
         Dispatchers.setMain(mainThreadSurrogate)
-        usecase = GetTeamPlayersUseCase(repository)
+        usecase = TeamPlayersUseCase(repository)
     }
 
     @After
@@ -72,7 +72,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
     @Test
     fun `Run sortbyName ascending and verify the order`() {
         runBlocking {
-            GetTeamPlayersUseCase.sortByName = SortType.ASCENDING
+            TeamPlayersUseCase.sortByName = SortType.ASCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
             val players = usecase.sortByName(1)
             Assert.assertEquals("Aldridge, LaMarcus", players.first().full_name.trim())
@@ -83,7 +83,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
     @Test
     fun `Run sortbyName descending and verify the order`() {
         runBlocking {
-            GetTeamPlayersUseCase.sortByName = SortType.DESCENDING
+            TeamPlayersUseCase.sortByName = SortType.DESCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
             val players = usecase.sortByName(1)
             Assert.assertEquals("Šamanić, Luka", players.first().full_name.trim())
@@ -94,7 +94,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
     @Test
     fun `Run sortbyPosition ascending and verify the order`() {
         runBlocking {
-            GetTeamPlayersUseCase.sortByPosition = SortType.ASCENDING
+            TeamPlayersUseCase.sortByPosition = SortType.ASCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
             val players = usecase.sortByPosition(1)
             Assert.assertEquals("C", players.first().position)
@@ -105,7 +105,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
     @Test
     fun `Run sortbyPosition descending and verify the order`() {
         runBlocking {
-            GetTeamPlayersUseCase.sortByPosition = SortType.DESCENDING
+            TeamPlayersUseCase.sortByPosition = SortType.DESCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
             val players = usecase.sortByPosition(1)
             Assert.assertEquals("G/F", players.first().position)
@@ -116,7 +116,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
     @Test
     fun `Run sortbyNumber ascending and verify the order`() {
         runBlocking {
-            GetTeamPlayersUseCase.sortByNumber = SortType.ASCENDING
+            TeamPlayersUseCase.sortByNumber = SortType.ASCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
             val players = usecase.sortByNumber(1)
             Assert.assertEquals("1", players.first().number)
@@ -127,7 +127,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
     @Test
     fun `Run sortbyNumber descending and verify the order`() {
         runBlocking {
-            GetTeamPlayersUseCase.sortByNumber = SortType.DESCENDING
+            TeamPlayersUseCase.sortByNumber = SortType.DESCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
             val players = usecase.sortByNumber(1)
             Assert.assertEquals("45", players.first().number)

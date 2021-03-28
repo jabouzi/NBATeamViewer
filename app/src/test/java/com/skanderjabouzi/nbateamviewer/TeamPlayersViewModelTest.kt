@@ -6,7 +6,7 @@ import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.whenever
 import com.skanderjabouzi.nbateamviewer.data.model.net.Player
 import com.skanderjabouzi.nbateamviewer.data.model.net.Players
-import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.GetTeamPlayersUseCase
+import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.TeamPlayersUseCase
 import com.skanderjabouzi.nbateamviewer.presentation.players.TeamPlayersViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.newSingleThreadContext
@@ -26,7 +26,7 @@ class TeamPlayersViewModelTest: BaseTest() {
     var rule = InstantTaskExecutorRule()
 
     @Mock
-    lateinit var usecase: GetTeamPlayersUseCase
+    lateinit var usecase: TeamPlayersUseCase
 
     lateinit var viewModel: TeamPlayersViewModel
 
