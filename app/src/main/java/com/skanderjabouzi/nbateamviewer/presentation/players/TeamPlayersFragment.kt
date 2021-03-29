@@ -48,6 +48,7 @@ class TeamPlayersFragment : Fragment() {
         val appBarConfiguration = AppBarConfiguration(navController.graph)
 
         observePlayers()
+        observeErrors()
 
         view.findViewById<Toolbar>(R.id.toolbar)
             .setupWithNavController(navController, appBarConfiguration)
@@ -96,9 +97,12 @@ class TeamPlayersFragment : Fragment() {
         playersProgressBar.visibility = View.GONE
     }
 
-    private fun showMessage() {
-        playersRetryButton.isVisible = true
-        playersErroMessage.isVisible = true
+    private fun showMessage(errorMessage: String) {
+        if (errorMessage.isNotEmpty()) {
+            playersRetryButton.isVisible = true
+            playersErroMessage.isVisible = true
+            playersErroMessage.text = errorMessage
+        }
     }
 
     private fun getPlayers(teamId: Int) {
@@ -125,11 +129,14 @@ class TeamPlayersFragment : Fragment() {
     private fun observePlayers() {
         viewModel.players.observe(viewLifecycleOwner, Observer { players ->
             hideLoading()
-            if (players == null) {
-                showMessage()
-            } else {
-                adapter.setPlayers(players)
-            }
+            adapter.setPlayers(players)
+        })
+    }
+
+    private fun observeErrors() {
+        viewModel.error.observe(viewLifecycleOwner, Observer { errorMessage ->
+            hideLoading()
+            showMessage(errorMessage)
         })
     }
 }

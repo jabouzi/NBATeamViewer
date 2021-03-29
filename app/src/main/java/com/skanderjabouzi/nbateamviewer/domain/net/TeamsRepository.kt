@@ -3,7 +3,10 @@ package com.skanderjabouzi.nbateamviewer.domain.net
 import com.skanderjabouzi.nbateamviewer.data.model.db.PlayerEntity
 import com.skanderjabouzi.nbateamviewer.data.model.db.TeamEntity
 import com.skanderjabouzi.nbateamviewer.data.model.net.Player
+import com.skanderjabouzi.nbateamviewer.data.model.net.Players
 import com.skanderjabouzi.nbateamviewer.data.model.net.Team
+import com.skanderjabouzi.nbateamviewer.data.model.net.Teams
+import retrofit2.Response
 
 interface TeamsRepository {
 
@@ -15,8 +18,8 @@ interface TeamsRepository {
 
   suspend fun savePlayers(players: List<PlayerEntity>)
 
-  suspend fun getTeams(): List<Team>
+  suspend fun getTeams(): Response<Teams>
 
-  suspend fun getPlayers(teamId: Int): List<Player>
+  suspend fun getPlayers(teamId: Int): Response<Players>
 
 }

@@ -6,13 +6,11 @@ import com.skanderjabouzi.nbateamviewer.data.db.TeamDao
 import com.skanderjabouzi.nbateamviewer.data.db.TeamDatabase
 import com.skanderjabouzi.nbateamviewer.data.model.db.PlayerEntity
 import com.skanderjabouzi.nbateamviewer.data.model.db.TeamEntity
-import com.skanderjabouzi.nbateamviewer.data.model.net.Player
 import com.skanderjabouzi.nbateamviewer.data.model.net.Players
-import com.skanderjabouzi.nbateamviewer.data.model.net.Team
 import com.skanderjabouzi.nbateamviewer.data.model.net.Teams
-import com.skanderjabouzi.nbateamviewer.data.net.NBAResult
 import com.skanderjabouzi.nbateamviewer.data.net.Network
 import com.skanderjabouzi.nbateamviewer.data.net.RetrofitClient
+import retrofit2.Response
 
 class TeamsRepositoryImpl(val context: Context): TeamsRepository {
 
@@ -46,11 +44,11 @@ class TeamsRepositoryImpl(val context: Context): TeamsRepository {
     }
   }
 
-  override suspend fun getTeams(): List<Team> {
-    return retrofitClient.getTeams().teams
+  override suspend fun getTeams(): Response<Teams> {
+    return retrofitClient.getTeams()
   }
 
-  override suspend fun getPlayers(teamId: Int): List<Player> {
-    return retrofitClient.getPlayers(teamId).players
+  override suspend fun getPlayers(teamId: Int): Response<Players> {
+    return retrofitClient.getPlayers(teamId)
   }
 }

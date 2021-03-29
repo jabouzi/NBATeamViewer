@@ -59,7 +59,7 @@ class TeamsListUseCase (val repository: TeamsRepository) {
 
     suspend fun getTeamsFromApi(): List<Team> {
         var teams: List<Team> = listOf()
-        teams = repository.getTeams()
+        teams = repository.getTeams().body()?.teams!!
         return teams
     }
 
