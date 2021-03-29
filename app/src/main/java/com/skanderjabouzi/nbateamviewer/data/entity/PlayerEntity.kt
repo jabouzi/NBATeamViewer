@@ -1,10 +1,10 @@
-package com.skanderjabouzi.nbateamviewer.data.Model
+package com.skanderjabouzi.nbateamviewer.data.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class PlayerModel (
+data class PlayerEntity (
 	@PrimaryKey(autoGenerate = true)
 	val id: Int? = null,
 	val teamId: Int,

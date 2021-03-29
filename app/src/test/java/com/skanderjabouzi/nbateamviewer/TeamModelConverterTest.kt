@@ -1,8 +1,8 @@
 package com.skanderjabouzi.nbateamviewer
 
 import android.os.Build
-import com.skanderjabouzi.nbateamviewer.data.Model.TeamModel
-import com.skanderjabouzi.nbateamviewer.domain.entity.Team
+import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
+import com.skanderjabouzi.nbateamviewer.domain.model.Team
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamEntityConverter
 import org.junit.Assert
 import org.junit.Test
@@ -15,14 +15,14 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 class TeamModelConverterTest {
 
-    val teamEntity = TeamModel(
+    val teamEntity = TeamEntity(
         1,
         "Toronto",
         55,
         22
     )
 
-    val teamEntity2 = TeamModel(
+    val teamEntity2 = TeamEntity(
         2,
         "New York",
         44,

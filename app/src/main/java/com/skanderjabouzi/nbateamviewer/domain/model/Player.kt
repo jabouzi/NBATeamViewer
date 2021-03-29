@@ -1,4 +1,4 @@
-package com.skanderjabouzi.nbateamviewer.domain.entity
+package com.skanderjabouzi.nbateamviewer.domain.model
 
 data class Player (
 	val position : String,

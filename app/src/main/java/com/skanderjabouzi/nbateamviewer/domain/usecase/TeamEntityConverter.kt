@@ -1,29 +1,29 @@
 package com.skanderjabouzi.nbateamviewer.domain.usecase
 
-import com.skanderjabouzi.nbateamviewer.data.Model.TeamModel
-import com.skanderjabouzi.nbateamviewer.domain.entity.Team
+import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
+import com.skanderjabouzi.nbateamviewer.domain.model.Team
 
 object TeamEntityConverter {
-        fun teamEntityToTeam(model: TeamModel): Team {
+        fun teamEntityToTeam(entity: TeamEntity): Team {
             return Team(
-                model.id,
-                model.name,
-                model.wins,
-                model.losses
+                entity.id,
+                entity.name,
+                entity.wins,
+                entity.losses
             )
         }
 
-        fun teamEntityListToTeamList(models: List<TeamModel>): List<Team> {
+        fun teamEntityListToTeamList(entities: List<TeamEntity>): List<Team> {
             val teams = mutableListOf<Team>()
-            for(entity in models) {
+            for(entity in entities) {
                 teams.add(teamEntityToTeam(entity))
             }
 
             return teams
         }
 
-        fun teamToTeamEntity(team: Team): TeamModel {
-            return TeamModel(
+        fun teamToTeamEntity(team: Team): TeamEntity {
+            return TeamEntity(
                 team.id,
                 team.name,
                 team.wins,
@@ -31,8 +31,8 @@ object TeamEntityConverter {
             )
         }
 
-        fun teamListToTeamEntityList(teams: List<Team>): List<TeamModel> {
-            val entities = mutableListOf<TeamModel>()
+        fun teamListToTeamEntityList(teams: List<Team>): List<TeamEntity> {
+            val entities = mutableListOf<TeamEntity>()
             for(team in teams) {
                 entities.add(teamToTeamEntity(team))
             }

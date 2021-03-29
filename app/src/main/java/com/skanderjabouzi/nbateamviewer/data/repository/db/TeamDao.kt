@@ -31,14 +31,14 @@
 package com.skanderjabouzi.nbateamviewer.data.repository.db
 
 import androidx.room.*
-import com.skanderjabouzi.nbateamviewer.data.Model.TeamModel
+import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
 
 @Dao
 interface TeamDao {
 
   @Insert(onConflict = OnConflictStrategy.REPLACE)
-  suspend fun insert(team: TeamModel)
+  suspend fun insert(team: TeamEntity)
 
-  @Query("select * from teammodel")
-  suspend fun getTeams(): List<TeamModel>
+  @Query("select * from teamentity")
+  suspend fun getTeams(): List<TeamEntity>
 }

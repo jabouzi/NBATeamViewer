@@ -1,8 +1,8 @@
 package com.skanderjabouzi.nbateamviewer.domain.usecase
 
 import android.util.Log
-import com.skanderjabouzi.nbateamviewer.domain.entity.Player
-import com.skanderjabouzi.nbateamviewer.domain.entity.Players
+import com.skanderjabouzi.nbateamviewer.domain.model.Player
+import com.skanderjabouzi.nbateamviewer.domain.model.Players
 import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
 import kotlinx.coroutines.*
 import java.io.IOException

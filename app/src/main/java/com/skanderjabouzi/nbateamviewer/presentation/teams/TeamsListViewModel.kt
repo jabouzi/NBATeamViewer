@@ -3,7 +3,7 @@ package com.skanderjabouzi.nbateamviewer.presentation.teams
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
-import com.skanderjabouzi.nbateamviewer.domain.entity.Team
+import com.skanderjabouzi.nbateamviewer.domain.model.Team
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamsListUseCase
 import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepositoryImpl
 import kotlinx.coroutines.launch

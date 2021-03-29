@@ -1,6 +1,6 @@
 package com.skanderjabouzi.nbateamviewer.domain.usecase
 
-import com.skanderjabouzi.nbateamviewer.domain.entity.Team
+import com.skanderjabouzi.nbateamviewer.domain.model.Team
 import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
 import kotlinx.coroutines.*
 

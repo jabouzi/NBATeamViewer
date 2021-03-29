@@ -14,7 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.skanderjabouzi.nbateamviewer.R
-import com.skanderjabouzi.nbateamviewer.domain.entity.Team
+import com.skanderjabouzi.nbateamviewer.domain.model.Team
 import kotlinx.android.synthetic.main.players_titles.view.*
 import kotlinx.android.synthetic.main.team_players_fragment.*
 import kotlinx.android.synthetic.main.teams_item.view.*

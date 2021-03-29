@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.test.platform.app.InstrumentationRegistry
 import com.skanderjabouzi.nbateamviewer.data.repository.db.PlayersDao
 import com.skanderjabouzi.nbateamviewer.data.repository.db.TeamDatabase
-import com.skanderjabouzi.nbateamviewer.data.Model.PlayerModel
+import com.skanderjabouzi.nbateamviewer.data.entity.PlayerEntity
 import kotlinx.coroutines.*
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
@@ -52,8 +52,8 @@ class TeamPLayersDaoDababaseTest {
     @Test
     @Throws(Exception::class)
     fun `write Player And Read In List`()  {
-            var players: List<PlayerModel> = listOf()
-            val player: PlayerModel = PlayerModel(1, 1, "G", "1", "Skander Jabouzi", "0", "0", "0", "Town")
+            var players: List<PlayerEntity> = listOf()
+            val player: PlayerEntity = PlayerEntity(1, 1, "G", "1", "Skander Jabouzi", "0", "0", "0", "Town")
             runBlocking(Dispatchers.IO) {
                 playerDao.insert(player)
                 players = playerDao.getPlayers(1)

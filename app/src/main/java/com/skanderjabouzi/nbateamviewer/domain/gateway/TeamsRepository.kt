@@ -1,20 +1,20 @@
 package com.skanderjabouzi.nbateamviewer.domain.gateway
 
-import com.skanderjabouzi.nbateamviewer.data.Model.PlayerModel
-import com.skanderjabouzi.nbateamviewer.data.Model.TeamModel
-import com.skanderjabouzi.nbateamviewer.domain.entity.Players
-import com.skanderjabouzi.nbateamviewer.domain.entity.Teams
+import com.skanderjabouzi.nbateamviewer.data.entity.PlayerEntity
+import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
+import com.skanderjabouzi.nbateamviewer.domain.model.Players
+import com.skanderjabouzi.nbateamviewer.domain.model.Teams
 import retrofit2.Response
 
 interface TeamsRepository {
 
-  suspend fun getSavedTeams(): List<TeamModel>
+  suspend fun getSavedTeams(): List<TeamEntity>
 
-  suspend fun getSavedPlayers(teamId: Int): List<PlayerModel>
+  suspend fun getSavedPlayers(teamId: Int): List<PlayerEntity>
 
-  suspend fun saveTeams(teams: List<TeamModel>)
+  suspend fun saveTeams(teams: List<TeamEntity>)
 
-  suspend fun savePlayers(players: List<PlayerModel>)
+  suspend fun savePlayers(players: List<PlayerEntity>)
 
   suspend fun getTeams(): Response<Teams>
 

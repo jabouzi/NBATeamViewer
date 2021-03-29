@@ -15,7 +15,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.skanderjabouzi.nbateamviewer.R
-import com.skanderjabouzi.nbateamviewer.domain.entity.Team
+import com.skanderjabouzi.nbateamviewer.domain.model.Team
 import com.skanderjabouzi.nbateamviewer.presentation.listener.TeamClickListener
 import kotlinx.android.synthetic.main.teams_list_fragment.*
 import kotlinx.android.synthetic.main.toolbar_layout.*

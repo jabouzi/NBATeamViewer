@@ -34,11 +34,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.skanderjabouzi.nbateamviewer.data.Model.PlayerModel
-import com.skanderjabouzi.nbateamviewer.data.Model.TeamModel
+import com.skanderjabouzi.nbateamviewer.data.entity.PlayerEntity
+import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
 
 @Database(
-  entities = [TeamModel::class, PlayerModel::class],
+  entities = [TeamEntity::class, PlayerEntity::class],
   version = 1,
   exportSchema = false
 )

@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.test.platform.app.InstrumentationRegistry
 import com.skanderjabouzi.nbateamviewer.data.repository.db.TeamDao
 import com.skanderjabouzi.nbateamviewer.data.repository.db.TeamDatabase
-import com.skanderjabouzi.nbateamviewer.data.Model.TeamModel
+import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
 import kotlinx.coroutines.*
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
@@ -53,8 +53,8 @@ class TeamDaoDababaseTest {
     @Test
     @Throws(Exception::class)
     fun `write Team And Read In List`() {
-        var teams : List<TeamModel> = listOf()
-        val team: TeamModel = TeamModel(1, "Bummy Team", 44, 44)
+        var teams : List<TeamEntity> = listOf()
+        val team: TeamEntity = TeamEntity(1, "Bummy Team", 44, 44)
         runBlocking(Dispatchers.IO) {
             teamDao.insert(team)
             teams = teamDao.getTeams()

@@ -1,32 +1,32 @@
 package com.skanderjabouzi.nbateamviewer.domain.usecase
 
-import com.skanderjabouzi.nbateamviewer.data.Model.PlayerModel
-import com.skanderjabouzi.nbateamviewer.domain.entity.Player
+import com.skanderjabouzi.nbateamviewer.data.entity.PlayerEntity
+import com.skanderjabouzi.nbateamviewer.domain.model.Player
 
 object PlayerEntityConverter {
-        fun playerEntityToPlayer(model: PlayerModel): Player {
+        fun playerEntityToPlayer(entity: PlayerEntity): Player {
             return Player(
-                model.position,
-                model.number,
-                model.full_name,
-                model.height,
-                model.weight,
-                model.date_of_birth,
-                model.from
+                entity.position,
+                entity.number,
+                entity.full_name,
+                entity.height,
+                entity.weight,
+                entity.date_of_birth,
+                entity.from
             )
         }
 
-        fun playerEntityListToPlayerList(models: List<PlayerModel>): List<Player> {
+        fun playerEntityListToPlayerList(entities: List<PlayerEntity>): List<Player> {
             val players = mutableListOf<Player>()
-            for(entity in models) {
+            for(entity in entities) {
                 players.add(playerEntityToPlayer(entity))
             }
 
             return players
         }
 
-        fun playerToPlayerEntity(teamId: Int, player: Player): PlayerModel {
-            return PlayerModel(
+        fun playerToPlayerEntity(teamId: Int, player: Player): PlayerEntity {
+            return PlayerEntity(
                 null,
                 teamId,
                 player.position,
@@ -39,8 +39,8 @@ object PlayerEntityConverter {
             )
         }
 
-        fun playerListToPlayerEntityList(teamId: Int, players: List<Player>): List<PlayerModel> {
-            val entities = mutableListOf<PlayerModel>()
+        fun playerListToPlayerEntityList(teamId: Int, players: List<Player>): List<PlayerEntity> {
+            val entities = mutableListOf<PlayerEntity>()
             for(player in players) {
                 entities.add(playerToPlayerEntity(teamId, player))
             }
