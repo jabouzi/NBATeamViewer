@@ -1,15 +1,9 @@
-package com.skanderjabouzi.nbateamviewer.domain.listener.usecase
+package com.skanderjabouzi.nbateamviewer.domain.usecase
 
 import android.util.Log
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.liveData
-import com.skanderjabouzi.nbateamviewer.data.model.net.Player
-import com.skanderjabouzi.nbateamviewer.data.model.net.Players
-import com.skanderjabouzi.nbateamviewer.data.net.ResultState
-import com.skanderjabouzi.nbateamviewer.domain.net.TeamsRepository
-import com.skanderjabouzi.nbateamviewer.domain.usecase.PlayerEntityConverter
-import com.skanderjabouzi.nbateamviewer.domain.usecase.SortType
-import com.skanderjabouzi.nbateamviewer.domain.usecase.UseCase
+import com.skanderjabouzi.nbateamviewer.domain.entity.Player
+import com.skanderjabouzi.nbateamviewer.domain.entity.Players
+import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
 import kotlinx.coroutines.*
 import java.io.IOException
 
@@ -68,7 +62,7 @@ class TeamPlayersUseCase(val repository: TeamsRepository): UseCase() {
 
     suspend fun getTeamPlayersFromDb(teamId: Int): ResultState {
         val players =
-            PlayerEntityConverter.playerEntityListToPlayerList(repository.getSavedPlayers(teamId))
+                PlayerEntityConverter.playerEntityListToPlayerList(repository.getSavedPlayers(teamId))
         return if (players.isNullOrEmpty()) {
             ResultState.InvalidData
         } else {

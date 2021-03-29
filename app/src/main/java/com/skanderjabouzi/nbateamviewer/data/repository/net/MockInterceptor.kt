@@ -1,8 +1,7 @@
-package com.skanderjabouzi.nbateamviewer.data.net
+package com.skanderjabouzi.nbateamviewer.data.repository.net
 
 import android.content.Context
 import android.util.Log
-import com.skanderjabouzi.nbateamviewer.core.App
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.ResponseBody.Companion.toResponseBody

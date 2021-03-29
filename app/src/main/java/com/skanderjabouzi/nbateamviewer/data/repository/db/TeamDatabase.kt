@@ -28,18 +28,17 @@
  * THE SOFTWARE.
  */
 
-package com.skanderjabouzi.nbateamviewer.data.db
+package com.skanderjabouzi.nbateamviewer.data.repository.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.skanderjabouzi.nbateamviewer.data.model.db.PlayerEntity
-import com.skanderjabouzi.nbateamviewer.data.model.db.TeamEntity
-import com.skanderjabouzi.nbateamviewer.data.model.net.Team
+import com.skanderjabouzi.nbateamviewer.data.Model.PlayerModel
+import com.skanderjabouzi.nbateamviewer.data.Model.TeamModel
 
 @Database(
-  entities = [TeamEntity::class, PlayerEntity::class],
+  entities = [TeamModel::class, PlayerModel::class],
   version = 1,
   exportSchema = false
 )
@@ -48,7 +47,7 @@ abstract class TeamDatabase : RoomDatabase() {
 
   companion object {
 
-    private const val DATABASE_NAME = "reader.db"
+    private const val DATABASE_NAME = "nba.db"
 
     private var instance: TeamDatabase? = null
 

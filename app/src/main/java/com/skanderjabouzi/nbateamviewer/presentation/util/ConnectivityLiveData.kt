@@ -1,4 +1,4 @@
-package com.skanderjabouzi.nbateamviewer.util
+package com.skanderjabouzi.nbateamviewer.presentation.util
 
 import android.app.Application
 import android.content.Context

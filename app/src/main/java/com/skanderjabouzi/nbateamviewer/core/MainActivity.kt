@@ -12,8 +12,8 @@ import com.skanderjabouzi.nbateamviewer.R
 import com.skanderjabouzi.nbateamviewer.domain.usecase.ConnectionType.*
 import com.skanderjabouzi.nbateamviewer.presentation.action
 import com.skanderjabouzi.nbateamviewer.presentation.snack
-import com.skanderjabouzi.nbateamviewer.util.ConnectivityLiveData
-import com.skanderjabouzi.nbateamviewer.util.ConnectivityLiveData.Companion.STATE
+import com.skanderjabouzi.nbateamviewer.presentation.util.ConnectivityLiveData
+import com.skanderjabouzi.nbateamviewer.presentation.util.ConnectivityLiveData.Companion.STATE
 import kotlinx.android.synthetic.main.activity_main.*
 
 

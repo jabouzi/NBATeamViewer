@@ -1,13 +1,10 @@
 package com.skanderjabouzi.nbateamviewer
 
-import com.nhaarman.mockitokotlin2.KArgumentCaptor
-import com.skanderjabouzi.nbateamviewer.util.MathUtils
+import com.skanderjabouzi.nbateamviewer.presentation.util.MathUtils
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.ArgumentCaptor
-import org.mockito.Captor
 import org.mockito.Mock
 import org.mockito.Mockito.*
 import org.mockito.junit.MockitoJUnitRunner

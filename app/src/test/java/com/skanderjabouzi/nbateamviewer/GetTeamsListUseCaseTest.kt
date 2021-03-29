@@ -7,11 +7,11 @@ import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import com.skanderjabouzi.nbateamviewer.BaseTest
-import com.skanderjabouzi.nbateamviewer.data.model.db.TeamEntity
-import com.skanderjabouzi.nbateamviewer.data.model.net.Team
-import com.skanderjabouzi.nbateamviewer.data.model.net.Teams
-import com.skanderjabouzi.nbateamviewer.domain.net.TeamsRepository
-import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.TeamsListUseCase
+import com.skanderjabouzi.nbateamviewer.data.Model.TeamModel
+import com.skanderjabouzi.nbateamviewer.domain.entity.Team
+import com.skanderjabouzi.nbateamviewer.domain.entity.Teams
+import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
+import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamsListUseCase
 import com.skanderjabouzi.nbateamviewer.domain.usecase.SortType
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamEntityConverter
 import kotlinx.coroutines.*
@@ -135,7 +135,7 @@ class GetTeamsListUseCaseTest: BaseTest() {
         }
     }
 
-    private val dummyTeamsFromDb: List<TeamEntity>?
+    private val dummyTeamsFromDb: List<TeamModel>?
         get() {
             val gson = GsonBuilder().create()
             return TeamEntityConverter.teamListToTeamEntityList(gson.fromJson(readJsonFile("mock.api/teams.json"), Teams::class.java).teams)

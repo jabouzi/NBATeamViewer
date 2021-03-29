@@ -35,8 +35,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.skanderjabouzi.nbateamviewer.R
-import com.skanderjabouzi.nbateamviewer.data.model.net.Team
-import com.skanderjabouzi.nbateamviewer.domain.listener.TeamClickListener
+import com.skanderjabouzi.nbateamviewer.domain.entity.Team
+import com.skanderjabouzi.nbateamviewer.presentation.listener.TeamClickListener
 import kotlinx.android.synthetic.main.teams_item.view.*
 
 class TeamsListAdapter (private val itemClickListener: TeamClickListener) :

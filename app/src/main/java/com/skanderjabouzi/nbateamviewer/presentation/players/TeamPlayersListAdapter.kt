@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.skanderjabouzi.nbateamviewer.R
-import com.skanderjabouzi.nbateamviewer.data.model.net.Player
+import com.skanderjabouzi.nbateamviewer.domain.entity.Player
 import kotlinx.android.synthetic.main.players_item.view.*
 
 class TeamPlayersListAdapter

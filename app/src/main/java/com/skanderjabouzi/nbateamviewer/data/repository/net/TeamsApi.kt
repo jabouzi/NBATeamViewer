@@ -1,7 +1,7 @@
-package com.skanderjabouzi.nbateamviewer.data.net
+package com.skanderjabouzi.nbateamviewer.data.repository.net
 
-import com.skanderjabouzi.nbateamviewer.data.model.net.Players
-import com.skanderjabouzi.nbateamviewer.data.model.net.Teams
+import com.skanderjabouzi.nbateamviewer.domain.entity.Players
+import com.skanderjabouzi.nbateamviewer.domain.entity.Teams
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

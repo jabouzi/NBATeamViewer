@@ -4,9 +4,9 @@ import android.os.Build
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.platform.app.InstrumentationRegistry
-import com.skanderjabouzi.nbateamviewer.data.db.TeamDao
-import com.skanderjabouzi.nbateamviewer.data.db.TeamDatabase
-import com.skanderjabouzi.nbateamviewer.data.model.db.TeamEntity
+import com.skanderjabouzi.nbateamviewer.data.repository.db.TeamDao
+import com.skanderjabouzi.nbateamviewer.data.repository.db.TeamDatabase
+import com.skanderjabouzi.nbateamviewer.data.Model.TeamModel
 import kotlinx.coroutines.*
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
@@ -53,8 +53,8 @@ class TeamDaoDababaseTest {
     @Test
     @Throws(Exception::class)
     fun `write Team And Read In List`() {
-        var teams : List<TeamEntity> = listOf()
-        val team: TeamEntity = TeamEntity(1, "Bummy Team", 44, 44)
+        var teams : List<TeamModel> = listOf()
+        val team: TeamModel = TeamModel(1, "Bummy Team", 44, 44)
         runBlocking(Dispatchers.IO) {
             teamDao.insert(team)
             teams = teamDao.getTeams()

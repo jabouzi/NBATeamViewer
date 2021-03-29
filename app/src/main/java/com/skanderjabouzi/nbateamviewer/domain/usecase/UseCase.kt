@@ -1,9 +1,8 @@
 package com.skanderjabouzi.nbateamviewer.domain.usecase
 
 import androidx.lifecycle.MutableLiveData
-import com.skanderjabouzi.nbateamviewer.data.model.net.Player
-import com.skanderjabouzi.nbateamviewer.data.model.net.Team
-import com.skanderjabouzi.nbateamviewer.data.net.ResultState
+import com.skanderjabouzi.nbateamviewer.domain.entity.Player
+import com.skanderjabouzi.nbateamviewer.domain.entity.Team
 
 open class UseCase {
     val playersList = MutableLiveData<List<Player>>()

@@ -2,8 +2,8 @@ package com.skanderjabouzi.nbateamviewer.presentation.players
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.TeamPlayersUseCase
-import com.skanderjabouzi.nbateamviewer.domain.net.TeamsRepositoryImpl
+import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamPlayersUseCase
+import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepositoryImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

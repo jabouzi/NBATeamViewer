@@ -1,4 +1,4 @@
-package com.skanderjabouzi.nbateamviewer.data.net
+package com.skanderjabouzi.nbateamviewer.domain.usecase
 
 sealed class ResultState {
     data class Success(val data: Any) : ResultState()

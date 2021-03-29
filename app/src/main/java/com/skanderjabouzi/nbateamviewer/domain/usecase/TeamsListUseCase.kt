@@ -1,12 +1,8 @@
-package com.skanderjabouzi.nbateamviewer.domain.listener.usecase
+package com.skanderjabouzi.nbateamviewer.domain.usecase
 
-import android.util.Log
-import com.skanderjabouzi.nbateamviewer.data.model.net.Team
-import com.skanderjabouzi.nbateamviewer.domain.net.TeamsRepository
-import com.skanderjabouzi.nbateamviewer.domain.usecase.SortType
-import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamEntityConverter
+import com.skanderjabouzi.nbateamviewer.domain.entity.Team
+import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
 import kotlinx.coroutines.*
-import kotlin.coroutines.coroutineContext
 
 class TeamsListUseCase (val repository: TeamsRepository) {
 

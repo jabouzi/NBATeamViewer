@@ -1,4 +1,4 @@
-package com.skanderjabouzi.nbateamviewer.util
+package com.skanderjabouzi.nbateamviewer.presentation.util
 
 open class MathUtils {
     open fun add(x: Int, y: Int): Int {

@@ -1,4 +1,4 @@
-package com.skanderjabouzi.nbateamviewer.data.net
+package com.skanderjabouzi.nbateamviewer.data.repository.net
 
 import android.content.Context
 import com.google.gson.GsonBuilder

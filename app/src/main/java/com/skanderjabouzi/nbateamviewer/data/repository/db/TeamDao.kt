@@ -28,18 +28,17 @@
  * THE SOFTWARE.
  */
 
-package com.skanderjabouzi.nbateamviewer.data.db
+package com.skanderjabouzi.nbateamviewer.data.repository.db
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.skanderjabouzi.nbateamviewer.data.model.db.TeamEntity
+import com.skanderjabouzi.nbateamviewer.data.Model.TeamModel
 
 @Dao
 interface TeamDao {
 
   @Insert(onConflict = OnConflictStrategy.REPLACE)
-  suspend fun insert(team: TeamEntity)
+  suspend fun insert(team: TeamModel)
 
-  @Query("select * from teamentity")
-  suspend fun getTeams(): List<TeamEntity>
+  @Query("select * from teammodel")
+  suspend fun getTeams(): List<TeamModel>
 }

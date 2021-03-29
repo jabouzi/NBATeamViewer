@@ -6,11 +6,11 @@ import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import com.skanderjabouzi.nbateamviewer.data.model.db.PlayerEntity
-import com.skanderjabouzi.nbateamviewer.data.model.net.Player
-import com.skanderjabouzi.nbateamviewer.data.model.net.Players
-import com.skanderjabouzi.nbateamviewer.domain.net.TeamsRepository
-import com.skanderjabouzi.nbateamviewer.domain.listener.usecase.TeamPlayersUseCase
+import com.skanderjabouzi.nbateamviewer.data.Model.PlayerModel
+import com.skanderjabouzi.nbateamviewer.domain.entity.Player
+import com.skanderjabouzi.nbateamviewer.domain.entity.Players
+import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
+import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamPlayersUseCase
 import com.skanderjabouzi.nbateamviewer.domain.usecase.PlayerEntityConverter
 import com.skanderjabouzi.nbateamviewer.domain.usecase.SortType
 import kotlinx.coroutines.*
@@ -135,7 +135,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
         }
     }
 
-    private val dummyPlayersFromDb: List<PlayerEntity>
+    private val dummyPlayersFromDb: List<PlayerModel>
         get() {
             val gson = GsonBuilder().create()
             return PlayerEntityConverter.playerListToPlayerEntityList(1, gson.fromJson(readJsonFile("mock.api/1.json"), Players::class.java).players)
@@ -147,7 +147,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
             return gson.fromJson(readJsonFile("mock.api/1.json"), Players::class.java).players
         }
 
-    private val dummyPlayersEmpty: List<PlayerEntity>?
+    private val dummyPlayersEmpty: List<PlayerModel>?
         get() {
             return listOf()
         }
