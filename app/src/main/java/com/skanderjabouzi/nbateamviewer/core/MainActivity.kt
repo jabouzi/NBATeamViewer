@@ -9,9 +9,9 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.skanderjabouzi.nbateamviewer.R
-import com.skanderjabouzi.nbateamviewer.domain.usecase.ConnectionType.*
 import com.skanderjabouzi.nbateamviewer.presentation.action
 import com.skanderjabouzi.nbateamviewer.presentation.snack
+import com.skanderjabouzi.nbateamviewer.presentation.util.ConnectionType
 import com.skanderjabouzi.nbateamviewer.presentation.util.ConnectivityLiveData
 import com.skanderjabouzi.nbateamviewer.presentation.util.ConnectivityLiveData.Companion.STATE
 import kotlinx.android.synthetic.main.activity_main.*
@@ -28,13 +28,13 @@ class MainActivity : AppCompatActivity(){
     val connectivityLiveData = ConnectivityLiveData((application))
     connectivityLiveData.observe(this, Observer<Boolean>(){
       when (it) {
-        true -> if (STATE == NOT_CONNECTED) {
+        true -> if (STATE == ConnectionType.NOT_CONNECTED) {
           showMessage(getString(R.string.connection_on))
-          STATE = CONNECTED
+          STATE = ConnectionType.CONNECTED
         }
         false -> {
           showMessage(getString(R.string.no_connection))
-          STATE = NOT_CONNECTED
+          STATE = ConnectionType.NOT_CONNECTED
         }
       }
     })

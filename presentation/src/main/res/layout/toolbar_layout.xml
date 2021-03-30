@@ -1,0 +1,47 @@
+<com.google.android.material.appbar.AppBarLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+  <androidx.appcompat.widget.Toolbar
+          android:id="@+id/toolbar"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:minHeight="?attr/actionBarSize"
+          app:titleTextColor="@android:color/white"
+          app:contentInsetLeft="@dimen/zero"
+          app:contentInsetStart="@dimen/zero"
+          app:layout_scrollFlags="scroll|enterAlways">
+
+    <TextView
+            android:id="@+id/team_toolbar_title"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            app:titleTextColor="@android:color/black"
+            android:layout_gravity="center_horizontal"
+    />
+
+    <TextView
+            android:id="@+id/players_toolbar_title"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            app:titleTextColor="@android:color/black"
+            android:layout_gravity="left"
+    />
+
+  </androidx.appcompat.widget.Toolbar>
+
+  <include android:id="@+id/teams_titles" layout="@layout/teams_titles"></include>
+
+  <include android:id="@+id/players_titles" layout="@layout/players_titles"></include>
+
+</com.google.android.material.appbar.AppBarLayout>

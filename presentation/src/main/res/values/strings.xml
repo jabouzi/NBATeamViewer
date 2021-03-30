@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">NBA Team Viewer</string>
+    <string name="presentation_module">Presentation</string>
+    <string name="error_occured">An error occured</string>
+    <string name="ok">OK</string>
+    <string name="teams_list">Teams List</string>
+    <string name="players_list">Players List</string>
+    <string name="retry">Retry</string>
+    <string name="sort_by_name">Sort by name</string>
+    <string name="sort_by_wins">Sort by wins</string>
+    <string name="sort_by_losses">Sort by losses</string>
+    <string name="sort_by_position">Sort by position</string>
+    <string name="sort_by_number">Sort by number</string>
+    <string name="wifi_on">Wifi turned ON</string>
+    <string name="mobile_on">Mobile data turned ON</string>
+    <string name="no_connection">Connection turned OFF</string>
+    <string name="connection_on">Connection is on</string>
+    <string name="full_name">Full name</string>
+    <string name="position">Position</string>
+    <string name="number">Number</string>
+    <string name="team">Team</string>
+    <string name="wins">Wins</string>
+    <string name="losses">Losses</string>
+</resources>
