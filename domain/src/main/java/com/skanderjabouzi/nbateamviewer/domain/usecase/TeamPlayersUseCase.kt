@@ -2,7 +2,8 @@ package com.skanderjabouzi.nbateamviewer.domain.usecase
 
 import android.app.Application
 import android.util.Log
-import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepositoryImpl
+import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamPlayersRepository
+import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.domain.model.Player
 import com.skanderjabouzi.nbateamviewer.domain.model.Players
 import kotlinx.coroutines.*
@@ -10,7 +11,7 @@ import java.io.IOException
 
 class TeamPlayersUseCase(val application: Application): UseCase() {
 
-    var repository = TeamsRepositoryImpl(application)
+    var repository = TeamPlayersRepository(application)
 
     suspend fun getTeamPlayers(teamId: Int) {
         val player = getTeamPlayersUsecase(teamId)

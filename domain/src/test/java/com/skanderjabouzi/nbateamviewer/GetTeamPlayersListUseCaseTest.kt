@@ -7,9 +7,9 @@ import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import com.skanderjabouzi.nbateamviewer.data.entity.PlayerEntity
+import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamPlayersRepository
 import com.skanderjabouzi.nbateamviewer.domain.model.Player
 import com.skanderjabouzi.nbateamviewer.domain.model.Players
-import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamPlayersUseCase
 import com.skanderjabouzi.nbateamviewer.domain.usecase.PlayerEntityConverter
 import com.skanderjabouzi.nbateamviewer.domain.usecase.SortType
@@ -32,7 +32,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
     var rule = InstantTaskExecutorRule()
 
     @Mock
-    private lateinit var repository: TeamsRepository
+    private lateinit var repository: TeamPlayersRepository
 
     private lateinit var usecase: TeamPlayersUseCase
 

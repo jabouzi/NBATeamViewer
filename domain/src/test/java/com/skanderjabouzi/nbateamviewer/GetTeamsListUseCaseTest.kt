@@ -6,11 +6,10 @@ import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import com.skanderjabouzi.nbateamviewer.BaseTest
 import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
+import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.domain.model.Team
 import com.skanderjabouzi.nbateamviewer.domain.model.Teams
-import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamsListUseCase
 import com.skanderjabouzi.nbateamviewer.domain.usecase.SortType
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamEntityConverter

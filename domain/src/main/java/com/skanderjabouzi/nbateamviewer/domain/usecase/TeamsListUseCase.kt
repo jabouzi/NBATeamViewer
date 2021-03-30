@@ -1,13 +1,13 @@
 package com.skanderjabouzi.nbateamviewer.domain.usecase
 
 import android.app.Application
-import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepositoryImpl
+import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.domain.model.Team
 import kotlinx.coroutines.*
 
 class TeamsListUseCase(application: Application) {
 
-    var repository = TeamsRepositoryImpl(application)
+    var repository = TeamsRepository(application)
 
     suspend fun getTeams(): List<Team> {
         var teams: List<Team>
