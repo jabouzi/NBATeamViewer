@@ -23,27 +23,6 @@ android {
 
     }
 
-    flavorDimensions("NBATeamViewer")
-    productFlavors {
-        create("dev") {
-            buildConfigField( "String", "TYPE", "\"dev\"")
-            buildConfigField( "String", "BASE_URL",  "\"http://skanderjabouzi.com/nbateamviewer/\"")
-        }
-        create("mock") {
-            buildConfigField("String", "TYPE", "\"mock\"")
-            buildConfigField("String", "BASE_URL",  "\"http:/mock.api/\"")
-        }
-    }
-
-    variantFilter {
-        if (buildType.name == "release" && flavors[0].name == "development") {
-            ignore = true
-        }
-        if (buildType.name == "debug" && flavors[0].name == "production") {
-            ignore = true
-        }
-    }
-
     buildTypes {
         named("release"){
             isMinifyEnabled = false

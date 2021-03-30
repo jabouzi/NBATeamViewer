@@ -1,5 +1,6 @@
 package com.skanderjabouzi.nbateamviewer
 
+import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.gson.GsonBuilder
 import com.nhaarman.mockitokotlin2.doReturn
@@ -21,9 +22,11 @@ import org.junit.runner.RunWith
 import org.mockito.ArgumentMatchers
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.RuntimeEnvironment
 import org.robolectric.RuntimeEnvironment.application
 
-@RunWith(MockitoJUnitRunner::class)
+@RunWith(RobolectricTestRunner::class)
 class GetTeamPlayersListUseCaseTest: BaseTest() {
 
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
@@ -39,7 +42,8 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
     @Before
     fun setUp() {
         Dispatchers.setMain(mainThreadSurrogate)
-        usecase = TeamPlayersUseCase(application)
+        val app = RuntimeEnvironment.application as Application
+        usecase = TeamPlayersUseCase(app)
     }
 
     @After
@@ -52,7 +56,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
     fun `Run getTeamPlayers and get repo from api is not called`() {
         runBlocking {
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
-            val players = usecase.getTeamPlayers(1)
+            usecase.getTeamPlayers(1)
             verify(repository, never()).getPlayers(ArgumentMatchers.anyInt())
             Assert.assertEquals(17, usecase.playersList.value?.size)
         }
@@ -75,7 +79,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
         runBlocking {
             TeamPlayersUseCase.sortByName = SortType.ASCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
-            val players = usecase.sortByName(1)
+            usecase.sortByName(1)
             Assert.assertEquals("Aldridge, LaMarcus", usecase.playersList.value?.first()?.full_name?.trim())
             Assert.assertEquals("Šamanić, Luka", usecase.playersList.value?.last()?.full_name?.trim())
         }
@@ -86,7 +90,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
         runBlocking {
             TeamPlayersUseCase.sortByName = SortType.DESCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
-            val players = usecase.sortByName(1)
+            usecase.sortByName(1)
             Assert.assertEquals("Šamanić, Luka", usecase.playersList.value?.first()?.full_name?.trim())
             Assert.assertEquals("Aldridge, LaMarcus", usecase.playersList.value?.last()?.full_name?.trim())
         }
@@ -97,7 +101,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
         runBlocking {
             TeamPlayersUseCase.sortByPosition = SortType.ASCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
-            val players = usecase.sortByPosition(1)
+            usecase.sortByPosition(1)
             Assert.assertEquals("C", usecase.playersList.value?.first()?.position)
             Assert.assertEquals("G/F", usecase.playersList.value?.last()?.position)
         }
@@ -108,7 +112,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
         runBlocking {
             TeamPlayersUseCase.sortByPosition = SortType.DESCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
-            val players = usecase.sortByPosition(1)
+            usecase.sortByPosition(1)
             Assert.assertEquals("G/F", usecase.playersList.value?.first()?.position)
             Assert.assertEquals("C", usecase.playersList.value?.last()?.position)
         }
@@ -119,7 +123,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
         runBlocking {
             TeamPlayersUseCase.sortByNumber = SortType.ASCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
-            val players = usecase.sortByNumber(1)
+            usecase.sortByNumber(1)
             Assert.assertEquals("1", usecase.playersList.value?.first()?.number)
             Assert.assertEquals("45", usecase.playersList.value?.last()?.number)
         }
@@ -130,7 +134,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
         runBlocking {
             TeamPlayersUseCase.sortByNumber = SortType.DESCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
-            val players = usecase.sortByNumber(1)
+            usecase.sortByNumber(1)
             Assert.assertEquals("45", usecase.playersList.value?.first()?.number)
             Assert.assertEquals("1", usecase.playersList.value?.last()?.number)
         }

@@ -1,5 +1,6 @@
 package com.skanderjabouzi.nbateamviewer
 
+import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.gson.GsonBuilder
 import com.nhaarman.mockitokotlin2.doReturn
@@ -17,10 +18,12 @@ import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.hamcrest.core.Is.`is`
 import org.junit.*
+import org.junit.runner.RunWith
 import org.mockito.*
-import org.robolectric.RuntimeEnvironment.application
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.RuntimeEnvironment
 
-
+@RunWith(RobolectricTestRunner::class)
 class TeamListViewModelTest: BaseTest() {
 
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
@@ -41,7 +44,8 @@ class TeamListViewModelTest: BaseTest() {
     fun setUp() {
         Dispatchers.setMain(mainThreadSurrogate)
         MockitoAnnotations.initMocks(this)
-        viewModel = TeamsListViewModel(application)
+        val app = RuntimeEnvironment.application as Application
+        viewModel = TeamsListViewModel(app)
     }
 
     @After

@@ -28,14 +28,28 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+//    defaultPublishConfig = "devDebug"
+//
+//    flavorDimensions("NBATeamViewer")
+//    productFlavors {
+//        create("dev") {
+//            buildConfigField( "String", "TYPE", "\"dev\"")
+//            buildConfigField( "String", "BASE_URL",  "\"http://skanderjabouzi.com/nbateamviewer/\"")
+//        }
+//        create("mock") {
+//            buildConfigField("String", "TYPE", "\"mock\"")
+//            buildConfigField("String", "BASE_URL",  "\"http:/mock.api/\"")
+//        }
+//    }
+//
+//    variantFilter {
+//        if (buildType.name == "release" && flavors[0].name == "dev" || flavors[0].name == "mock") {
+//            ignore = true
+//        }
+//        if (buildType.name == "debug" && flavors[0].name == "production") {
+//            ignore = true
+//        }
+//    }
 }
 
 dependencies {

@@ -2,10 +2,10 @@ package com.skanderjabouzi.nbateamviewer.domain.usecase
 
 import android.app.Application
 import android.util.Log
-import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamPlayersRepository
-import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.domain.model.Player
 import com.skanderjabouzi.nbateamviewer.domain.model.Players
+import com.skanderjabouzi.nbateamviewer.domain.*
+import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamPlayersRepository
 import kotlinx.coroutines.*
 import java.io.IOException
 

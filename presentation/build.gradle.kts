@@ -35,6 +35,25 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+//    flavorDimensions("NBATeamViewerPresentation")
+//    productFlavors {
+//        create("dev") {
+//            buildConfigField( "String", "TYPE", "\"dev\"")
+//        }
+//        create("mock") {
+//            buildConfigField("String", "TYPE", "\"mock\"")
+//        }
+//    }
+//
+//    variantFilter {
+//        if (buildType.name == "release" && flavors[0].name == "development") {
+//            ignore = true
+//        }
+//        if (buildType.name == "debug" && flavors[0].name == "production") {
+//            ignore = true
+//        }
+//    }
 }
 
 dependencies {

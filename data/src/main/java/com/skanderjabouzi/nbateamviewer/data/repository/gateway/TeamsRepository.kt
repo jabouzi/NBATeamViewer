@@ -15,13 +15,9 @@ import retrofit2.Response
 class TeamsRepository(val context: Context) {
 
   var db = TeamDatabase.getInstance(context)
-  var retrofitClient: RetrofitClient
+  var retrofitClient: RetrofitClient = RetrofitClient(Network.getRetrofit(context))
   private val teamDao: TeamDao = db.teamDao()
   private val playersDao: PlayersDao = db.playersDao()
-
-  init {
-    retrofitClient = RetrofitClient(Network.getRetrofit(context))
-  }
 
 
   suspend fun getSavedTeams(): List<TeamEntity> {

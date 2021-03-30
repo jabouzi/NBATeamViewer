@@ -1,5 +1,6 @@
 package com.skanderjabouzi.nbateamviewer
 
+import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.gson.GsonBuilder
 import com.nhaarman.mockitokotlin2.doReturn
@@ -20,10 +21,12 @@ import org.junit.*
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.RuntimeEnvironment
 import org.robolectric.RuntimeEnvironment.application
 
 
-@RunWith(MockitoJUnitRunner::class)
+@RunWith(RobolectricTestRunner::class)
 class GetTeamsListUseCaseTest: BaseTest() {
 
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
@@ -39,7 +42,8 @@ class GetTeamsListUseCaseTest: BaseTest() {
     @Before
     fun setUp() {
         Dispatchers.setMain(mainThreadSurrogate)
-        usecase = TeamsListUseCase(application)
+        val app = RuntimeEnvironment.application as Application
+        usecase = TeamsListUseCase(app)
     }
 
     @After
