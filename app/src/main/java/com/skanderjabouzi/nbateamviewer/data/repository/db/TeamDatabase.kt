@@ -35,11 +35,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.skanderjabouzi.nbateamviewer.data.entity.PlayerEntity
+import com.skanderjabouzi.nbateamviewer.data.entity.TeamDetailsEntity
 import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
 
 @Database(
-  entities = [TeamEntity::class, PlayerEntity::class],
-  version = 1,
+  entities = [TeamEntity::class, PlayerEntity::class, TeamDetailsEntity::class],
+  version = 2,
   exportSchema = false
 )
 
@@ -64,6 +65,5 @@ abstract class TeamDatabase : RoomDatabase() {
   abstract fun teamDao(): TeamDao
 
   abstract fun playersDao(): PlayersDao
-
 
 }

@@ -1,77 +1,102 @@
 package com.skanderjabouzi.nbateamviewer.domain.usecase
 
-import com.skanderjabouzi.nbateamviewer.domain.model.Team
+import androidx.lifecycle.MutableLiveData
+import com.skanderjabouzi.nbateamviewer.data.model.Team
 import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
-import kotlinx.coroutines.*
+import com.skanderjabouzi.nbateamviewer.data.model.Teams
+import kotlinx.coroutines.flow.collect
+import java.io.IOException
 
-class TeamsListUseCase (val repository: TeamsRepository) {
+class TeamsListUseCase (val repository: TeamsRepository): UseCase() {
+    val teamsList = MutableLiveData<List<Team>>()
 
-    suspend fun getTeams(): List<Team> {
-        var teams: List<Team> = listOf()
-        withContext(Dispatchers.IO) {
-            teams = getTeamsFromDb()
-            if (teams.isNullOrEmpty()) {
-                teams = getTeamsFromApi()
-                saveTeamsToDb(teams)
-            }
-        }
-        return teams
-    }
-
-    suspend fun sortByName(): List<Team> {
-        var teams: List<Team> = listOf()
-            teams = getTeams()
-            if (sortByName == SortType.ASCENDING) {
-                sortByName = SortType.DESCENDING
-                teams = teams.sortedWith(compareBy({ it.name }))
+    suspend fun getTeams() {
+        repository.getSavedTeams().collect { teamsFlow ->
+            if (!teamsFlow.isNullOrEmpty()) {
+                teamsList.value = TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
             } else {
-                sortByName = SortType.ASCENDING
-                teams = teams.sortedWith(compareByDescending({ it.name }))
+                getRequestFromApi(repository.getTeams())?.let {
+                    when (it) {
+                        is ResultState.Success -> {
+                            val teams = (it.data as Teams).teams
+                            saveTeamsToDb(teams)
+                            teamsList.postValue(teams)
+                        }
+                        else -> error.postValue((it as ResultState.Error).error)
+                    }
+                }
             }
-        return teams
-    }
-
-    suspend fun sortByWins(): List<Team> {
-        val teams = getTeams()
-        if (sortByWins == SortType.ASCENDING) {
-            sortByWins = SortType.DESCENDING
-            return teams.sortedWith(compareBy({ it.wins }))
-        } else {
-            sortByWins = SortType.ASCENDING
-            return teams.sortedWith(compareByDescending({ it.wins }))
         }
     }
 
-    suspend fun sortByLosses(): List<Team> {
-        val teams = getTeams()
-        if (sortByLosses == SortType.ASCENDING) {
-            sortByLosses = SortType.DESCENDING
-            return teams.sortedWith(compareBy({ it.losses }))
-        } else {
-            sortByLosses = SortType.ASCENDING
-            return teams.sortedWith(compareByDescending({ it.losses }))
+    suspend fun sortByName() {
+        repository.getSavedTeams().collect { teamsFlow ->
+            if (sortName == SortType.ASCENDING) {
+                sortName = SortType.DESCENDING
+                teamsList.value =
+                    TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
+                        .sortedWith(compareBy({ it.name }))
+            } else {
+                sortName = SortType.ASCENDING
+                teamsList.value =
+                    TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
+                        .sortedWith(compareByDescending({ it.name }))
+            }
         }
     }
 
-    suspend fun getTeamsFromApi(): List<Team> {
-        var teams: List<Team> = listOf()
-        teams = repository.getTeams().body()?.teams!!
-        return teams
+    suspend fun sortByWins() {
+        repository.getSavedTeams().collect { teamsFlow ->
+            if (sortWins == SortType.ASCENDING) {
+                sortWins = SortType.DESCENDING
+                teamsList.value =
+                    TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
+                        .sortedWith(compareBy({ it.wins }))
+            } else {
+                sortWins = SortType.ASCENDING
+                teamsList.value =
+                    TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
+                        .sortedWith(compareByDescending({ it.wins }))
+            }
+        }
     }
 
-    suspend fun getTeamsFromDb(): List<Team> {
-        var Teams: List<Team> = listOf()
-        Teams = TeamEntityConverter.teamEntityListToTeamList(repository.getSavedTeams())
-        return Teams
+    suspend fun sortByLosses() {
+        repository.getSavedTeams().collect { teamsFlow ->
+            if (sortLosses == SortType.ASCENDING) {
+                sortLosses = SortType.DESCENDING
+                teamsList.value =
+                    TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
+                        .sortedWith(compareBy({ it.losses }))
+            } else {
+                sortLosses = SortType.ASCENDING
+                teamsList.value =
+                    TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
+                        .sortedWith(compareByDescending({ it.losses }))
+            }
+        }
     }
+
+//    suspend private fun getTeamsFromApi(): ResultState? {
+//        return try {
+//            val response = repository.getTeams()
+//            if (response.isSuccessful) {
+//                response.body()?.let { ResultState.Success(it) }
+//            } else {
+//                ResultState.Error(response.message())
+//            }
+//        } catch (error: IOException) {
+//            error.message?.let { ResultState.Error(it) }
+//        }
+//    }
 
     suspend private fun saveTeamsToDb(teams: List<Team>) {
-        repository.saveTeams(TeamEntityConverter.teamListToTeamEntityList(teams))
+        repository.saveTeams(TeamEntityAdapter.teamListToTeamEntityList(teams))
     }
 
     companion object {
-        var sortByName: SortType = SortType.ASCENDING
-        var sortByWins: SortType = SortType.ASCENDING
-        var sortByLosses: SortType = SortType.ASCENDING
+        var sortName: SortType = SortType.ASCENDING
+        var sortWins: SortType = SortType.ASCENDING
+        var sortLosses: SortType = SortType.ASCENDING
     }
 }

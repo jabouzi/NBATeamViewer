@@ -1,158 +1,158 @@
 {
-    "id": 13,
+    "id": 5,
     "players": [
         {
-            "position": "F",
-            "number": "2",
-            "full_name": "Aminu, Al-Farouq ",
-            "height": "6 ft 8 in (2.03 m)",
-            "weight": "220 lb (100 kg)",
-            "date_of_birth": "1990–09–21",
-            "from": "Wake Forest"
-        },
-        {
             "position": "G",
-            "number": "14",
-            "full_name": "Augustin, D. J. (FA)",
-            "height": "5 ft 11 in (1.80 m)",
-            "weight": "183 lb (83 kg)",
-            "date_of_birth": "1987–11–10",
-            "from": "Texas"
+            "number": "21",
+            "full_name": "Beverley, Patrick",
+            "height": "6 ft 1 in (1.85 m)",
+            "weight": "180 lb (82 kg)",
+            "date_of_birth": "1988–07–12",
+            "from": "Arkansas"
         },
         {
-            "position": "C",
-            "number": "5",
-            "full_name": "Bamba, Mohamed",
-            "height": "7 ft 0 in (2.13 m)",
-            "weight": "231 lb (105 kg)",
-            "date_of_birth": "1998–05–12",
-            "from": "Texas"
-        },
-        {
-            "position": "C",
-            "number": "24",
-            "full_name": "Birch, Khem",
-            "height": "6 ft 9 in (2.06 m)",
-            "weight": "220 lb (100 kg)",
-            "date_of_birth": "1992–09–28",
-            "from": "UNLV"
-        },
-        {
-            "position": "G",
+            "position": "G/F",
             "number": "7",
-            "full_name": "Carter-Williams, Michael (FA)",
-            "height": "6 ft 5 in (1.96 m)",
-            "weight": "190 lb (86 kg)",
-            "date_of_birth": "1991–10–10",
-            "from": "Syracuse"
-        },
-        {
-            "position": "F",
-            "number": "12",
-            "full_name": "Clark, Gary (FA)",
-            "height": "6 ft 6 in (1.98 m)",
-            "weight": "225 lb (102 kg)",
-            "date_of_birth": "1994–11–16",
-            "from": "Cincinnati"
-        },
-        {
-            "position": "F",
-            "number": "11",
-            "full_name": "Ennis, James",
-            "height": "6 ft 6 in (1.98 m)",
-            "weight": "215 lb (98 kg)",
-            "date_of_birth": "1990–07–01",
-            "from": "Long Beach State"
-        },
-        {
-            "position": "G/F",
-            "number": "10",
-            "full_name": "Fournier, Evan",
+            "full_name": "Coffey, Amir (TW)",
             "height": "6 ft 7 in (2.01 m)",
-            "weight": "205 lb (93 kg)",
-            "date_of_birth": "1992–10–29",
-            "from": "France"
+            "weight": "210 lb (95 kg)",
+            "date_of_birth": "1997–06–17",
+            "from": "Minnesota"
         },
         {
-            "position": "G/F",
-            "number": "35",
-            "full_name": "Frazier, Melvin",
-            "height": "6 ft 5 in (1.96 m)",
-            "weight": "215 lb (98 kg)",
-            "date_of_birth": "1996–08–30",
-            "from": "Tulane"
+            "position": "F",
+            "number": "13",
+            "full_name": "George, Paul",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "220 lb (100 kg)",
+            "date_of_birth": "1990–05–02",
+            "from": "Fresno State"
+        },
+        {
+            "position": "F/C",
+            "number": "4",
+            "full_name": "Green, JaMychal",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "227 lb (103 kg)",
+            "date_of_birth": "1990–06–21",
+            "from": "Alabama"
+        },
+        {
+            "position": "F/C",
+            "number": "5",
+            "full_name": "Harrell, Montrezl",
+            "height": "6 ft 7 in (2.01 m)",
+            "weight": "240 lb (109 kg)",
+            "date_of_birth": "1994–01–26",
+            "from": "Louisville"
         },
         {
             "position": "G",
-            "number": "20",
-            "full_name": "Fultz, Markelle",
-            "height": "6 ft 3 in (1.91 m)",
-            "weight": "209 lb (95 kg)",
-            "date_of_birth": "1998–05–29",
-            "from": "Washington"
-        },
-        {
-            "position": "F",
-            "number": "0",
-            "full_name": "Gordon, Aaron",
-            "height": "6 ft 8 in (2.03 m)",
-            "weight": "235 lb (107 kg)",
-            "date_of_birth": "1995–09–16",
-            "from": "Arizona"
-        },
-        {
-            "position": "F",
             "number": "1",
-            "full_name": "Isaac, Jonathan ",
-            "height": "6 ft 11 in (2.11 m)",
-            "weight": "230 lb (104 kg)",
-            "date_of_birth": "1997–10–03",
+            "full_name": "Jackson, Reggie",
+            "height": "6 ft 3 in (1.91 m)",
+            "weight": "208 lb (94 kg)",
+            "date_of_birth": "1990–04–16",
+            "from": "Boston College"
+        },
+        {
+            "position": "F/C",
+            "number": "25",
+            "full_name": "Kabengele, Mfiondu",
+            "height": "6 ft 9 in (2.06 m)",
+            "weight": "250 lb (113 kg)",
+            "date_of_birth": "1997–08–14",
             "from": "Florida State"
         },
         {
             "position": "F",
-            "number": "25",
-            "full_name": "Iwundu, Wes (FA)",
-            "height": "6 ft 6 in (1.98 m)",
-            "weight": "195 lb (88 kg)",
-            "date_of_birth": "1994–12–20",
-            "from": "Kansas State"
-        },
-        {
-            "position": "G",
-            "number": "13",
-            "full_name": "Johnson, B. J. (TW, FA)",
+            "number": "2",
+            "full_name": "Leonard, Kawhi",
             "height": "6 ft 7 in (2.01 m)",
-            "weight": "200 lb (91 kg)",
-            "date_of_birth": "1995–12–21",
-            "from": "La Salle"
-        },
-        {
-            "position": "F",
-            "number": "23",
-            "full_name": "Law, Vic (TW, FA)",
-            "height": "6 ft 7 in (2.01 m)",
-            "weight": "200 lb (91 kg)",
-            "date_of_birth": "1995–12–19",
-            "from": "Northwestern"
+            "weight": "225 lb (102 kg)",
+            "date_of_birth": "1991–06–29",
+            "from": "San Diego State"
         },
         {
             "position": "G/F",
+            "number": "14",
+            "full_name": "Mann, Terance",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "215 lb (98 kg)",
+            "date_of_birth": "1996–10–18",
+            "from": "Florida State"
+        },
+        {
+            "position": "G",
+            "number": "19",
+            "full_name": "McGruder, Rodney",
+            "height": "6 ft 4 in (1.93 m)",
+            "weight": "205 lb (93 kg)",
+            "date_of_birth": "1991–07–29",
+            "from": "Kansas State"
+        },
+        {
+            "position": "F",
             "number": "31",
-            "full_name": "Ross, Terrence",
-            "height": "6 ft 6 in (1.98 m)",
-            "weight": "206 lb (93 kg)",
-            "date_of_birth": "1991–02–05",
-            "from": "Washington"
+            "full_name": "Morris, Marcus",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "218 lb (99 kg)",
+            "date_of_birth": "1989–09–02",
+            "from": "Kansas"
+        },
+        {
+            "position": "F",
+            "number": "15",
+            "full_name": "Motley, Johnathan (TW)",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "230 lb (104 kg)",
+            "date_of_birth": "1995–05–04",
+            "from": "Baylor"
+        },
+        {
+            "position": "F/C",
+            "number": "55",
+            "full_name": "Noah, Joakim",
+            "height": "6 ft 11 in (2.11 m)",
+            "weight": "232 lb (105 kg)",
+            "date_of_birth": "1985–02–25",
+            "from": "Florida"
+        },
+        {
+            "position": "F",
+            "number": "54",
+            "full_name": "Patterson, Patrick",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "235 lb (107 kg)",
+            "date_of_birth": "1989–03–14",
+            "from": "Kentucky"
+        },
+        {
+            "position": "G",
+            "number": "20",
+            "full_name": "Shamet, Landry ",
+            "height": "6 ft 4 in (1.93 m)",
+            "weight": "190 lb (86 kg)",
+            "date_of_birth": "1997–03–13",
+            "from": "Wichita State"
+        },
+        {
+            "position": "G",
+            "number": "23",
+            "full_name": "Williams, Lou",
+            "height": "6 ft 1 in (1.85 m)",
+            "weight": "175 lb (79 kg)",
+            "date_of_birth": "1986–10–27",
+            "from": "South Gwinnett HS (GA)"
         },
         {
             "position": "C",
-            "number": "9",
-            "full_name": "Vučević, Nikola",
-            "height": "6 ft 11 in (2.11 m)",
-            "weight": "260 lb (118 kg)",
-            "date_of_birth": "1990–10–24",
-            "from": "Southern California"
+            "number": "40",
+            "full_name": "Zubac, Ivica",
+            "height": "7 ft 0 in (2.13 m)",
+            "weight": "240 lb (109 kg)",
+            "date_of_birth": "1997–03–18",
+            "from": "Croatia"
         }
     ]
 }

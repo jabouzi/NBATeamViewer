@@ -1,4 +1,4 @@
-package com.skanderjabouzi.nbateamviewer.domain.model
+package com.skanderjabouzi.nbateamviewer.data.model
 
 import java.io.Serializable
 

@@ -8,11 +8,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-sealed class NBAResult<out R> {
-    data class Success<out T>(val data: T) : NBAResult<T>()
-    data class Error(val exception: Exception) : NBAResult<Nothing>()
-}
-
 object Network {
     fun getRetrofit(context: Context): Retrofit {
         val httpLoggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)

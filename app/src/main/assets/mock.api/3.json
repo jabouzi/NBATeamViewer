@@ -1,167 +1,194 @@
 {
-    "id": 3,
+    "id": 25,
     "players": [
         {
-            "position": "F",
-            "number": "37",
-            "full_name": "Antetokounmpo, Kostas (TW)",
-            "height": "6 ft 10 in (2.08 m)",
-            "weight": "200 lb (91 kg)",
-            "date_of_birth": "1997–11–20",
-            "from": "Dayton"
-        },
-        {
-            "position": "G",
-            "number": "11",
-            "full_name": "Bradley, Avery (L)",
-            "height": "6 ft 3 in (1.91 m)",
-            "weight": "180 lb (82 kg)",
-            "date_of_birth": "1990–11–26",
+            "position": "C",
+            "number": "31",
+            "full_name": "Allen, Jarrett",
+            "height": "6 ft 11 in (2.11 m)",
+            "weight": "243 lb (110 kg)",
+            "date_of_birth": "1998–04–21",
             "from": "Texas"
         },
         {
-            "position": "F",
-            "number": "12",
-            "full_name": "Cacok, Devontae (TW)",
-            "height": "6 ft 8 in (2.03 m)",
-            "weight": "240 lb (109 kg)",
-            "date_of_birth": "1996–10–08",
-            "from": "UNC Wilmington"
+            "position": "G/F",
+            "number": "10",
+            "full_name": "Anderson, Justin (FA)",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "231 lb (105 kg)",
+            "date_of_birth": "1993–11–19",
+            "from": "Virginia"
         },
         {
-            "position": "G",
-            "number": "1",
-            "full_name": "Caldwell-Pope, Kentavious",
-            "height": "6 ft 5 in (1.96 m)",
-            "weight": "204 lb (93 kg)",
-            "date_of_birth": "1993–02–18",
-            "from": "Georgia"
+            "position": "F",
+            "number": "21",
+            "full_name": "Chandler, Wilson  (FA)",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "235 lb (107 kg)",
+            "date_of_birth": "1987–05–10",
+            "from": "DePaul"
         },
         {
             "position": "G",
             "number": "4",
-            "full_name": "Caruso, Alex",
-            "height": "6 ft 5 in (1.96 m)",
-            "weight": "186 lb (84 kg)",
-            "date_of_birth": "1994–02–28",
-            "from": "Texas A&M"
-        },
-        {
-            "position": "G",
-            "number": "28",
-            "full_name": "Cook, Quinn",
-            "height": "6 ft 1 in (1.85 m)",
-            "weight": "180 lb (82 kg)",
-            "date_of_birth": "1993–03–23",
-            "from": "Duke"
+            "full_name": "Chiozza, Chris (TW, FA)",
+            "height": "5 ft 11 in (1.80 m)",
+            "weight": "175 lb (79 kg)",
+            "date_of_birth": "1995–11–25",
+            "from": "Florida"
         },
         {
             "position": "F/C",
-            "number": "3",
-            "full_name": "Davis, Anthony",
-            "height": "6 ft 10 in (2.08 m)",
-            "weight": "253 lb (115 kg)",
-            "date_of_birth": "1993–03–11",
-            "from": "Kentucky"
-        },
-        {
-            "position": "F",
-            "number": "10",
-            "full_name": "Dudley, Jared",
-            "height": "6 ft 6 in (1.98 m)",
-            "weight": "237 lb (108 kg)",
-            "date_of_birth": "1985–07–10",
-            "from": "Boston College"
-        },
-        {
-            "position": "G/F",
-            "number": "14",
-            "full_name": "Green, Danny",
-            "height": "6 ft 6 in (1.98 m)",
+            "number": "33",
+            "full_name": "Claxton, Nicolas ",
+            "height": "6 ft 11 in (2.11 m)",
             "weight": "215 lb (98 kg)",
-            "date_of_birth": "1987–06–22",
-            "from": "North Carolina"
+            "date_of_birth": "1999–04–17",
+            "from": "Georgia"
         },
         {
             "position": "G",
-            "number": "5",
-            "full_name": "Horton-Tucker, Talen",
-            "height": "6 ft 4 in (1.93 m)",
-            "weight": "234 lb (106 kg)",
-            "date_of_birth": "2000–11–25",
-            "from": "Iowa State"
+            "number": "1",
+            "full_name": "Crawford, Jamal  (FA)",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "185 lb (84 kg)",
+            "date_of_birth": "1980–03–26",
+            "from": "Michigan"
         },
         {
-            "position": "C",
-            "number": "39",
-            "full_name": "Howard, Dwight",
-            "height": "6 ft 10 in (2.08 m)",
-            "weight": "265 lb (120 kg)",
-            "date_of_birth": "1985–12–08",
-            "from": "SW Atlanta Academy (GA)"
+            "position": "G",
+            "number": "26",
+            "full_name": "Dinwiddie, Spencer ",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "215 lb (98 kg)",
+            "date_of_birth": "1993–04–06",
+            "from": "Colorado"
         },
         {
             "position": "F",
-            "number": "23",
-            "full_name": "James, LeBron",
+            "number": "7",
+            "full_name": "Durant, Kevin ",
+            "height": "6 ft 10 in (2.08 m)",
+            "weight": "240 lb (109 kg)",
+            "date_of_birth": "1988–09–29",
+            "from": "Texas"
+        },
+        {
+            "position": "F/C",
+            "number": "45",
+            "full_name": "Hall, Donta (FA)",
             "height": "6 ft 9 in (2.06 m)",
-            "weight": "250 lb (113 kg)",
-            "date_of_birth": "1984–12–30",
-            "from": "St. Vincent–St. Mary HS (OH)"
+            "weight": "229 lb (104 kg)",
+            "date_of_birth": "1997–08–07",
+            "from": "Alabama"
+        },
+        {
+            "position": "G/F",
+            "number": "12",
+            "full_name": "Harris, Joe (FA)",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "220 lb (100 kg)",
+            "date_of_birth": "1991–09–07",
+            "from": "Virginia"
+        },
+        {
+            "position": "G",
+            "number": "11",
+            "full_name": "Irving, Kyrie ",
+            "height": "6 ft 2 in (1.88 m)",
+            "weight": "195 lb (88 kg)",
+            "date_of_birth": "1992–03–23",
+            "from": "Duke"
+        },
+        {
+            "position": "G",
+            "number": "8",
+            "full_name": "Johnson, Tyler (FA)",
+            "height": "6 ft 3 in (1.91 m)",
+            "weight": "186 lb (84 kg)",
+            "date_of_birth": "1992–05–07",
+            "from": "Fresno State"
+        },
+        {
+            "position": "C",
+            "number": "6",
+            "full_name": "Jordan, DeAndre ",
+            "height": "6 ft 11 in (2.11 m)",
+            "weight": "265 lb (120 kg)",
+            "date_of_birth": "1988–07–21",
+            "from": "Texas A&M"
         },
         {
             "position": "F",
             "number": "0",
-            "full_name": "Kuzma, Kyle",
-            "height": "6 ft 8 in (2.03 m)",
-            "weight": "221 lb (100 kg)",
-            "date_of_birth": "1995–07–24",
-            "from": "Utah"
-        },
-        {
-            "position": "C",
-            "number": "7",
-            "full_name": "McGee, JaVale",
-            "height": "7 ft 0 in (2.13 m)",
-            "weight": "270 lb (122 kg)",
-            "date_of_birth": "1988–01–19",
-            "from": "Nevada"
-        },
-        {
-            "position": "F",
-            "number": "88",
-            "full_name": "Morris, Markieff",
-            "height": "6 ft 8 in (2.03 m)",
-            "weight": "245 lb (111 kg)",
-            "date_of_birth": "1989–09–02",
-            "from": "Kansas"
+            "full_name": "Kurucs, Rodions",
+            "height": "6 ft 9 in (2.06 m)",
+            "weight": "228 lb (103 kg)",
+            "date_of_birth": "1998–02–05",
+            "from": "Latvia"
         },
         {
             "position": "G",
-            "number": "9",
-            "full_name": "Rondo, Rajon ",
-            "height": "6 ft 1 in (1.85 m)",
-            "weight": "180 lb (82 kg)",
-            "date_of_birth": "1986–02–22",
-            "from": "Kentucky"
+            "number": "22",
+            "full_name": "LeVert, Caris",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "205 lb (93 kg)",
+            "date_of_birth": "1994–08–25",
+            "from": "Michigan"
         },
         {
             "position": "G/F",
-            "number": "21",
-            "full_name": "Smith, J. R.",
-            "height": "6 ft 6 in (1.98 m)",
-            "weight": "225 lb (102 kg)",
-            "date_of_birth": "1985–09–09",
-            "from": "Saint Benedict's Prep (NJ)"
+            "number": "9",
+            "full_name": "Luwawu-Cabarrot, Timothé",
+            "height": "6 ft 7 in (2.01 m)",
+            "weight": "220 lb (100 kg)",
+            "date_of_birth": "1995–05–09",
+            "from": "France"
         },
         {
             "position": "G",
-            "number": "18",
-            "full_name": "Waiters, Dion",
-            "height": "6 ft 3 in (1.91 m)",
-            "weight": "210 lb (95 kg)",
-            "date_of_birth": "1991–12–10",
-            "from": "Syracuse"
+            "number": "0",
+            "full_name": "Martin, Jeremiah (TW)",
+            "height": "6 ft 2 in (1.88 m)",
+            "weight": "185 lb (84 kg)",
+            "date_of_birth": "1996–06–19",
+            "from": "Memphis"
+        },
+        {
+            "position": "G/F",
+            "number": "13",
+            "full_name": "Musa, Džanan",
+            "height": "6 ft 9 in (2.06 m)",
+            "weight": "217 lb (98 kg)",
+            "date_of_birth": "1999–05–08",
+            "from": "Bosnia and Herzegovina"
+        },
+        {
+            "position": "F",
+            "number": "2",
+            "full_name": "Prince, Taurean ",
+            "height": "6 ft 7 in (2.01 m)",
+            "weight": "218 lb (99 kg)",
+            "date_of_birth": "1994–03–22",
+            "from": "Baylor"
+        },
+        {
+            "position": "G/F",
+            "number": "17",
+            "full_name": "Temple, Garrett",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "195 lb (88 kg)",
+            "date_of_birth": "1986–05–08",
+            "from": "LSU"
+        },
+        {
+            "position": "F",
+            "number": "42",
+            "full_name": "Thomas, Lance (FA)",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "235 lb (107 kg)",
+            "date_of_birth": "1988–04–24",
+            "from": "Duke"
         }
     ]
 }

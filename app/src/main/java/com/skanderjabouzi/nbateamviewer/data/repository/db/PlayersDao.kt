@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.skanderjabouzi.nbateamviewer.data.entity.PlayerEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PlayersDao {
@@ -12,5 +13,5 @@ interface PlayersDao {
     suspend fun insert(players: PlayerEntity)
 
     @Query("SELECT * FROM playerentity WHERE teamId = :id")
-    suspend fun getPlayers(id: Int?): List<PlayerEntity>
+    fun getPlayers(id: Int?): Flow<List<PlayerEntity>>
 }

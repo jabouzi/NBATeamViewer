@@ -1,158 +1,149 @@
 {
-    "id": 24,
+    "id": 29,
     "players": [
         {
+            "position": "C",
+            "number": "22",
+            "full_name": "Ayton, Deandre",
+            "height": "6 ft 11 in (2.11 m)",
+            "weight": "250 lb (113 kg)",
+            "date_of_birth": "1998–07–23",
+            "from": "Arizona"
+        },
+        {
+            "position": "F/C",
+            "number": "46",
+            "full_name": "Baynes, Aron (FA)",
+            "height": "6 ft 10 in (2.08 m)",
+            "weight": "260 lb (118 kg)",
+            "date_of_birth": "1986–12–09",
+            "from": "Washington State"
+        },
+        {
             "position": "G",
-            "number": "9",
-            "full_name": "Barrett, RJ",
-            "height": "6 ft 6 in (1.98 m)",
-            "weight": "214 lb (97 kg)",
-            "date_of_birth": "2000–07–14",
-            "from": "Duke"
+            "number": "1",
+            "full_name": "Booker, Devin",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "206 lb (93 kg)",
+            "date_of_birth": "1996–10–30",
+            "from": "Kentucky"
         },
         {
             "position": "F",
-            "number": "17",
-            "full_name": "Brazdeikis, Ignas",
+            "number": "25",
+            "full_name": "Bridges, Mikal",
             "height": "6 ft 6 in (1.98 m)",
-            "weight": "221 lb (100 kg)",
-            "date_of_birth": "1999–01–08",
-            "from": "Michigan"
+            "weight": "209 lb (95 kg)",
+            "date_of_birth": "1996–08–30",
+            "from": "Villanova"
+        },
+        {
+            "position": "G",
+            "number": "4",
+            "full_name": "Carter, Jevon (FA)",
+            "height": "6 ft 1 in (1.85 m)",
+            "weight": "200 lb (91 kg)",
+            "date_of_birth": "1995–09–14",
+            "from": "West Virginia"
+        },
+        {
+            "position": "F/C",
+            "number": "14",
+            "full_name": "Diallo, Cheick",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "219 lb (99 kg)",
+            "date_of_birth": "1996–09–13",
+            "from": "Kansas"
         },
         {
             "position": "G/F",
-            "number": "25",
-            "full_name": "Bullock, Reggie",
-            "height": "6 ft 6 in (1.98 m)",
-            "weight": "205 lb (93 kg)",
-            "date_of_birth": "1991–03–16",
-            "from": "North Carolina"
-        },
-        {
-            "position": "G",
-            "number": "21",
-            "full_name": "Dotson, Damyean (FA)",
+            "number": "10",
+            "full_name": "Jerome, Ty",
             "height": "6 ft 5 in (1.96 m)",
-            "weight": "210 lb (95 kg)",
-            "date_of_birth": "1994–05–06",
-            "from": "Houston"
-        },
-        {
-            "position": "G",
-            "number": "2",
-            "full_name": "Ellington, Wayne",
-            "height": "6 ft 4 in (1.93 m)",
-            "weight": "207 lb (94 kg)",
-            "date_of_birth": "1987–11–29",
-            "from": "North Carolina"
+            "weight": "195 lb (88 kg)",
+            "date_of_birth": "1997–07–08",
+            "from": "Virginia"
         },
         {
             "position": "F",
-            "number": "67",
-            "full_name": "Gibson, Taj",
-            "height": "6 ft 9 in (2.06 m)",
-            "weight": "232 lb (105 kg)",
-            "date_of_birth": "1985–06–24",
-            "from": "Southern California"
+            "number": "23",
+            "full_name": "Johnson, Cameron",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "210 lb (95 kg)",
+            "date_of_birth": "1996–03–03",
+            "from": "North Carolina"
+        },
+        {
+            "position": "F/C",
+            "number": "8",
+            "full_name": "Kaminsky, Frank",
+            "height": "7 ft 0 in (2.13 m)",
+            "weight": "240 lb (109 kg)",
+            "date_of_birth": "1993–04–04",
+            "from": "Wisconsin"
+        },
+        {
+            "position": "G",
+            "number": "0",
+            "full_name": "Lecque, Jalen",
+            "height": "6 ft 4 in (1.93 m)",
+            "weight": "185 lb (84 kg)",
+            "date_of_birth": "2000–06–13",
+            "from": "Brewster Academy (NH)"
+        },
+        {
+            "position": "G/F",
+            "number": "2",
+            "full_name": "Okobo, Élie",
+            "height": "6 ft 2 in (1.88 m)",
+            "weight": "190 lb (86 kg)",
+            "date_of_birth": "1997–10–23",
+            "from": "France"
         },
         {
             "position": "G/F",
             "number": "3",
-            "full_name": "Harkless, Maurice (FA)",
+            "full_name": "Oubre, Kelly ",
             "height": "6 ft 7 in (2.01 m)",
-            "weight": "220 lb (100 kg)",
-            "date_of_birth": "1993–05–11",
-            "from": "St. John's"
-        },
-        {
-            "position": "G",
-            "number": "–",
-            "full_name": "Harper, Jared (TW)",
-            "height": "5 ft 10 in (1.78 m)",
-            "weight": "175 lb (79 kg)",
-            "date_of_birth": "1997–09–14",
-            "from": "Auburn"
+            "weight": "203 lb (92 kg)",
+            "date_of_birth": "1995–12–09",
+            "from": "Kansas"
         },
         {
             "position": "F",
-            "number": "20",
-            "full_name": "Knox, Kevin",
-            "height": "6 ft 7 in (2.01 m)",
-            "weight": "215 lb (98 kg)",
-            "date_of_birth": "1999–08–11",
-            "from": "Kentucky"
+            "number": "41",
+            "full_name": "Owens, Tariq (TW, FA)",
+            "height": "6 ft 10 in (2.08 m)",
+            "weight": "205 lb (93 kg)",
+            "date_of_birth": "1995–06–30",
+            "from": "Texas Tech"
+        },
+        {
+            "position": "G",
+            "number": "15",
+            "full_name": "Payne, Cameron",
+            "height": "6 ft 1 in (1.85 m)",
+            "weight": "183 lb (83 kg)",
+            "date_of_birth": "1994–08–08",
+            "from": "Murray State"
         },
         {
             "position": "G",
             "number": "11",
-            "full_name": "Ntilikina, Frank",
-            "height": "6 ft 4 in (1.93 m)",
-            "weight": "200 lb (91 kg)",
-            "date_of_birth": "1998–07–28",
-            "from": "France"
-        },
-        {
-            "position": "G",
-            "number": "6",
-            "full_name": "Payton, Elfrid",
+            "full_name": "Rubio, Ricky",
             "height": "6 ft 3 in (1.91 m)",
-            "weight": "195 lb (88 kg)",
-            "date_of_birth": "1994–02–22",
-            "from": "Louisiana"
-        },
-        {
-            "position": "G/F",
-            "number": "–",
-            "full_name": "Pinson, Theo",
-            "height": "6 ft 5 in (1.96 m)",
-            "weight": "212 lb (96 kg)",
-            "date_of_birth": "1995–11–05",
-            "from": "North Carolina"
+            "weight": "190 lb (86 kg)",
+            "date_of_birth": "1990–10–21",
+            "from": "Spain"
         },
         {
             "position": "F",
-            "number": "1",
-            "full_name": "Portis, Bobby",
+            "number": "20",
+            "full_name": "Šarić, Dario (FA)",
             "height": "6 ft 10 in (2.08 m)",
-            "weight": "250 lb (113 kg)",
-            "date_of_birth": "1995–02–10",
-            "from": "Arkansas"
-        },
-        {
-            "position": "F",
-            "number": "30",
-            "full_name": "Randle, Julius",
-            "height": "6 ft 8 in (2.03 m)",
-            "weight": "250 lb (113 kg)",
-            "date_of_birth": "1994–11–29",
-            "from": "Kentucky"
-        },
-        {
-            "position": "C",
-            "number": "23",
-            "full_name": "Robinson, Mitchell",
-            "height": "7 ft 0 in (2.13 m)",
-            "weight": "240 lb (109 kg)",
-            "date_of_birth": "1998–04–01",
-            "from": "Chalmette HS (LA)"
-        },
-        {
-            "position": "G",
-            "number": "5",
-            "full_name": "Smith, Dennis",
-            "height": "6 ft 2 in (1.88 m)",
-            "weight": "205 lb (93 kg)",
-            "date_of_birth": "1997–11–25",
-            "from": "North Carolina State"
-        },
-        {
-            "position": "F",
-            "number": "45",
-            "full_name": "Wooten, Kenny (TW)",
-            "height": "6 ft 8 in (2.03 m)",
-            "weight": "235 lb (107 kg)",
-            "date_of_birth": "1998–04–17",
-            "from": "Oregon"
+            "weight": "225 lb (102 kg)",
+            "date_of_birth": "1994–04–08",
+            "from": "Croatia"
         }
     ]
 }

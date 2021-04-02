@@ -1,140 +1,158 @@
 {
-    "id": 16,
+    "id": 14,
     "players": [
         {
-            "position": "G/F",
-            "number": "95",
-            "full_name": "Bembry, DeAndre' (FA)",
-            "height": "6 ft 5 in (1.96 m)",
-            "weight": "210 lb (95 kg)",
-            "date_of_birth": "1994–07–04",
-            "from": "Saint Joseph's"
-        },
-        {
-            "position": "G",
-            "number": "4",
-            "full_name": "Brown, Charlie (TW, FA)",
-            "height": "6 ft 6 in (1.98 m)",
-            "weight": "199 lb (90 kg)",
-            "date_of_birth": "1998–02–02",
-            "from": "Saint Joseph's"
+            "position": "F/C",
+            "number": "13",
+            "full_name": "Adebayo, Bam",
+            "height": "6 ft 9 in (2.06 m)",
+            "weight": "255 lb (116 kg)",
+            "date_of_birth": "1997–07–18",
+            "from": "Kentucky"
         },
         {
             "position": "F/C",
             "number": "17",
-            "full_name": "Capela, Clint",
+            "full_name": "Alexander, Kyle (TW)",
             "height": "6 ft 10 in (2.08 m)",
-            "weight": "240 lb (109 kg)",
-            "date_of_birth": "1994–05–18",
-            "from": "Switzerland"
+            "weight": "216 lb (98 kg)",
+            "date_of_birth": "1996–10–21",
+            "from": "Tennessee"
         },
         {
             "position": "F",
-            "number": "20",
-            "full_name": "Collins, John",
-            "height": "6 ft 9 in (2.06 m)",
+            "number": "22",
+            "full_name": "Butler, Jimmy",
+            "height": "6 ft 7 in (2.01 m)",
+            "weight": "230 lb (104 kg)",
+            "date_of_birth": "1989–09–14",
+            "from": "Marquette"
+        },
+        {
+            "position": "F",
+            "number": "99",
+            "full_name": "Crowder, Jae",
+            "height": "6 ft 6 in (1.98 m)",
             "weight": "235 lb (107 kg)",
-            "date_of_birth": "1997–09–23",
-            "from": "Wake Forest"
-        },
-        {
-            "position": "C",
-            "number": "14",
-            "full_name": "Dedmon, Dewayne",
-            "height": "7 ft 0 in (2.13 m)",
-            "weight": "245 lb (111 kg)",
-            "date_of_birth": "1989–08–12",
-            "from": "Southern California"
-        },
-        {
-            "position": "F/C",
-            "number": "24",
-            "full_name": "Fernando, Bruno",
-            "height": "6 ft 9 in (2.06 m)",
-            "weight": "240 lb (109 kg)",
-            "date_of_birth": "1998–08–15",
-            "from": "Maryland"
+            "date_of_birth": "1990–07–06",
+            "from": "Marquette"
         },
         {
             "position": "G",
-            "number": "0",
-            "full_name": "Goodwin, Brandon (FA)",
-            "height": "6 ft 0 in (1.83 m)",
-            "weight": "180 lb (82 kg)",
-            "date_of_birth": "1995–10–02",
-            "from": "Florida Gulf Coast"
-        },
-        {
-            "position": "G/F",
-            "number": "2",
-            "full_name": "Graham, Treveon",
-            "height": "6 ft 5 in (1.96 m)",
-            "weight": "219 lb (99 kg)",
-            "date_of_birth": "1993–10–28",
-            "from": "Virginia Commonwealth"
-        },
-        {
-            "position": "G/F",
-            "number": "3",
-            "full_name": "Huerter, Kevin",
-            "height": "6 ft 7 in (2.01 m)",
+            "number": "7",
+            "full_name": "Dragić, Goran",
+            "height": "6 ft 3 in (1.91 m)",
             "weight": "190 lb (86 kg)",
-            "date_of_birth": "1998–08–27",
-            "from": "Maryland"
-        },
-        {
-            "position": "G/F",
-            "number": "12",
-            "full_name": "Hunter, De'Andre",
-            "height": "6 ft 7 in (2.01 m)",
-            "weight": "225 lb (102 kg)",
-            "date_of_birth": "1997–12–02",
-            "from": "Virginia"
-        },
-        {
-            "position": "C",
-            "number": "30",
-            "full_name": "Jones, Damian (FA)",
-            "height": "6 ft 11 in (2.11 m)",
-            "weight": "245 lb (111 kg)",
-            "date_of_birth": "1995–06–30",
-            "from": "Vanderbilt"
+            "date_of_birth": "1986–05–06",
+            "from": "Slovenia"
         },
         {
             "position": "F",
-            "number": "7",
-            "full_name": "Labissière, Skal (FA)",
-            "height": "6 ft 10 in (2.08 m)",
+            "number": "40",
+            "full_name": "Haslem, Udonis",
+            "height": "6 ft 8 in (2.03 m)",
             "weight": "235 lb (107 kg)",
-            "date_of_birth": "1996–03–18",
+            "date_of_birth": "1980–06–09",
+            "from": "Florida"
+        },
+        {
+            "position": "G",
+            "number": "14",
+            "full_name": "Herro, Tyler",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "195 lb (88 kg)",
+            "date_of_birth": "1/20/00",
             "from": "Kentucky"
         },
         {
+            "position": "F",
+            "number": "44",
+            "full_name": "Hill, Solomon",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "226 lb (103 kg)",
+            "date_of_birth": "1991–03–18",
+            "from": "Arizona"
+        },
+        {
             "position": "G/F",
-            "number": "22",
-            "full_name": "Reddish, Cam",
-            "height": "6 ft 8 in (2.03 m)",
-            "weight": "218 lb (99 kg)",
-            "date_of_birth": "1999–09–01",
-            "from": "Duke"
+            "number": "28",
+            "full_name": "Iguodala, Andre",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "215 lb (98 kg)",
+            "date_of_birth": "1984–01–28",
+            "from": "Arizona"
         },
         {
-            "position": "G",
+            "position": "F",
+            "number": "5",
+            "full_name": "Jones, Derrick",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "210 lb (95 kg)",
+            "date_of_birth": "1997–02–15",
+            "from": "UNLV"
+        },
+        {
+            "position": "F/C",
             "number": "0",
-            "full_name": "Teague, Jeff (FA)",
-            "height": "6 ft 3 in (1.91 m)",
-            "weight": "195 lb (88 kg)",
-            "date_of_birth": "1988–06–10",
-            "from": "Wake Forest"
+            "full_name": "Leonard, Meyers",
+            "height": "7 ft 0 in (2.13 m)",
+            "weight": "260 lb (118 kg)",
+            "date_of_birth": "1992–02–27",
+            "from": "Illinois"
         },
         {
             "position": "G",
-            "number": "11",
-            "full_name": "Young, Trae",
-            "height": "6 ft 1 in (1.85 m)",
-            "weight": "180 lb (82 kg)",
-            "date_of_birth": "1998–09–19",
-            "from": "Oklahoma"
+            "number": "25",
+            "full_name": "Nunn, Kendrick",
+            "height": "6 ft 2 in (1.88 m)",
+            "weight": "190 lb (86 kg)",
+            "date_of_birth": "1995–08–03",
+            "from": "Oakland"
+        },
+        {
+            "position": "G/F",
+            "number": "4",
+            "full_name": "Okpala, KZ",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "215 lb (98 kg)",
+            "date_of_birth": "1999–04–28",
+            "from": "Stanford"
+        },
+        {
+            "position": "F/C",
+            "number": "9",
+            "full_name": "Olynyk, Kelly",
+            "height": "6 ft 11 in (2.11 m)",
+            "weight": "240 lb (109 kg)",
+            "date_of_birth": "1991–04–19",
+            "from": "Gonzaga"
+        },
+        {
+            "position": "F",
+            "number": "55",
+            "full_name": "Robinson, Duncan",
+            "height": "6 ft 7 in (2.01 m)",
+            "weight": "215 lb (98 kg)",
+            "date_of_birth": "1994–04–22",
+            "from": "Michigan"
+        },
+        {
+            "position": "F",
+            "number": "30",
+            "full_name": "Silva, Chris",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "234 lb (106 kg)",
+            "date_of_birth": "1996–09–19",
+            "from": "South Carolina"
+        },
+        {
+            "position": "G",
+            "number": "2",
+            "full_name": "Vincent, Gabe (TW)",
+            "height": "6 ft 3 in (1.91 m)",
+            "weight": "200 lb (91 kg)",
+            "date_of_birth": "1996–06–14",
+            "from": "UC Santa Barbara"
         }
     ]
 }

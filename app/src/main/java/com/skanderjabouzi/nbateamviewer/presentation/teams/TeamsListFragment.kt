@@ -15,7 +15,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.skanderjabouzi.nbateamviewer.R
-import com.skanderjabouzi.nbateamviewer.domain.model.Team
+import com.skanderjabouzi.nbateamviewer.data.model.Team
 import com.skanderjabouzi.nbateamviewer.presentation.listener.TeamClickListener
 import kotlinx.android.synthetic.main.teams_list_fragment.*
 import kotlinx.android.synthetic.main.toolbar_layout.*
@@ -42,6 +42,7 @@ class TeamsListFragment : Fragment(), TeamClickListener {
         val appBarConfiguration = AppBarConfiguration(navController.graph)
 
         observeTeams()
+        observeErrors()
 
         view.findViewById<Toolbar>(R.id.toolbar)
             .setupWithNavController(navController, appBarConfiguration)
@@ -79,9 +80,12 @@ class TeamsListFragment : Fragment(), TeamClickListener {
         teamsProgressBar.isVisible = false
     }
 
-    private fun showMessage() {
-        teamsRetryButton.isVisible = true
-        teamsErroMessage.isVisible = true
+    private fun showMessage(errorMessage: String) {
+        if (errorMessage.isNotEmpty()) {
+            teamsRetryButton.isVisible = true
+            teamsErroMessage.isVisible = true
+            teamsErroMessage.text = errorMessage
+        }
     }
 
     private fun getTeams() {
@@ -91,11 +95,14 @@ class TeamsListFragment : Fragment(), TeamClickListener {
     private fun observeTeams() {
         viewModel.teams.observe(viewLifecycleOwner, Observer { teams ->
             hideLoading()
-            if (teams == null) {
-                showMessage()
-            } else {
-                adapter.setTeams(teams)
-            }
+            adapter.setTeams(teams)
+        })
+    }
+
+    private fun observeErrors() {
+        viewModel.error.observe(viewLifecycleOwner, Observer { errorMessage ->
+            hideLoading()
+            showMessage(errorMessage)
         })
     }
 

@@ -1,6 +1,6 @@
 package com.skanderjabouzi.nbateamviewer.presentation.listener
 
-import com.skanderjabouzi.nbateamviewer.domain.model.Team
+import com.skanderjabouzi.nbateamviewer.data.model.Team
 
 interface TeamClickListener {
     fun onItemClick(team: Team)

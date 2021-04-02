@@ -1,4 +1,4 @@
-package com.skanderjabouzi.nbateamviewer.domain.model
+package com.skanderjabouzi.nbateamviewer.data.model
 
 data class Players (
 	val id : Int,

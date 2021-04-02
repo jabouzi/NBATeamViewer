@@ -1,9 +1,9 @@
 package com.skanderjabouzi.nbateamviewer.domain.usecase
 
 import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
-import com.skanderjabouzi.nbateamviewer.domain.model.Team
+import com.skanderjabouzi.nbateamviewer.data.model.Team
 
-object TeamEntityConverter {
+object TeamEntityAdapter {
         fun teamEntityToTeam(entity: TeamEntity): Team {
             return Team(
                 entity.id,

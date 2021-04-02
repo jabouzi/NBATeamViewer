@@ -1,9 +1,9 @@
 package com.skanderjabouzi.nbateamviewer.domain.usecase
 
 import com.skanderjabouzi.nbateamviewer.data.entity.PlayerEntity
-import com.skanderjabouzi.nbateamviewer.domain.model.Player
+import com.skanderjabouzi.nbateamviewer.data.model.Player
 
-object PlayerEntityConverter {
+object PlayerEntityAdapter {
         fun playerEntityToPlayer(entity: PlayerEntity): Player {
             return Player(
                 entity.position,

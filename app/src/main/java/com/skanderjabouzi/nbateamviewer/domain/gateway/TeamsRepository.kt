@@ -1,23 +1,34 @@
 package com.skanderjabouzi.nbateamviewer.domain.gateway
 
-import com.skanderjabouzi.nbateamviewer.data.entity.PlayerEntity
+import android.content.Context
+import androidx.lifecycle.LiveData
+import com.skanderjabouzi.nbateamviewer.data.entity.TeamDetailsEntity
+import com.skanderjabouzi.nbateamviewer.data.repository.db.TeamDao
+import com.skanderjabouzi.nbateamviewer.data.repository.db.TeamDatabase
 import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
-import com.skanderjabouzi.nbateamviewer.domain.model.Players
-import com.skanderjabouzi.nbateamviewer.domain.model.Teams
+import com.skanderjabouzi.nbateamviewer.data.model.Teams
+import com.skanderjabouzi.nbateamviewer.data.repository.net.Network
+import com.skanderjabouzi.nbateamviewer.data.repository.net.RetrofitClient
+import kotlinx.coroutines.flow.Flow
 import retrofit2.Response
 
-interface TeamsRepository {
+class TeamsRepository(val context: Context) {
 
-  suspend fun getSavedTeams(): List<TeamEntity>
+  var db = TeamDatabase.getInstance(context)
+  var retrofitClient: RetrofitClient = RetrofitClient(Network.getRetrofit(context))
+  private val teamDao: TeamDao = db.teamDao()
 
-  suspend fun getSavedPlayers(teamId: Int): List<PlayerEntity>
+  fun getSavedTeams(): Flow<List<TeamEntity>> {
+    return teamDao.getTeams()
+  }
 
-  suspend fun saveTeams(teams: List<TeamEntity>)
+  suspend fun saveTeams(teams: List<TeamEntity>) {
+    for (team in teams) {
+      teamDao.insert(team)
+    }
+  }
 
-  suspend fun savePlayers(players: List<PlayerEntity>)
-
-  suspend fun getTeams(): Response<Teams>
-
-  suspend fun getPlayers(teamId: Int): Response<Players>
-
+  suspend fun getTeams(): Response<Teams> {
+    return retrofitClient.getTeams()
+  }
 }

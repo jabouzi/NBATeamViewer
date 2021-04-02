@@ -7,11 +7,11 @@ import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import com.skanderjabouzi.nbateamviewer.data.entity.PlayerEntity
-import com.skanderjabouzi.nbateamviewer.domain.model.Player
-import com.skanderjabouzi.nbateamviewer.domain.model.Players
+import com.skanderjabouzi.nbateamviewer.data.model.Player
+import com.skanderjabouzi.nbateamviewer.data.model.Players
 import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamPlayersUseCase
-import com.skanderjabouzi.nbateamviewer.domain.usecase.PlayerEntityConverter
+import com.skanderjabouzi.nbateamviewer.domain.usecase.PlayerEntityAdapter
 import com.skanderjabouzi.nbateamviewer.domain.usecase.SortType
 import kotlinx.coroutines.*
 import kotlinx.coroutines.test.resetMain
@@ -138,7 +138,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
     private val dummyPlayersFromDb: List<PlayerEntity>
         get() {
             val gson = GsonBuilder().create()
-            return PlayerEntityConverter.playerListToPlayerEntityList(1, gson.fromJson(readJsonFile("mock.api/1.json"), Players::class.java).players)
+            return PlayerEntityAdapter.playerListToPlayerEntityList(1, gson.fromJson(readJsonFile("mock.api/1.json"), Players::class.java).players)
         }
 
     private val dummyPlayersFromApi: List<Player>

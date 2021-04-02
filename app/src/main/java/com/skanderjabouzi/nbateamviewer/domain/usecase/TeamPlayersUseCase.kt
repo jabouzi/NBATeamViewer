@@ -1,107 +1,114 @@
 package com.skanderjabouzi.nbateamviewer.domain.usecase
 
 import android.util.Log
-import com.skanderjabouzi.nbateamviewer.domain.model.Player
-import com.skanderjabouzi.nbateamviewer.domain.model.Players
-import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
-import kotlinx.coroutines.*
+import androidx.lifecycle.MutableLiveData
+import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamPlayersRepository
+import com.skanderjabouzi.nbateamviewer.data.model.Player
+import com.skanderjabouzi.nbateamviewer.data.model.Players
+import kotlinx.coroutines.flow.collect
 import java.io.IOException
 
-class TeamPlayersUseCase(val repository: TeamsRepository): UseCase() {
+class TeamPlayersUseCase(val repository: TeamPlayersRepository): UseCase() {
+    val playersList = MutableLiveData<List<Player>>()
 
     suspend fun getTeamPlayers(teamId: Int) {
-        val player = getTeamPlayersUsecase(teamId)
-        playersList.value = player
+        repository.getSavedPlayers(teamId).collect { playersFlow ->
+            if (!playersFlow.isNullOrEmpty()) {
+                playersList.value = PlayerEntityAdapter.playerEntityListToPlayerList(playersFlow)
+            } else {
+                getRequestFromApi(repository.getPlayers(teamId))?.let {
+                    when (it) {
+                        is ResultState.Success -> {
+                            val players = (it.data as Players).players
+                            savePlayersToDb(teamId, players)
+                            playersList.postValue(players)
+                        }
+                        else -> error.postValue((it as ResultState.Error).error)
+                    }
+                }
+            }
+        }
+    }
+
+    suspend fun sortBy(teamId: Int, field: String) {
+        if (sortName == SortType.ASCENDING) {
+            sortName = SortType.DESCENDING
+        }
+        repository.getSavedPlayers(teamId).collect { playersFlow ->
+            if (sortName == SortType.ASCENDING) {
+                sortName = SortType.DESCENDING
+                playersList.value =
+                    PlayerEntityAdapter.playerEntityListToPlayerList(playersFlow)
+                        .sortedWith(compareBy({ it.full_name }))
+            } else {
+                sortName = SortType.ASCENDING
+                playersList.value =
+                    PlayerEntityAdapter.playerEntityListToPlayerList(playersFlow)
+                        .sortedWith(compareByDescending({ it.full_name }))
+            }
+        }
     }
 
     suspend fun sortByName(teamId: Int) {
-        val player = getTeamPlayersUsecase(teamId)
-        if (sortByName == SortType.ASCENDING) {
-            sortByName = SortType.DESCENDING
-            playersList.value = player.sortedWith(compareBy({ it.full_name }))
-        } else {
-            sortByName = SortType.ASCENDING
-            playersList.value = player.sortedWith(compareByDescending({ it.full_name }))
+        repository.getSavedPlayers(teamId).collect { playersFlow ->
+            if (sortName == SortType.ASCENDING) {
+                playersList.value =
+                    PlayerEntityAdapter.playerEntityListToPlayerList(playersFlow)
+                        .sortedWith(compareBy({ it.full_name }))
+            } else {
+                playersList.value =
+                    PlayerEntityAdapter.playerEntityListToPlayerList(playersFlow)
+                        .sortedWith(compareByDescending({ it.full_name }))
+            }
         }
     }
 
     suspend fun sortByPosition(teamId: Int) {
-        val player = getTeamPlayersUsecase(teamId)
-        if (sortByPosition == SortType.ASCENDING) {
-            sortByPosition = SortType.DESCENDING
-            playersList.value = player.sortedWith(compareBy({ it.position }))
-        } else {
-            sortByPosition = SortType.ASCENDING
-            playersList.value = player.sortedWith(compareByDescending({ it.position }))
+        repository.getSavedPlayers(teamId).collect { playersFlow ->
+            if (sortPosition == SortType.ASCENDING) {
+                sortPosition = SortType.DESCENDING
+                playersList.value =
+                    PlayerEntityAdapter.playerEntityListToPlayerList(playersFlow)
+                        .sortedWith(compareBy({ it.position }))
+            } else {
+                sortPosition = SortType.ASCENDING
+                playersList.value =  PlayerEntityAdapter.playerEntityListToPlayerList(playersFlow)
+                    .sortedWith(compareByDescending({ it.position }))
+            }
         }
     }
 
     suspend fun sortByNumber(teamId: Int) {
-        val player = getTeamPlayersUsecase(teamId)
-        if (sortByNumber == SortType.ASCENDING) {
-            sortByNumber = SortType.DESCENDING
-            playersList.value = player.sortedWith(compareBy({ convertToInt(it.number) }))
-        } else {
-            sortByNumber = SortType.ASCENDING
-            playersList.value = player.sortedWith(compareByDescending({ convertToInt(it.number) }))
-        }
-    }
-
-    suspend fun getTeamPlayersFromApi(teamId: Int): ResultState? {
-        return try {
-            val response = repository.getPlayers(teamId)
-            if (response.isSuccessful) {
-                response.body()?.let { ResultState.Success(it) }
+        repository.getSavedPlayers(teamId).collect { playersFlow ->
+            if (sortNumber == SortType.ASCENDING) {
+                sortNumber = SortType.DESCENDING
+                playersList.value =
+                    PlayerEntityAdapter.playerEntityListToPlayerList(playersFlow)
+                        .sortedWith(compareBy({ convertToInt(it.number) }))
             } else {
-                validateResponse(response.code(), response.message())
+                sortNumber = SortType.ASCENDING
+                playersList.value =
+                    PlayerEntityAdapter.playerEntityListToPlayerList(playersFlow)
+                        .sortedWith(compareByDescending({ convertToInt(it.number) }))
             }
-        } catch (error: IOException) {
-            ResultState.NetworkException(error.message!!)
         }
     }
 
-    suspend fun getTeamPlayersFromDb(teamId: Int): ResultState {
-        val players =
-                PlayerEntityConverter.playerEntityListToPlayerList(repository.getSavedPlayers(teamId))
-        return if (players.isNullOrEmpty()) {
-            ResultState.InvalidData
-        } else {
-            ResultState.Success(players)
-        }
-    }
+//    suspend private fun getTeamPlayersFromApi(teamId: Int): ResultState? {
+//        return try {
+//            val response = repository.getPlayers(teamId)
+//            if (response.isSuccessful) {
+//                response.body()?.let { ResultState.Success(it) }
+//            } else {
+//                ResultState.Error(response.message())
+//            }
+//        } catch (error: IOException) {
+//            error.message?.let { ResultState.Error(it) }
+//        }
+//    }
 
     suspend private fun savePlayersToDb(teamId: Int, players: List<Player>) {
-        repository.savePlayers(PlayerEntityConverter.playerListToPlayerEntityList(teamId, players))
-    }
-
-    suspend private fun getTeamPlayersUsecase(teamId: Int): List<Player> {
-        var players: List<Player> = emptyList()
-        withContext(Dispatchers.IO) {
-            getTeamPlayersFromDb(teamId).let {
-                when(it) {
-                    is ResultState.Success -> {
-                        players = it.data as List<Player>
-                    }
-                    is ResultState.InvalidData -> {
-                        getTeamPlayersFromApi(teamId)?.let {
-                            when (it) {
-                                is ResultState.Success -> {
-                                    it.data
-                                    players = (it.data as Players).players
-                                    savePlayersToDb(teamId, players)
-                                    playersList.postValue(players)
-                                    error.postValue("")
-                                }
-                                else -> handleCharactersResult(it)
-                            }
-                        }
-                    }
-                    else -> handleCharactersResult(it)
-                }
-            }
-        }
-
-        return players
+        repository.savePlayers(PlayerEntityAdapter.playerListToPlayerEntityList(teamId, players))
     }
 
     private fun convertToInt(strNbr: String): Int {
@@ -116,8 +123,8 @@ class TeamPlayersUseCase(val repository: TeamsRepository): UseCase() {
     }
 
     companion object {
-        var sortByName: SortType = SortType.ASCENDING
-        var sortByPosition: SortType = SortType.ASCENDING
-        var sortByNumber: SortType = SortType.ASCENDING
+        var sortName: SortType = SortType.ASCENDING
+        var sortPosition: SortType = SortType.ASCENDING
+        var sortNumber: SortType = SortType.ASCENDING
     }
 }

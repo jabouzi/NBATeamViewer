@@ -2,8 +2,8 @@ package com.skanderjabouzi.nbateamviewer
 
 import android.os.Build
 import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
-import com.skanderjabouzi.nbateamviewer.domain.model.Team
-import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamEntityConverter
+import com.skanderjabouzi.nbateamviewer.data.model.Team
+import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamEntityAdapter
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -45,7 +45,7 @@ class TeamModelConverterTest {
 
     @Test
     fun `test Team Entity To Team`() {
-        val team = TeamEntityConverter.teamEntityToTeam(teamEntity)
+        val team = TeamEntityAdapter.teamEntityToTeam(teamEntity)
         Assert.assertEquals(1, team.id)
         Assert.assertEquals("Toronto", team.name)
         Assert.assertEquals(55, team.wins)
@@ -54,7 +54,7 @@ class TeamModelConverterTest {
 
     @Test
     fun `test Team To TeamEntity`() {
-        val teamEntity = TeamEntityConverter.teamToTeamEntity(team)
+        val teamEntity = TeamEntityAdapter.teamToTeamEntity(team)
         Assert.assertEquals(3, team.id)
         Assert.assertEquals("Los Angeles", team.name)
         Assert.assertEquals(50, team.wins)
@@ -64,7 +64,7 @@ class TeamModelConverterTest {
     @Test
     fun `test Team EntityList To TeamList`() {
         val teamsEntity = listOf(teamEntity, teamEntity2)
-        val teams = TeamEntityConverter.teamEntityListToTeamList(teamsEntity)
+        val teams = TeamEntityAdapter.teamEntityListToTeamList(teamsEntity)
         Assert.assertEquals(1, teams[0].id)
         Assert.assertEquals("Toronto", teams[0].name)
         Assert.assertEquals(55, teams[0].wins)
@@ -78,7 +78,7 @@ class TeamModelConverterTest {
     @Test
     fun `test TeamList To TeamEntity List`() {
         val teams = listOf(team, team2)
-        val teamsEntity = TeamEntityConverter.teamListToTeamEntityList(teams)
+        val teamsEntity = TeamEntityAdapter.teamListToTeamEntityList(teams)
         Assert.assertEquals(3, teamsEntity[0].id)
         Assert.assertEquals("Los Angeles", teamsEntity[0].name)
         Assert.assertEquals(50, teamsEntity[0].wins)

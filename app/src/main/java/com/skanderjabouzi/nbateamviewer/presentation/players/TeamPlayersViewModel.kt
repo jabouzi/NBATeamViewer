@@ -2,14 +2,14 @@ package com.skanderjabouzi.nbateamviewer.presentation.players
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamPlayersRepository
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamPlayersUseCase
-import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepositoryImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class TeamPlayersViewModel (application: Application) : AndroidViewModel(application) {
-    var teamsRepository = TeamsRepositoryImpl(application)
-    val usecase = TeamPlayersUseCase(teamsRepository)
+    var repository = TeamPlayersRepository(application)
+    val usecase = TeamPlayersUseCase(repository)
 
     var players = usecase.playersList
     var error = usecase.error

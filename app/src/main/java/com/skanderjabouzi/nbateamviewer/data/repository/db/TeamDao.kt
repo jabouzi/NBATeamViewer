@@ -30,8 +30,12 @@
 
 package com.skanderjabouzi.nbateamviewer.data.repository.db
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.skanderjabouzi.nbateamviewer.data.entity.PlayerEntity
+import com.skanderjabouzi.nbateamviewer.data.entity.TeamDetailsEntity
 import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TeamDao {
@@ -40,5 +44,12 @@ interface TeamDao {
   suspend fun insert(team: TeamEntity)
 
   @Query("select * from teamentity")
-  suspend fun getTeams(): List<TeamEntity>
+  fun getTeams(): Flow<List<TeamEntity>>
+
+  @Insert(onConflict = OnConflictStrategy.REPLACE)
+  suspend fun insert(teamDetails: TeamDetailsEntity)
+
+  @Query("select * from teamdetailsentity where id = :id")
+  fun getTeamDetails(id: Int?): LiveData<TeamDetailsEntity>
+
 }

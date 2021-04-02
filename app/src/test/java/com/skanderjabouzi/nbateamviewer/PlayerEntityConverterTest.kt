@@ -2,8 +2,8 @@ package com.skanderjabouzi.nbateamviewer
 
 import android.os.Build
 import com.skanderjabouzi.nbateamviewer.data.entity.PlayerEntity
-import com.skanderjabouzi.nbateamviewer.domain.model.Player
-import com.skanderjabouzi.nbateamviewer.domain.usecase.PlayerEntityConverter
+import com.skanderjabouzi.nbateamviewer.data.model.Player
+import com.skanderjabouzi.nbateamviewer.domain.usecase.PlayerEntityAdapter
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -38,7 +38,7 @@ class PlayerEntityConverterTest {
 
     @Test
     fun `test PlayerEntity To Player`() {
-        val player = PlayerEntityConverter.playerEntityToPlayer(playerEntity)
+        val player = PlayerEntityAdapter.playerEntityToPlayer(playerEntity)
         Assert.assertEquals("Skander", player.full_name)
         Assert.assertEquals("G", player.position)
         Assert.assertEquals("1", player.number)
@@ -46,7 +46,7 @@ class PlayerEntityConverterTest {
 
     @Test
     fun `test Player To PlayerEntity`() {
-        val playerEntity = PlayerEntityConverter.playerToPlayerEntity(1, player)
+        val playerEntity = PlayerEntityAdapter.playerToPlayerEntity(1, player)
         Assert.assertEquals("Bob", playerEntity.full_name)
         Assert.assertEquals("G/C", playerEntity.position)
         Assert.assertEquals("33", playerEntity.number)
@@ -56,7 +56,7 @@ class PlayerEntityConverterTest {
     @Test
     fun `test PlayerEntityList To PlayerList`() {
         val playersEntity = listOf(playerEntity, playerEntity2)
-        val players = PlayerEntityConverter.playerEntityListToPlayerList(playersEntity)
+        val players = PlayerEntityAdapter.playerEntityListToPlayerList(playersEntity)
         Assert.assertEquals("Skander", players[0].full_name)
         Assert.assertEquals("G", players[0].position)
         Assert.assertEquals("1", players[0].number)
@@ -68,7 +68,7 @@ class PlayerEntityConverterTest {
     @Test
     fun `test PlayerList To PlayerEntityList`() {
         val players = listOf(player, player2)
-        val playersEntity = PlayerEntityConverter.playerListToPlayerEntityList(1, players)
+        val playersEntity = PlayerEntityAdapter.playerListToPlayerEntityList(1, players)
         Assert.assertEquals("Bob", playersEntity[0].full_name)
         Assert.assertEquals("G/C", playersEntity[0].position)
         Assert.assertEquals("33", playersEntity[0].number)

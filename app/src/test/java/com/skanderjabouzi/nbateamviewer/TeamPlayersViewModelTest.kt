@@ -4,8 +4,8 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.gson.GsonBuilder
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.whenever
-import com.skanderjabouzi.nbateamviewer.domain.model.Player
-import com.skanderjabouzi.nbateamviewer.domain.model.Players
+import com.skanderjabouzi.nbateamviewer.data.model.Player
+import com.skanderjabouzi.nbateamviewer.data.model.Players
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamPlayersUseCase
 import com.skanderjabouzi.nbateamviewer.presentation.players.TeamPlayersViewModel
 import kotlinx.coroutines.Dispatchers

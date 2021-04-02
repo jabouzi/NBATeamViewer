@@ -1,4 +1,4 @@
-package com.skanderjabouzi.nbateamviewer.presentation.players
+package com.skanderjabouzi.nbateamviewer.presentation.team
 
 import androidx.fragment.app.Fragment
 import android.os.Bundle
@@ -22,10 +22,9 @@ import kotlinx.android.synthetic.main.toolbar_layout.*
 import kotlinx.android.synthetic.main.toolbar_layout.view.*
 
 
-class TeamPlayersFragment : Fragment() {
+class TeamDetailsFragment : Fragment() {
 
-    private val viewModel: TeamPlayersViewModel by viewModels()
-    lateinit var adapter: TeamPlayersListAdapter
+    private val viewModel: TeamDetailsViewModel by viewModels()
     //var viewModelFactory: ViewModelFactory = ViewModelFactory(this)
     var teamId = 0
 
@@ -34,7 +33,7 @@ class TeamPlayersFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         //viewModel = ViewModelProvider(this, viewModelFactory)[TeamPlayersViewModel::class.java]
-        return inflater.inflate(R.layout.team_players_fragment, container, false)
+        return inflater.inflate(R.layout.teams_details_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -54,10 +53,6 @@ class TeamPlayersFragment : Fragment() {
         toolbar.team_toolbar_title.isVisible = false
         teams_titles.isVisible = false
 
-        setMenu(view)
-
-        adapter = TeamPlayersListAdapter()
-        playersRecyclerView.adapter = adapter
         showLoading()
         setRetryButton()
         getTeamBundle()
@@ -66,7 +61,7 @@ class TeamPlayersFragment : Fragment() {
     private fun getTeamBundle() {
         val team = arguments?.getSerializable("team") as Team
         team?.let {
-            viewModel.getPlayers(it.id)
+            viewModel.getTeamDetails(it.id)
             teamId = it.id
             players_titles.player_team_values.team_name_value.text = it.name
             players_titles.player_team_values.team_wins_value.text = it.wins.toString()
@@ -102,7 +97,7 @@ class TeamPlayersFragment : Fragment() {
     }
 
     private fun getPlayers(teamId: Int) {
-        viewModel.getPlayers(teamId)
+        viewModel.getTeamDetails(teamId)
     }
 
     private fun setMenu(view: View) {
@@ -113,19 +108,11 @@ class TeamPlayersFragment : Fragment() {
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.action_sort_by_name -> viewModel.sortByName(teamId)
-            R.id.action_sort_by_position -> viewModel.sortByPosition(teamId)
-            R.id.action_sort_by_number -> viewModel.sortByNumber(teamId)
-        }
-        return true
-    }
 
     private fun observePlayers() {
-        viewModel.players.observe(viewLifecycleOwner, Observer { players ->
+        viewModel.teamDetails.observe(viewLifecycleOwner, Observer { players ->
             hideLoading()
-            adapter.setPlayers(players)
+            //adapter.setPlayers(players)
         })
     }
 

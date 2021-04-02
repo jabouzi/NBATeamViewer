@@ -1,158 +1,158 @@
 {
-    "id": 28,
+    "id": 22,
     "players": [
         {
-            "position": "G",
+            "position": "F",
             "number": "3",
-            "full_name": "Allen, Grayson",
-            "height": "6 ft 4 in (1.93 m)",
-            "weight": "198 lb (90 kg)",
-            "date_of_birth": "1995–10–08",
-            "from": "Duke"
-        },
-        {
-            "position": "G/F",
-            "number": "1",
-            "full_name": "Anderson, Kyle",
-            "height": "6 ft 9 in (2.06 m)",
-            "weight": "230 lb (104 kg)",
-            "date_of_birth": "1993–09–20",
-            "from": "UCLA"
-        },
-        {
-            "position": "G/F",
-            "number": "24",
-            "full_name": "Brooks, Dillon",
+            "full_name": "Anunoby, OG",
             "height": "6 ft 7 in (2.01 m)",
-            "weight": "225 lb (102 kg)",
-            "date_of_birth": "1996–01–22",
+            "weight": "232 lb (105 kg)",
+            "date_of_birth": "1997–07–17",
+            "from": "Indiana"
+        },
+        {
+            "position": "F/C",
+            "number": "25",
+            "full_name": "Boucher, Chris",
+            "height": "6 ft 9 in (2.06 m)",
+            "weight": "200 lb (91 kg)",
+            "date_of_birth": "1993–01–11",
             "from": "Oregon"
         },
         {
             "position": "G/F",
-            "number": "15",
-            "full_name": "Clarke, Brandon",
-            "height": "6 ft 8 in (2.03 m)",
-            "weight": "215 lb (98 kg)",
-            "date_of_birth": "1996–09–19",
-            "from": "Gonzaga"
-        },
-        {
-            "position": "C",
-            "number": "14",
-            "full_name": "Dieng, Gorgui",
-            "height": "6 ft 10 in (2.08 m)",
-            "weight": "252 lb (114 kg)",
-            "date_of_birth": "1990–01–18",
-            "from": "Louisville"
-        },
-        {
-            "position": "G",
-            "number": "23",
-            "full_name": "Gudurić, Marko",
-            "height": "6 ft 6 in (1.98 m)",
-            "weight": "201 lb (91 kg)",
-            "date_of_birth": "1995–03–08",
-            "from": "Serbia"
-        },
-        {
-            "position": "F/C",
-            "number": "13",
-            "full_name": "Jackson, Jaren ",
-            "height": "6 ft 11 in (2.11 m)",
-            "weight": "242 lb (110 kg)",
-            "date_of_birth": "1999–09–15",
-            "from": "Michigan State"
-        },
-        {
-            "position": "G/F",
-            "number": "20",
-            "full_name": "Jackson, Josh",
-            "height": "6 ft 8 in (2.03 m)",
-            "weight": "207 lb (94 kg)",
-            "date_of_birth": "1997–02–10",
-            "from": "Kansas"
-        },
-        {
-            "position": "G",
-            "number": "21",
-            "full_name": "Jones, Tyus",
-            "height": "6 ft 0 in (1.83 m)",
-            "weight": "196 lb (89 kg)",
-            "date_of_birth": "1996–05–10",
-            "from": "Duke"
-        },
-        {
-            "position": "G",
-            "number": "46",
-            "full_name": "Konchar, John (TW)",
-            "height": "6 ft 5 in (1.96 m)",
+            "number": "12",
+            "full_name": "Brissett, Oshae  (TW)",
+            "height": "6 ft 7 in (2.01 m)",
             "weight": "210 lb (95 kg)",
-            "date_of_birth": "1996–03–22",
-            "from": "Fort Wayne"
+            "date_of_birth": "1998–06–20",
+            "from": "Syracuse"
         },
         {
             "position": "G",
             "number": "0",
-            "full_name": "Melton, De'Anthony",
-            "height": "6 ft 2 in (1.88 m)",
-            "weight": "200 lb (91 kg)",
-            "date_of_birth": "1998–05–28",
-            "from": "Southern California"
-        },
-        {
-            "position": "G",
-            "number": "12",
-            "full_name": "Morant, Ja",
-            "height": "6 ft 3 in (1.91 m)",
-            "weight": "174 lb (79 kg)",
-            "date_of_birth": "1999–08–10",
-            "from": "Murray State"
-        },
-        {
-            "position": "F/C",
-            "number": "–",
-            "full_name": "Porter, Jontay ",
-            "height": "6 ft 11 in (2.11 m)",
-            "weight": "240 lb (109 kg)",
-            "date_of_birth": "1999–11–15",
-            "from": "Missouri"
-        },
-        {
-            "position": "F",
-            "number": "44",
-            "full_name": "Tolliver, Anthony",
-            "height": "6 ft 8 in (2.03 m)",
-            "weight": "240 lb (109 kg)",
-            "date_of_birth": "1985–06–01",
-            "from": "Creighton"
+            "full_name": "Davis, Terence",
+            "height": "6 ft 4 in (1.93 m)",
+            "weight": "201 lb (91 kg)",
+            "date_of_birth": "1997–05–16",
+            "from": "Mississippi"
         },
         {
             "position": "C",
-            "number": "17",
-            "full_name": "Valančiūnas, Jonas",
+            "number": "33",
+            "full_name": "Gasol, Marc",
             "height": "6 ft 11 in (2.11 m)",
-            "weight": "265 lb (120 kg)",
-            "date_of_birth": "1992–05–06",
-            "from": "Lithuania"
+            "weight": "255 lb (116 kg)",
+            "date_of_birth": "1985–01–29",
+            "from": "Lausanne CS (TN)"
         },
         {
-            "position": "G/F",
-            "number": "18",
-            "full_name": "Watanabe, Yuta (TW)",
-            "height": "6 ft 8 in (2.03 m)",
-            "weight": "215 lb (98 kg)",
-            "date_of_birth": "1994–10–13",
-            "from": "George Washington"
+            "position": "F/C",
+            "number": "20",
+            "full_name": "Hernandez, Dewan",
+            "height": "6 ft 10 in (2.08 m)",
+            "weight": "235 lb (107 kg)",
+            "date_of_birth": "1996–12–09",
+            "from": "Miami (FL)"
         },
         {
-            "position": "G/F",
-            "number": "7",
-            "full_name": "Winslow, Justise ",
+            "position": "F",
+            "number": "4",
+            "full_name": "Hollis-Jefferson, Rondae",
             "height": "6 ft 6 in (1.98 m)",
-            "weight": "222 lb (101 kg)",
-            "date_of_birth": "1996–03–26",
-            "from": "Duke"
+            "weight": "217 lb (98 kg)",
+            "date_of_birth": "1995–01–03",
+            "from": "Arizona"
+        },
+        {
+            "position": "C",
+            "number": "9",
+            "full_name": "Ibaka, Serge",
+            "height": "7 ft 0 in (2.13 m)",
+            "weight": "235 lb (107 kg)",
+            "date_of_birth": "1989–09–18",
+            "from": "Republic of the Congo"
+        },
+        {
+            "position": "G/F",
+            "number": "5",
+            "full_name": "Johnson, Stanley",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "242 lb (110 kg)",
+            "date_of_birth": "1996–05–29",
+            "from": "Arizona"
+        },
+        {
+            "position": "G",
+            "number": "7",
+            "full_name": "Lowry, Kyle",
+            "height": "6 ft 0 in (1.83 m)",
+            "weight": "196 lb (89 kg)",
+            "date_of_birth": "1986–03–25",
+            "from": "Villanova"
+        },
+        {
+            "position": "G",
+            "number": "22",
+            "full_name": "McCaw, Patrick ",
+            "height": "6 ft 7 in (2.01 m)",
+            "weight": "181 lb (82 kg)",
+            "date_of_birth": "1995–10–25",
+            "from": "UNLV"
+        },
+        {
+            "position": "G/F",
+            "number": "13",
+            "full_name": "Miller, Malcolm",
+            "height": "6 ft 7 in (2.01 m)",
+            "weight": "210 lb (95 kg)",
+            "date_of_birth": "1993–03–06",
+            "from": "Holy Cross"
+        },
+        {
+            "position": "G",
+            "number": "24",
+            "full_name": "Powell, Norman",
+            "height": "6 ft 3 in (1.91 m)",
+            "weight": "215 lb (98 kg)",
+            "date_of_birth": "1993–05–25",
+            "from": "UCLA"
+        },
+        {
+            "position": "F",
+            "number": "43",
+            "full_name": "Siakam, Pascal",
+            "height": "6 ft 9 in (2.06 m)",
+            "weight": "230 lb (104 kg)",
+            "date_of_birth": "1994–04–02",
+            "from": "New Mexico State"
+        },
+        {
+            "position": "G",
+            "number": "21",
+            "full_name": "Thomas, Matt",
+            "height": "6 ft 4 in (1.93 m)",
+            "weight": "190 lb (86 kg)",
+            "date_of_birth": "1994–08–04",
+            "from": "Iowa State"
+        },
+        {
+            "position": "G",
+            "number": "23",
+            "full_name": "VanVleet, Fred",
+            "height": "6 ft 1 in (1.85 m)",
+            "weight": "197 lb (89 kg)",
+            "date_of_birth": "1994–02–25",
+            "from": "Wichita State"
+        },
+        {
+            "position": "F",
+            "number": "1",
+            "full_name": "Watson, Paul (TW)",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "210 lb (95 kg)",
+            "date_of_birth": "1994–12–30",
+            "from": "Fresno State"
         }
     ]
 }

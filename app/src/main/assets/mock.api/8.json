@@ -1,158 +1,158 @@
 {
-    "id": 8,
+    "id": 11,
     "players": [
         {
             "position": "G",
-            "number": "10",
-            "full_name": "Adams, Jaylen (FA)",
-            "height": "6 ft 0 in (1.83 m)",
-            "weight": "225 lb (102 kg)",
-            "date_of_birth": "1996–05–04",
-            "from": "St. Bonaventure"
-        },
-        {
-            "position": "F",
-            "number": "0",
-            "full_name": "Anthony, Carmelo (FA)",
-            "height": "6 ft 8 in (2.03 m)",
-            "weight": "240 lb (109 kg)",
-            "date_of_birth": "1984–05–29",
-            "from": "Syracuse"
-        },
-        {
-            "position": "F",
-            "number": "8",
-            "full_name": "Ariza, Trevor",
-            "height": "6 ft 8 in (2.03 m)",
-            "weight": "215 lb (98 kg)",
-            "date_of_birth": "1985–06–30",
-            "from": "UCLA"
-        },
-        {
-            "position": "C",
-            "number": "4",
-            "full_name": "Brown, Moses (TW, FA)",
-            "height": "7 ft 1 in (2.16 m)",
-            "weight": "245 lb (111 kg)",
-            "date_of_birth": "1999–10–13",
-            "from": "UCLA"
-        },
-        {
-            "position": "F/C",
-            "number": "33",
-            "full_name": "Collins, Zach",
-            "height": "7 ft 0 in (2.13 m)",
-            "weight": "235 lb (107 kg)",
-            "date_of_birth": "1997–11–19",
-            "from": "Gonzaga"
-        },
-        {
-            "position": "F",
-            "number": "35",
-            "full_name": "Gabriel, Wenyen (FA)",
-            "height": "6 ft 9 in (2.06 m)",
-            "weight": "205 lb (93 kg)",
-            "date_of_birth": "1997–03–26",
-            "from": "Kentucky"
-        },
-        {
-            "position": "F",
-            "number": "44",
-            "full_name": "Hezonja, Mario",
-            "height": "6 ft 8 in (2.03 m)",
-            "weight": "225 lb (102 kg)",
-            "date_of_birth": "1995–02–25",
-            "from": "Croatia"
+            "number": "5",
+            "full_name": "Barton, Will",
+            "height": "6 ft 5 in (1.96 m)",
+            "weight": "181 lb (82 kg)",
+            "date_of_birth": "1991–01–06",
+            "from": "Memphis"
         },
         {
             "position": "F",
             "number": "6",
-            "full_name": "Hoard, Jaylen (TW, FA)",
+            "full_name": "Bates-Diop, Keita",
             "height": "6 ft 8 in (2.03 m)",
-            "weight": "215 lb (98 kg)",
-            "date_of_birth": "1999–03–30",
-            "from": "Wake Forest"
+            "weight": "229 lb (104 kg)",
+            "date_of_birth": "1996–01–23",
+            "from": "Ohio State"
+        },
+        {
+            "position": "F/C",
+            "number": "10",
+            "full_name": "Bol, Bol (TW)",
+            "height": "7 ft 2 in (2.18 m)",
+            "weight": "220 lb (100 kg)",
+            "date_of_birth": "1999–11–16",
+            "from": "Oregon"
         },
         {
             "position": "F",
-            "number": "5",
-            "full_name": "Hood, Rodney ",
+            "number": "31",
+            "full_name": "Čančar, Vlatko",
             "height": "6 ft 8 in (2.03 m)",
-            "weight": "206 lb (93 kg)",
-            "date_of_birth": "1992–10–20",
-            "from": "Duke"
+            "weight": "236 lb (107 kg)",
+            "date_of_birth": "1997–04–10",
+            "from": "Slovenia"
+        },
+        {
+            "position": "F",
+            "number": "25",
+            "full_name": "Cook, Tyler (TW)",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "255 lb (116 kg)",
+            "date_of_birth": "1997–09–23",
+            "from": "Iowa"
+        },
+        {
+            "position": "F",
+            "number": "3",
+            "full_name": "Craig, Torrey",
+            "height": "6 ft 7 in (2.01 m)",
+            "weight": "221 lb (100 kg)",
+            "date_of_birth": "1990–12–19",
+            "from": "USC Upstate"
         },
         {
             "position": "G",
-            "number": "0",
-            "full_name": "Lillard, Damian",
-            "height": "6 ft 3 in (1.91 m)",
-            "weight": "195 lb (88 kg)",
-            "date_of_birth": "1990–07–15",
-            "from": "Weber State"
+            "number": "30",
+            "full_name": "Daniels, Troy",
+            "height": "6 ft 4 in (1.93 m)",
+            "weight": "200 lb (91 kg)",
+            "date_of_birth": "1991–06–15",
+            "from": "Virginia Commonwealth"
+        },
+        {
+            "position": "G/F",
+            "number": "35",
+            "full_name": "Dozier, PJ",
+            "height": "6 ft 6 in (1.98 m)",
+            "weight": "205 lb (93 kg)",
+            "date_of_birth": "1996–10–25",
+            "from": "South Carolina"
         },
         {
             "position": "F",
             "number": "9",
-            "full_name": "Little, Nassir",
-            "height": "6 ft 6 in (1.98 m)",
-            "weight": "220 lb (100 kg)",
-            "date_of_birth": "2000–02–11",
-            "from": "North Carolina"
+            "full_name": "Grant, Jerami",
+            "height": "6 ft 8 in (2.03 m)",
+            "weight": "210 lb (95 kg)",
+            "date_of_birth": "1994–03–12",
+            "from": "Syracuse"
         },
         {
             "position": "G",
-            "number": "3",
-            "full_name": "McCollum, CJ",
-            "height": "6 ft 3 in (1.91 m)",
-            "weight": "190 lb (86 kg)",
-            "date_of_birth": "1991–09–19",
-            "from": "Lehigh"
+            "number": "14",
+            "full_name": "Harris, Gary",
+            "height": "6 ft 4 in (1.93 m)",
+            "weight": "210 lb (95 kg)",
+            "date_of_birth": "1994–09–14",
+            "from": "Michigan State"
         },
         {
             "position": "C",
-            "number": "27",
-            "full_name": "Nurkić, Jusuf",
+            "number": "15",
+            "full_name": "Jokić, Nikola (C)",
             "height": "7 ft 0 in (2.13 m)",
-            "weight": "275 lb (125 kg)",
-            "date_of_birth": "1994–08–23",
-            "from": "Bosnia and Herzegovina"
-        },
-        {
-            "position": "G",
-            "number": "1",
-            "full_name": "Simons, Anfernee",
-            "height": "6 ft 4 in (1.93 m)",
-            "weight": "185 lb (84 kg)",
-            "date_of_birth": "1999–06–08",
-            "from": "IMG Academy (FL)"
+            "weight": "284 lb (129 kg)",
+            "date_of_birth": "1995–02–19",
+            "from": "Serbia"
         },
         {
             "position": "F",
-            "number": "50",
-            "full_name": "Swanigan, Caleb (FA)",
-            "height": "6 ft 9 in (2.06 m)",
-            "weight": "260 lb (118 kg)",
-            "date_of_birth": "1997–04–18",
-            "from": "Purdue"
+            "number": "4",
+            "full_name": "Millsap, Paul",
+            "height": "6 ft 7 in (2.01 m)",
+            "weight": "257 lb (117 kg)",
+            "date_of_birth": "1985–02–10",
+            "from": "Louisiana Tech"
         },
         {
             "position": "G",
-            "number": "2",
-            "full_name": "Trent, Gary",
-            "height": "6 ft 6 in (1.98 m)",
-            "weight": "205 lb (93 kg)",
-            "date_of_birth": "1999–01–18",
+            "number": "11",
+            "full_name": "Morris, Monté",
+            "height": "6 ft 2 in (1.88 m)",
+            "weight": "183 lb (83 kg)",
+            "date_of_birth": "1995–06–27",
+            "from": "Iowa State"
+        },
+        {
+            "position": "G",
+            "number": "27",
+            "full_name": "Murray, Jamal",
+            "height": "6 ft 4 in (1.93 m)",
+            "weight": "215 lb (98 kg)",
+            "date_of_birth": "1997–02–23",
+            "from": "Kentucky"
+        },
+        {
+            "position": "F/C",
+            "number": "7",
+            "full_name": "Plumlee, Mason",
+            "height": "6 ft 11 in (2.11 m)",
+            "weight": "254 lb (115 kg)",
+            "date_of_birth": "1990–03–05",
             "from": "Duke"
         },
         {
-            "position": "C",
-            "number": "21",
-            "full_name": "Whiteside, Hassan (FA)",
-            "height": "7 ft 0 in (2.13 m)",
-            "weight": "265 lb (120 kg)",
-            "date_of_birth": "1989–06–13",
-            "from": "Marshall"
+            "position": "F",
+            "number": "1",
+            "full_name": "Porter, Michael",
+            "height": "6 ft 10 in (2.08 m)",
+            "weight": "218 lb (99 kg)",
+            "date_of_birth": "1998–06–29",
+            "from": "Missouri"
+        },
+        {
+            "position": "F",
+            "number": "32",
+            "full_name": "Vonleh, Noah",
+            "height": "6 ft 10 in (2.08 m)",
+            "weight": "257 lb (117 kg)",
+            "date_of_birth": "1995–08–24",
+            "from": "Indiana"
         }
     ]
 }
