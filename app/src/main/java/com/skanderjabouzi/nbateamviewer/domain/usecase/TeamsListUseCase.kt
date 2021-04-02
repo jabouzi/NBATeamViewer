@@ -34,63 +34,47 @@ class TeamsListUseCase (val repository: TeamsRepository): UseCase() {
     suspend fun sortByName() {
         repository.getSavedTeams().collect { teamsFlow ->
             if (sortName == SortType.ASCENDING) {
-                sortName = SortType.DESCENDING
                 teamsList.value =
                     TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
                         .sortedWith(compareBy({ it.name }))
             } else {
-                sortName = SortType.ASCENDING
                 teamsList.value =
                     TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
                         .sortedWith(compareByDescending({ it.name }))
             }
+            sortName = getSortBy(sortName)
         }
     }
 
     suspend fun sortByWins() {
         repository.getSavedTeams().collect { teamsFlow ->
             if (sortWins == SortType.ASCENDING) {
-                sortWins = SortType.DESCENDING
                 teamsList.value =
                     TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
                         .sortedWith(compareBy({ it.wins }))
             } else {
-                sortWins = SortType.ASCENDING
                 teamsList.value =
                     TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
                         .sortedWith(compareByDescending({ it.wins }))
             }
+            sortWins = getSortBy(sortWins)
         }
     }
 
     suspend fun sortByLosses() {
         repository.getSavedTeams().collect { teamsFlow ->
             if (sortLosses == SortType.ASCENDING) {
-                sortLosses = SortType.DESCENDING
                 teamsList.value =
                     TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
                         .sortedWith(compareBy({ it.losses }))
             } else {
-                sortLosses = SortType.ASCENDING
                 teamsList.value =
                     TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
                         .sortedWith(compareByDescending({ it.losses }))
             }
+            sortLosses = getSortBy(sortLosses)
         }
     }
-
-//    suspend private fun getTeamsFromApi(): ResultState? {
-//        return try {
-//            val response = repository.getTeams()
-//            if (response.isSuccessful) {
-//                response.body()?.let { ResultState.Success(it) }
-//            } else {
-//                ResultState.Error(response.message())
-//            }
-//        } catch (error: IOException) {
-//            error.message?.let { ResultState.Error(it) }
-//        }
-//    }
 
     suspend private fun saveTeamsToDb(teams: List<Team>) {
         repository.saveTeams(TeamEntityAdapter.teamListToTeamEntityList(teams))

@@ -9,7 +9,7 @@ import java.io.IOException
 open class UseCase {
     val error = MutableLiveData<String>()
 
-    fun sort(sortType: SortType): SortType {
+    fun getSortBy(sortType: SortType): SortType {
         if (sortType == SortType.ASCENDING) {
             return SortType.DESCENDING
         } else {
