@@ -20,8 +20,11 @@ class TeamPlayersUseCase(val repository: TeamPlayersRepository): UseCase() {
                     when (it) {
                         is ResultState.Success -> {
                             val players = (it.data as Players).players
-                            savePlayersToDb(teamId, players)
-                            playersList.postValue(players)
+                            players?.let {
+                                it1 -> savePlayersToDb(teamId, it1)
+                                playersList.postValue(it1)
+                            }
+
                         }
                         else -> error.postValue((it as ResultState.Error).error)
                     }
@@ -84,12 +87,12 @@ class TeamPlayersUseCase(val repository: TeamPlayersRepository): UseCase() {
                 sortNumber = SortType.DESCENDING
                 playersList.value =
                     PlayerEntityAdapter.playerEntityListToPlayerList(playersFlow)
-                        .sortedWith(compareBy({ convertToInt(it.number) }))
+                        .sortedWith(compareBy({ it.number?.let { it1 -> convertToInt(it1) } }))
             } else {
                 sortNumber = SortType.ASCENDING
                 playersList.value =
                     PlayerEntityAdapter.playerEntityListToPlayerList(playersFlow)
-                        .sortedWith(compareByDescending({ convertToInt(it.number) }))
+                        .sortedWith(compareByDescending({ it.number?.let { it1 -> convertToInt(it1) } }))
             }
         }
     }

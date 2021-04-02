@@ -15,6 +15,6 @@ interface TeamsApi {
   @GET("{team_id}.json")
   suspend fun getPlayers(@Path("team_id") teamId: Int): Response<Players>
 
-  @GET("teams/{team_id}.json")
+  @GET("team_{team_id}.json")
   suspend fun getTeamDetails(@Path("team_id") teamId: Int): Response<TeamDetails>
 }

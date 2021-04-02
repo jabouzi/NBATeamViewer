@@ -17,12 +17,12 @@ object TeamDetailsEntityAdapter {
 
         fun teamDetailsToTeamDetailsEntity(details: TeamDetails): TeamDetailsEntity {
             return TeamDetailsEntity(
-                details.id,
-                details.region,
-                details.name,
-                details.abbrev,
-                details.pop,
-                details.imgURL
+                details.id ?: 0,
+                details.region ?: "",
+                details.name ?: "",
+                details.abbrev ?: "",
+                details.pop ?: 0.0,
+                details.imgURL ?: ""
             )
         }
 }

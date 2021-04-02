@@ -9,5 +9,6 @@ data class TeamEntity (
     val id : Int,
     val name : String,
     val wins : Int,
-    val losses : Int
+    val losses : Int,
+    val imgURL : String
 )

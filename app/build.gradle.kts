@@ -81,8 +81,9 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.4")
     implementation("androidx.navigation:navigation-ui-ktx:2.3.4")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
+    implementation("io.coil-kt:coil:1.1.1")
 
     testImplementation("org.mockito:mockito-core:3.3.3")
     testImplementation("org.mockito:mockito-inline:3.3.3")

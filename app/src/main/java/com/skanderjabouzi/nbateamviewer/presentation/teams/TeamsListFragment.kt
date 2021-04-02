@@ -54,8 +54,11 @@ class TeamsListFragment : Fragment(), TeamClickListener {
 
         setMenu(view)
 
-        adapter = TeamsListAdapter(this)
-        teamsRecyclerView.adapter = adapter
+        activity?.let {
+            adapter =  TeamsListAdapter(this, it)
+            teamsRecyclerView.adapter = adapter
+        }
+
         showLoading()
         setRetryButton()
         getTeams()
@@ -128,6 +131,6 @@ class TeamsListFragment : Fragment(), TeamClickListener {
             putSerializable("team", team)
         }
         view?.findNavController()?.navigate(
-            R.id.action_teamsListFragment_to_teamPlayersFragment, teamBumble)
+            R.id.action_teamsListFragment_to_teamDetailsFragment, teamBumble)
     }
 }

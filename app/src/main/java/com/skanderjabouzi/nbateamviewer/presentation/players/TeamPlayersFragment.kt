@@ -13,6 +13,10 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import coil.Coil
+import coil.imageLoader
+import coil.load
+import coil.transform.CircleCropTransformation
 import com.skanderjabouzi.nbateamviewer.R
 import com.skanderjabouzi.nbateamviewer.data.model.Team
 import kotlinx.android.synthetic.main.players_titles.view.*
@@ -28,6 +32,7 @@ class TeamPlayersFragment : Fragment() {
     lateinit var adapter: TeamPlayersListAdapter
     //var viewModelFactory: ViewModelFactory = ViewModelFactory(this)
     var teamId = 0
+    val imageLoader = activity?.imageLoader
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +50,7 @@ class TeamPlayersFragment : Fragment() {
 
         observePlayers()
         observeErrors()
+        imageLoader?.let { Coil.setImageLoader(it) }
 
         view.findViewById<Toolbar>(R.id.toolbar)
             .setupWithNavController(navController, appBarConfiguration)
@@ -65,12 +71,19 @@ class TeamPlayersFragment : Fragment() {
 
     private fun getTeamBundle() {
         val team = arguments?.getSerializable("team") as Team
-        team?.let {
-            viewModel.getPlayers(it.id)
-            teamId = it.id
+        team.let {
+            it.id?.let { it1 -> viewModel.getPlayers(it1)
+                teamId = it1
+            }
             players_titles.player_team_values.team_name_value.text = it.name
             players_titles.player_team_values.team_wins_value.text = it.wins.toString()
             players_titles.player_team_values.team_losses_value.text = it.losses.toString()
+            players_titles.player_team_values.team_image.team_image.load(team.imgURL) {
+                crossfade(true)
+                placeholder(R.drawable.placeholder)
+                error(R.drawable.placeholder)
+                transformations(CircleCropTransformation())
+            }
         }
     }
 
@@ -85,12 +98,12 @@ class TeamPlayersFragment : Fragment() {
 
     private fun showLoading() {
         playersRecyclerView.isEnabled = false
-        playersProgressBar.visibility = View.VISIBLE
+        playersProgressBar.isVisible = true
     }
 
     private fun hideLoading() {
         playersRecyclerView.isEnabled = true
-        playersProgressBar.visibility = View.GONE
+        playersProgressBar.isVisible = false
     }
 
     private fun showMessage(errorMessage: String) {

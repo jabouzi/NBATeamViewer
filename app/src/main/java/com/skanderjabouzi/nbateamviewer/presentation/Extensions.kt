@@ -6,11 +6,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-inline fun View.snack(message: String, length: Int = Snackbar.LENGTH_LONG) {
-  val snack = Snackbar.make(this, message, length)
-  snack.show()
-}
-
 inline fun View.snack(message: String, length: Int = Snackbar.LENGTH_INDEFINITE, f: Snackbar.() -> Unit) {
   val snack = Snackbar.make(this, message, length)
   snack.f()

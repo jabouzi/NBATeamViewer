@@ -19,8 +19,10 @@ class TeamsListUseCase (val repository: TeamsRepository): UseCase() {
                     when (it) {
                         is ResultState.Success -> {
                             val teams = (it.data as Teams).teams
-                            saveTeamsToDb(teams)
-                            teamsList.postValue(teams)
+                            teams?.let {
+                                saveTeamsToDb(it)
+                                teamsList.postValue(it)
+                            }
                         }
                         else -> error.postValue((it as ResultState.Error).error)
                     }

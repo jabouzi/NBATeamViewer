@@ -9,7 +9,8 @@ object TeamEntityAdapter {
                 entity.id,
                 entity.name,
                 entity.wins,
-                entity.losses
+                entity.losses,
+                entity.imgURL
             )
         }
 
@@ -24,10 +25,11 @@ object TeamEntityAdapter {
 
         fun teamToTeamEntity(team: Team): TeamEntity {
             return TeamEntity(
-                team.id,
-                team.name,
-                team.wins,
-                team.losses
+                team.id ?: 0,
+                team.name ?: "",
+                team.wins ?: 0,
+                team.losses ?: 0,
+                team.imgURL ?: ""
             )
         }
 

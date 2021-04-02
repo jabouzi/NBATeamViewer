@@ -50,6 +50,6 @@ interface TeamDao {
   suspend fun insert(teamDetails: TeamDetailsEntity)
 
   @Query("select * from teamdetailsentity where id = :id")
-  fun getTeamDetails(id: Int?): LiveData<TeamDetailsEntity>
+  fun getTeamDetails(id: Int?): LiveData<TeamDetailsEntity?>
 
 }

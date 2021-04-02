@@ -10,25 +10,26 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object Network {
     fun getRetrofit(context: Context): Retrofit {
-        val httpLoggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+
+        val okhttpClient = OkHttpClient.Builder()
+        val logging = HttpLoggingInterceptor()
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+        okhttpClient.addInterceptor(logging)
 
         val gson = GsonBuilder()
             .setLenient()
             .create()
         val gsonFactory = GsonConverterFactory.create(gson)
 
-        val logging = HttpLoggingInterceptor()
-        val builder = OkHttpClient.Builder()
-        builder.addInterceptor(logging)
+        okhttpClient.addInterceptor(logging)
         if (BuildConfig.FLAVOR.equals("mock")) {
-            builder.addInterceptor(MockInterceptor(context))
+            okhttpClient.addInterceptor(MockInterceptor(context))
         }
-        val okHttpClient = builder.build()
 
         val retrofit = Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(gsonFactory)
-            .client(okHttpClient)
+            .client(okhttpClient.build())
             .build()
 
         return retrofit

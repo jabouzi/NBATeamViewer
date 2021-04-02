@@ -29,13 +29,13 @@ object PlayerEntityAdapter {
             return PlayerEntity(
                 null,
                 teamId,
-                player.position,
-                player.number,
-                player.full_name,
-                player.height,
-                player.weight,
-                player.date_of_birth,
-                player.from
+                player.position ?: "",
+                player.number ?: "0",
+                player.full_name ?: "",
+                player.height ?: "0",
+                player.weight ?: "0",
+                player.date_of_birth ?: "",
+                player.from ?: ""
             )
         }
 

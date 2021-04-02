@@ -16,7 +16,7 @@ class TeamDetailsRepository(val context: Context) {
     var retrofitClient: RetrofitClient = RetrofitClient(Network.getRetrofit(context))
     private val teamDao: TeamDao = db.teamDao()
 
-    fun getSavedTeamDetails(id: Int): LiveData<TeamDetailsEntity> {
+    fun getSavedTeamDetails(id: Int): LiveData<TeamDetailsEntity?> {
         return teamDao.getTeamDetails(id)
     }
 

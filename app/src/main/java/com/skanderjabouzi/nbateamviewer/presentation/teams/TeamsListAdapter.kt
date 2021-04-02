@@ -30,23 +30,34 @@
 
 package com.skanderjabouzi.nbateamviewer.presentation.teams
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.Coil
+import coil.ImageLoader
+import coil.imageLoader
+import coil.load
+import coil.transform.CircleCropTransformation
+import coil.util.CoilUtils
 import com.skanderjabouzi.nbateamviewer.R
 import com.skanderjabouzi.nbateamviewer.data.model.Team
 import com.skanderjabouzi.nbateamviewer.presentation.listener.TeamClickListener
 import kotlinx.android.synthetic.main.teams_item.view.*
+import okhttp3.OkHttpClient
 
-class TeamsListAdapter (private val itemClickListener: TeamClickListener) :
+class TeamsListAdapter (private val itemClickListener: TeamClickListener,
+                        private val context: Context) :
         RecyclerView.Adapter<TeamsListAdapter.TeamHolder>() {
 
   private val teams = mutableListOf<Team>()
+  val imageLoader = context.imageLoader
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamHolder {
     val view = LayoutInflater.from(parent.context)
         .inflate(R.layout.teams_item, parent, false)
+    Coil.setImageLoader(imageLoader)
     return TeamHolder(view)
   }
 
@@ -65,11 +76,17 @@ class TeamsListAdapter (private val itemClickListener: TeamClickListener) :
 
   inner class TeamHolder(val view: View) : RecyclerView.ViewHolder(view) {
     fun bind(team: Team, position: Int, itemClickListener: TeamClickListener) = with(view) {
-      itemView.team_name_value.text = team.name.trim()
+      itemView.team_name_value.text = team.name?.trim()
       itemView.team_wins_value.text = team.wins.toString().trim()
       itemView.team_losses_value.text = team.losses.toString().trim()
+      itemView.team_image.load(team.imgURL) {
+        crossfade(true)
+        placeholder(R.drawable.placeholder)
+        error(R.drawable.placeholder)
+        transformations(CircleCropTransformation())
+      }
       itemView.setOnClickListener {
-        teams?.get(position).let { it -> itemClickListener.onItemClick(it) }
+        teams.get(position).let { itemClickListener.onItemClick(it) }
       }
     }
   }

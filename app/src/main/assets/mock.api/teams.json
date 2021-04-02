@@ -4,181 +4,211 @@
       "id": 1,
       "name": "Atlanta Hawks",
       "wins": 20,
-      "losses": 47
+      "losses": 47,
+      "imgURL":"http://content.sportslogos.net/logos/6/220/full/9168_atlanta_hawks-primary-2016.png"
     },
     {
       "id": 2,
       "name": "Boston Celtics",
       "wins": 48,
-      "losses": 24
+      "losses": 24,
+      "imgURL":"http://i.cdn.turner.com/nba/nba/media/celtics_logo.gif"
     },
     {
       "id": 3,
       "name": "Brooklyn Nets",
       "wins": 35,
-      "losses": 37
+      "losses": 37,
+      "imgURL":"http://content.sportslogos.net/logos/6/3786/full/137_brooklyn-nets-primary-2013.png"
     },
     {
       "id": 4,
       "name": "Charlotte Hornets",
       "wins": 23,
-      "losses": 42
+      "losses": 42,
+      "imgURL":"http://www.basketusa.com/wp-content/uploads/2014/05/charlotte-hornets-logo-11.jpg"
     },
     {
       "id": 5,
       "name": "Chicago Bulls",
       "wins": 22,
-      "losses": 43
+      "losses": 43,
+      "imgURL":"http://content.sportslogos.net/logos/6/221/full/hj3gmh82w9hffmeh3fjm5h874.png"
     },
     {
       "id": 6,
       "name": "Cleveland Cavaliers",
       "wins": 19,
-      "losses": 46
+      "losses": 46,
+      "imgURL":"http://content.sportslogos.net/logos/6/222/full/e4701g88mmn7ehz2baynbs6e0.png"
     },
     {
       "id": 7,
       "name": "Dallas Mavericks",
       "wins": 43,
-      "losses": 32
+      "losses": 32,
+      "imgURL":"http://i.cdn.turner.com/nba/nba/media/mavericks_logo.gif"
     },
     {
       "id": 8,
       "name": "Denver Nuggets",
       "wins": 46,
-      "losses": 27
+      "losses": 27,
+      "imgURL":"http://i.cdn.turner.com/nba/nba/media/nuggets_logo.gif"
     },
     {
       "id": 9,
       "name": "Detroit Pistons",
       "wins": 20,
-      "losses": 46
+      "losses": 46,
+      "imgURL":"http://upload.wikimedia.org/wikipedia/fr/c/c0/Detroit_Pistons.gif"
     },
     {
       "id": 10,
       "name": "Golden State Warriors",
       "wins": 15,
-      "losses": 50
+      "losses": 50,
+      "imgURL":"http://upload.wikimedia.org/wikipedia/fr/thumb/b/bf/WarriorsduGoldenStatelogo2010.png/200px-WarriorsduGoldenStatelogo2010.png"
     },
     {
       "id": 11,
       "name": "Houston Rockets",
       "wins": 44,
-      "losses": 28
+      "losses": 28,
+      "imgURL":"http://i.cdn.turner.com/nba/nba/media/rockets_logo.gif"
     },
     {
       "id": 12,
       "name": "Indiana Pacers",
       "wins": 45,
-      "losses": 28
+      "losses": 28,
+      "imgURL":"http://upload.wikimedia.org/wikipedia/fr/2/25/Indiana_Pacers.gif"
     },
     {
       "id": 13,
       "name": "Los Angeles Clippers",
       "wins": 49,
-      "losses": 23
+      "losses": 23,
+      "imgURL":"https://upload.wikimedia.org/wikipedia/en/thumb/b/bb/Los_Angeles_Clippers_%282015%29.svg/300px-Los_Angeles_Clippers_%282015%29.svg.png"
     },
     {
       "id": 14,
       "name": "Los Angeles Lakers",
       "wins": 52,
-      "losses": 19
+      "losses": 19,
+      "imgURL":"http://content.sportslogos.net/logos/6/237/full/uig7aiht8jnpl1szbi57zzlsh.gif"
     },
     {
       "id": 15,
       "name": "Memphis Grizzlies",
       "wins": 34,
-      "losses": 39
+      "losses": 39,
+      "imgURL":"http://content.sportslogos.net/logos/6/231/full/793.gif"
     },
     {
       "id": 16,
       "name": "Miami Heat",
       "wins": 44,
-      "losses": 29
+      "losses": 29,
+      "imgURL":"http://i.cdn.turner.com/nba/nba/media/heat_logo.gif"
     },
     {
       "id": 17,
       "name": "Milwaukee Bucks",
       "wins": 56,
-      "losses": 17
+      "losses": 17,
+      "imgURL":"https://upload.wikimedia.org/wikipedia/en/9/9a/Milwaukee_Bucks_logo15.png"
     },
     {
       "id": 18,
       "name": "Minnesota Timberwolves",
       "wins": 19,
-      "losses": 45
+      "losses": 45,
+      "imgURL":"http://content.sportslogos.net/logos/6/232/full/zq8qkfni1g087f4245egc32po.gif"
     },
     {
       "id": 19,
       "name": "New Orleans Pelicans",
       "wins": 30,
-      "losses": 42
+      "losses": 42,
+      "imgURL":"http://content.sportslogos.net/logos/6/4962/full/2681_new_orleans_pelicans-primary-2014.png"
     },
     {
       "id": 20,
       "name": "New York Knicks",
       "wins": 21,
-      "losses": 45
+      "losses": 45,
+      "imgURL":"http://content.sportslogos.net/logos/6/216/full/2nn48xofg0hms8k326cqdmuis.gif"
     },
     {
       "id": 21,
       "name": "Oklahoma City Thunder",
       "wins": 44,
-      "losses": 28
+      "losses": 28,
+      "imgURL":"http://i.cdn.turner.com/nba/nba/media/thunder_logo.gif"
     },
     {
       "id": 22,
       "name": "Orlando Magic",
       "wins": 33,
-      "losses": 40
+      "losses": 40,
+      "imgURL":"http://upload.wikimedia.org/wikipedia/fr/b/bd/Orlando_Magic_logo_2010.png"
     },
     {
       "id": 23,
       "name": "Philadelphia 76ers",
       "wins": 43,
-      "losses": 30
+      "losses": 30,
+      "imgURL":"http://content.sportslogos.net/logos/6/218/full/7034_philadelphia_76ers-primary-2016.png"
     },
     {
       "id": 24,
       "name": "Phoenix Suns",
       "wins": 34,
-      "losses": 39
+      "losses": 39,
+      "imgURL":"http://content.sportslogos.net/logos/6/238/full/4370_phoenix_suns-primary-2014.png"
     },
     {
       "id": 25,
       "name": "Portland Trail Blazers",
       "wins": 35,
-      "losses": 39
+      "losses": 39,
+      "imgURL":"http://content.sportslogos.net/logos/6/239/full/bahmh46cyy6eod2jez4g21buk.gif"
     },
     {
       "id": 26,
       "name": "Sacramento Kings",
       "wins": 31,
-      "losses": 41
+      "losses": 41,
+      "imgURL":"https://upload.wikimedia.org/wikipedia/en/thumb/c/c7/SacramentoKings.svg/350px-SacramentoKings.svg.png"
     },
     {
       "id": 27,
       "name": "San Antonio Spurs",
       "wins": 32,
-      "losses": 39
+      "losses": 39,
+      "imgURL":"http://i.cdn.turner.com/nba/nba/media/spurs_logo.gif"
     },
     {
       "id": 28,
       "name": "Toronto Raptors",
       "wins": 53,
-      "losses": 19
+      "losses": 19,
+      "imgURL":"https://upload.wikimedia.org/wikipedia/fr/8/89/Raptors2015.png"
     },
     {
       "id": 29,
       "name": "Utah Jazz",
       "wins": 44,
-      "losses": 28
+      "losses": 28,
+      "imgURL":"https://upload.wikimedia.org/wikipedia/en/c/c2/Utah_Jazz_primary_logo_2016%E2%80%93present.png"
     },
     {
       "id": 30,
       "name": "Washington Wizards",
       "wins": 25,
-      "losses": 47
+      "losses": 47,
+      "imgURL":"https://upload.wikimedia.org/wikipedia/fr/thumb/d/d6/Wizards2015.png/800px-Wizards2015.png"
     }
   ]
 }
