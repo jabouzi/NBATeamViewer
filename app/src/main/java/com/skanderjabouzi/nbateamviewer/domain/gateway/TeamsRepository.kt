@@ -1,6 +1,7 @@
 package com.skanderjabouzi.nbateamviewer.domain.gateway
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.skanderjabouzi.nbateamviewer.data.entity.TeamDetailsEntity
 import com.skanderjabouzi.nbateamviewer.data.repository.db.TeamDao
@@ -19,7 +20,9 @@ class TeamsRepository(val context: Context) {
   private val teamDao: TeamDao = db.teamDao()
 
   fun getSavedTeams(): Flow<List<TeamEntity>> {
-    return teamDao.getTeams()
+    val temp = teamDao.getTeams()
+    Log.e("####","$temp")
+    return temp
   }
 
   suspend fun saveTeams(teams: List<TeamEntity>) {

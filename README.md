@@ -9,3 +9,4 @@ Copyright (c) 2020 Skander Jabouzi
 * The asset folder contains all the payloads
 * The data is from Wikipedia 
 * I used my personal webserver to host the payloads
+/Users/jabousk/AndroidStudioProjects/squaretest/README.md

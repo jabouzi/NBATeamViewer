@@ -10,6 +10,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -23,7 +24,7 @@ import kotlinx.android.synthetic.main.toolbar_layout.view.*
 
 class TeamsListFragment : Fragment(), TeamClickListener {
 
-    val viewModel: TeamsListViewModel by viewModels()
+    lateinit var viewModel: TeamsListViewModel
     lateinit var adapter: TeamsListAdapter
     //lateinit var viewModelFactory: ViewModelFactory
 
@@ -32,6 +33,7 @@ class TeamsListFragment : Fragment(), TeamClickListener {
         savedInstanceState: Bundle?
     ): View? {
         //viewModel = ViewModelProvider(this, viewModelFactory).get(TeamsListViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(TeamsListViewModel::class.java)
         return inflater.inflate(R.layout.teams_list_fragment, container, false)
     }
 

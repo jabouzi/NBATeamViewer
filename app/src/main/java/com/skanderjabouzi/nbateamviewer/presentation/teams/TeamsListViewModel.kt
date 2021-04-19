@@ -1,21 +1,35 @@
 package com.skanderjabouzi.nbateamviewer.presentation.teams
 
-import android.app.Application
-import androidx.lifecycle.*
-import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamsListUseCase
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.viewModelScope
+import com.skanderjabouzi.nbateamviewer.data.model.Team
 import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
+import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamsListUseCase
 import kotlinx.coroutines.launch
 
-class TeamsListViewModel (application: Application) : AndroidViewModel(application) {
+class TeamsListViewModel(application: TeamsListUseCase, savedStateHandle: SavedStateHandle?) : AndroidViewModel(application) {
     var repository = TeamsRepository(application)
     val usecase = TeamsListUseCase(repository)
 
-    val teams = usecase.teamsList
+    private var savedStateHandle: SavedStateHandle? = null
+
+    init {
+        this.savedStateHandle = savedStateHandle
+    }
+
+    var teams = usecase.teamsList
     val error = usecase.error
 
     fun getTeams() {
         viewModelScope.launch {
-            usecase.getTeams()
+            if (savedStateHandle!!.contains("EMPLOYEES_LIST")) {
+                getSavedStateEmployeesList()
+            } else {
+                usecase.getTeams()
+                saveStateEmployeesList(teams)
+            }
         }
     }
 
@@ -35,5 +49,16 @@ class TeamsListViewModel (application: Application) : AndroidViewModel(applicati
         viewModelScope.launch {
            usecase.sortByLosses()
         }
+    }
+
+    fun getSavedStateEmployeesList() {
+        teams = savedStateHandle!!.getLiveData("EMPLOYEES_LIST")
+    }
+    fun saveStateEmployeesList(employees: LiveData<List<Team>>) {
+        savedStateHandle!!.set("EMPLOYEES_LIST", employees)
+    }
+
+    fun deleteSavedStateEmployeesList() {
+        savedStateHandle!!.remove<LiveData<List<Team>>>("EMPLOYEES_LIST")
     }
 }
