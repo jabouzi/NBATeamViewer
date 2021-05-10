@@ -15,15 +15,14 @@ class TeamsListViewModel @Inject constructor(val usecase: GetTeamsListUseCase) :
     val teams: LiveData<List<Team>>
         get() = _teams
 
+    init {
+        getTeams()
+    }
+
     fun getTeams() {
         viewModelScope.launch {
-//            Log.e("## TeamsListViewModel", "${Thread.currentThread().name}")
-//            Log.e("## TeamsListViewModel", "${this.coroutineContext}")
             try {
                 _teams.value = usecase.getTeams()
-//                _teams.value = liveData {
-//                    emit(usecase.getTeams())
-//                }
             } catch (e: Exception) {
                 Log.e("listResult", "${e.localizedMessage}")
                 _teams.value = null
