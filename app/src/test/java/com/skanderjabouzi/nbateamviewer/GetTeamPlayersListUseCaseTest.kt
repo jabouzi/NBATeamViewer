@@ -9,10 +9,10 @@ import com.nhaarman.mockitokotlin2.whenever
 import com.skanderjabouzi.nbateamviewer.data.entity.PlayerEntity
 import com.skanderjabouzi.nbateamviewer.data.model.Player
 import com.skanderjabouzi.nbateamviewer.data.model.Players
-import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
+import com.skanderjabouzi.nbateamviewer.data.repository.gateway.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamPlayersUseCase
-import com.skanderjabouzi.nbateamviewer.domain.usecase.PlayerEntityAdapter
-import com.skanderjabouzi.nbateamviewer.domain.usecase.SortType
+import com.skanderjabouzi.nbateamviewer.domain.helpers.PlayerEntityAdapter
+import com.skanderjabouzi.nbateamviewer.domain.helpers.SortType
 import kotlinx.coroutines.*
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain

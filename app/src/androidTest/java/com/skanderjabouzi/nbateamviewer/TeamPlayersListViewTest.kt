@@ -51,7 +51,7 @@ class TeamPlayersListViewTest {
     @Test
     fun runActivityAndSelectSortByNameAndValidateOrder () {
         teamsRobot.selectTeamFromList(0)
-        teamsRobot.selectSortByNameMenu(3)
+        teamsRobot.selectSortByNameMenu()
         teamsRobot.verifyTeamPlayersItemInListHasText(0, "Aldridge, LaMarcus")
         teamsRobot.scrollTeamPlayersListTo(16)
         teamsRobot.verifyTeamPlayersItemInListHasText(16, "Šamanić, Luka")

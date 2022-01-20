@@ -19,17 +19,14 @@ import coil.load
 import coil.transform.CircleCropTransformation
 import com.skanderjabouzi.nbateamviewer.R
 import com.skanderjabouzi.nbateamviewer.data.model.Team
-import kotlinx.android.synthetic.main.players_titles.view.*
-import kotlinx.android.synthetic.main.team_players_fragment.*
-import kotlinx.android.synthetic.main.teams_item.view.*
-import kotlinx.android.synthetic.main.toolbar_layout.*
-import kotlinx.android.synthetic.main.toolbar_layout.view.*
-
+import com.skanderjabouzi.nbateamviewer.databinding.TeamPlayersFragmentBinding
 
 class TeamPlayersFragment : Fragment() {
 
     private val viewModel: TeamPlayersViewModel by viewModels()
     lateinit var adapter: TeamPlayersListAdapter
+    private var _binding: TeamPlayersFragmentBinding? = null
+    private val binding get() = _binding!!
     //var viewModelFactory: ViewModelFactory = ViewModelFactory(this)
     var teamId = 0
     val imageLoader = activity?.imageLoader
@@ -39,7 +36,8 @@ class TeamPlayersFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         //viewModel = ViewModelProvider(this, viewModelFactory)[TeamPlayersViewModel::class.java]
-        return inflater.inflate(R.layout.team_players_fragment, container, false)
+        _binding = TeamPlayersFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,15 +53,16 @@ class TeamPlayersFragment : Fragment() {
         view.findViewById<Toolbar>(R.id.toolbar)
             .setupWithNavController(navController, appBarConfiguration)
 
-        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
-        toolbar.players_toolbar_title.text = getString(R.string.players_list)
-        toolbar.team_toolbar_title.isVisible = false
-        teams_titles.isVisible = false
+        with(binding.toolbarView) {
+            playersToolbarTitle.text = getString(R.string.players_list)
+            teamToolbarTitle.isVisible = false
+            teamsTitles.root.isVisible = false
+        }
 
         setMenu(view)
 
         adapter = TeamPlayersListAdapter()
-        playersRecyclerView.adapter = adapter
+        binding.playersRecyclerView.adapter = adapter
         showLoading()
         setRetryButton()
         getTeamBundle()
@@ -75,42 +74,52 @@ class TeamPlayersFragment : Fragment() {
             it.id?.let { it1 -> viewModel.getPlayers(it1)
                 teamId = it1
             }
-            players_titles.player_team_values.team_name_value.text = it.name
-            players_titles.player_team_values.team_wins_value.text = it.wins.toString()
-            players_titles.player_team_values.team_losses_value.text = it.losses.toString()
-            players_titles.player_team_values.team_image.team_image.load(team.imgURL) {
-                crossfade(true)
-                placeholder(R.drawable.placeholder)
-                error(R.drawable.placeholder)
-                transformations(CircleCropTransformation())
+            with(binding.toolbarView.playersTitles.playerTeamValues) {
+                teamNameValue.text = it.name
+                teamWinsValue.text = it.wins.toString()
+                teamLossesValue.text = it.losses.toString()
+                teamImage.load(team.imgURL) {
+                    crossfade(true)
+                    placeholder(R.drawable.placeholder)
+                    error(R.drawable.placeholder)
+                    transformations(CircleCropTransformation())
+                }
             }
         }
     }
 
     private fun setRetryButton() {
-        playersRetryButton.setOnClickListener {
-            playersRetryButton.isVisible = false
-            playersErroMessage.isVisible = false
-            showLoading()
-            getPlayers(teamId)
+        with(binding) {
+            playersRetryButton.setOnClickListener {
+                it.isVisible = false
+                playersErrorMessage.isVisible = false
+                showLoading()
+                getPlayers(teamId)
+            }
         }
     }
 
     private fun showLoading() {
-        playersRecyclerView.isEnabled = false
-        playersProgressBar.isVisible = true
+        with(binding) {
+            playersRecyclerView.isEnabled = false
+            playersProgressBar.isVisible = true
+        }
     }
 
     private fun hideLoading() {
-        playersRecyclerView.isEnabled = true
-        playersProgressBar.isVisible = false
+        with(binding) {
+            playersRecyclerView.isEnabled = true
+            playersProgressBar.isVisible = false
+        }
     }
 
     private fun showMessage(errorMessage: String) {
         if (errorMessage.isNotEmpty()) {
-            playersRetryButton.isVisible = true
-            playersErroMessage.isVisible = true
-            playersErroMessage.text = errorMessage
+            with(binding) {
+                playersRetryButton.isVisible = true
+                playersErrorMessage.isVisible = true
+                playersErrorMessage.text = errorMessage
+            }
         }
     }
 

@@ -74,8 +74,8 @@ class TeamsRobot {
                 .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(item));
     }
 
-    fun selectSortByNameMenu(position: Int) {
-        openMenu(position)
+    fun selectSortByNameMenu() {
+        openMenu(1)
         val appCompatTextView = onView(
                 Matchers.allOf(
                         withId(R.id.title), withText("Sort by name"),

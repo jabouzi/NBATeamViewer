@@ -1,4 +1,4 @@
-package com.skanderjabouzi.nbateamviewer.domain.usecase
+package com.skanderjabouzi.nbateamviewer.domain.helpers
 
 enum class ConnectionType {
     CONNECTED,

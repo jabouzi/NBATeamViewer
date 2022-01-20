@@ -35,13 +35,21 @@
             android:textSize="20sp"
             android:textColor="@android:color/black"
             app:titleTextColor="@android:color/black"
-            android:layout_gravity="left"
+            android:layout_gravity="start"
     />
 
   </androidx.appcompat.widget.Toolbar>
 
-  <include android:id="@+id/teams_titles" layout="@layout/teams_titles"></include>
+  <include
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:id="@+id/teams_titles"
+      layout="@layout/teams_titles"/>
 
-  <include android:id="@+id/players_titles" layout="@layout/players_titles"></include>
+  <include
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:id="@+id/players_titles"
+      layout="@layout/players_titles"/>
 
 </com.google.android.material.appbar.AppBarLayout>

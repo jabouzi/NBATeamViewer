@@ -43,22 +43,23 @@ import coil.transform.CircleCropTransformation
 import coil.util.CoilUtils
 import com.skanderjabouzi.nbateamviewer.R
 import com.skanderjabouzi.nbateamviewer.data.model.Team
+import com.skanderjabouzi.nbateamviewer.databinding.PlayersItemBinding
+import com.skanderjabouzi.nbateamviewer.databinding.TeamsItemBinding
 import com.skanderjabouzi.nbateamviewer.presentation.listener.TeamClickListener
-import kotlinx.android.synthetic.main.teams_item.view.*
-import okhttp3.OkHttpClient
 
 class TeamsListAdapter (private val itemClickListener: TeamClickListener,
                         private val context: Context) :
         RecyclerView.Adapter<TeamsListAdapter.TeamHolder>() {
 
+  private lateinit var binding: TeamsItemBinding
   private val teams = mutableListOf<Team>()
   val imageLoader = context.imageLoader
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamHolder {
-    val view = LayoutInflater.from(parent.context)
-        .inflate(R.layout.teams_item, parent, false)
+    binding = TeamsItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    val holder = TeamHolder(binding, parent.context)
     Coil.setImageLoader(imageLoader)
-    return TeamHolder(view)
+    return holder
   }
 
   override fun getItemCount(): Int = teams.size ?: 0
@@ -74,18 +75,18 @@ class TeamsListAdapter (private val itemClickListener: TeamClickListener,
   }
 
 
-  inner class TeamHolder(val view: View) : RecyclerView.ViewHolder(view) {
-    fun bind(team: Team, position: Int, itemClickListener: TeamClickListener) = with(view) {
-      itemView.team_name_value.text = team.name?.trim()
-      itemView.team_wins_value.text = team.wins.toString().trim()
-      itemView.team_losses_value.text = team.losses.toString().trim()
-      itemView.team_image.load(team.imgURL) {
+  inner class TeamHolder(val binding: TeamsItemBinding, val context: Context) : RecyclerView.ViewHolder(binding.root) {
+    fun bind(team: Team, position: Int, itemClickListener: TeamClickListener) = with(binding) {
+      teamNameValue.text = team.name?.trim()
+      teamWinsValue.text = team.wins.toString().trim()
+      teamLossesValue.text = team.losses.toString().trim()
+      teamImage.load(team.imgURL) {
         crossfade(true)
         placeholder(R.drawable.placeholder)
         error(R.drawable.placeholder)
         transformations(CircleCropTransformation())
       }
-      itemView.setOnClickListener {
+      binding.root.setOnClickListener {
         teams.get(position).let { itemClickListener.onItemClick(it) }
       }
     }

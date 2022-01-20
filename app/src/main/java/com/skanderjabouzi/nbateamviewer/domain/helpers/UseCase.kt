@@ -1,8 +1,6 @@
-package com.skanderjabouzi.nbateamviewer.domain.usecase
+package com.skanderjabouzi.nbateamviewer.domain.helpers
 
 import androidx.lifecycle.MutableLiveData
-import com.skanderjabouzi.nbateamviewer.data.model.Player
-import com.skanderjabouzi.nbateamviewer.data.model.Team
 import retrofit2.Response
 import java.io.IOException
 

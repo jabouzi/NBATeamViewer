@@ -24,14 +24,14 @@ class TeamsListViewTest {
     fun runActivityAndValidateViewsIsVisibleAndHasTexts () {
         teamsRobot.verifyTeamsToolbarIsDisplayed()
         teamsRobot.verifyTeamsListTitlesAreDisplayed()
-        teamsRobot.verifyTeamsItemInListHasText(0, "San Antonio Spurs")
+        teamsRobot.verifyTeamsItemInListHasText(0, "Atlanta Hawks")
         teamsRobot.scrollTeamsListTo(29)
         teamsRobot.verifyTeamsItemInListHasText(29, "Sacramento Kings")
     }
 
     @Test
     fun runActivityAndSelectSortByNameAndValidateOrder () {
-        teamsRobot.selectSortByNameMenu(2)
+        teamsRobot.selectSortByNameMenu()
         teamsRobot.verifyTeamsItemInListHasText(0, "Atlanta Hawks")
         teamsRobot.scrollTeamsListTo(29)
         teamsRobot.verifyTeamsItemInListHasText(29, "Washington Wizards")

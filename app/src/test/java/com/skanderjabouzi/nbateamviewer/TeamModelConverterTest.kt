@@ -3,7 +3,7 @@ package com.skanderjabouzi.nbateamviewer
 import android.os.Build
 import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
 import com.skanderjabouzi.nbateamviewer.data.model.Team
-import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamEntityAdapter
+import com.skanderjabouzi.nbateamviewer.domain.helpers.TeamEntityAdapter
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith

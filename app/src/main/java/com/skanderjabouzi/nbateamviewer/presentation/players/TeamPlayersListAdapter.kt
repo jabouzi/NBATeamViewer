@@ -1,22 +1,23 @@
 package com.skanderjabouzi.nbateamviewer.presentation.players
 
+import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.skanderjabouzi.nbateamviewer.R
 import com.skanderjabouzi.nbateamviewer.data.model.Player
-import kotlinx.android.synthetic.main.players_item.view.*
+import com.skanderjabouzi.nbateamviewer.databinding.PlayersItemBinding
 
 class TeamPlayersListAdapter
   : RecyclerView.Adapter<TeamPlayersListAdapter.PlayerViewHolder>() {
 
   private var players = mutableListOf<Player>()
+  private lateinit var binding: PlayersItemBinding
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlayerViewHolder {
-    val view =
-      LayoutInflater.from(parent.context).inflate(R.layout.players_item, parent, false)
-    return PlayerViewHolder(view)
+    binding = PlayersItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    var holder = PlayerViewHolder(binding, parent.context)
+    return holder
   }
 
   override fun getItemViewType(position: Int): Int = R.layout.players_item
@@ -36,11 +37,14 @@ class TeamPlayersListAdapter
     notifyDataSetChanged()
   }
 
-  inner class PlayerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+  inner class PlayerViewHolder(binding: PlayersItemBinding, context: Context) : RecyclerView.ViewHolder(binding.root) {
     fun bind(player: Player) {
-      itemView.player_name_value.text = player.full_name?.trim()
-      itemView.player_position_value.text = player.position?.trim()
-      itemView.player_number_value.text = player.number?.trim()
+      with(binding) {
+        playerNameValue.text = player.full_name?.trim()
+        playerPositionValue.text = player.position?.trim()
+        playerNumberValue.text = player.number?.trim()
+      }
+
     }
   }
 }

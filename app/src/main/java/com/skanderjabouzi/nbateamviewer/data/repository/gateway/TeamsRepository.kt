@@ -1,9 +1,7 @@
-package com.skanderjabouzi.nbateamviewer.domain.gateway
+package com.skanderjabouzi.nbateamviewer.data.repository.gateway
 
 import android.content.Context
 import android.util.Log
-import androidx.lifecycle.LiveData
-import com.skanderjabouzi.nbateamviewer.data.entity.TeamDetailsEntity
 import com.skanderjabouzi.nbateamviewer.data.repository.db.TeamDao
 import com.skanderjabouzi.nbateamviewer.data.repository.db.TeamDatabase
 import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity

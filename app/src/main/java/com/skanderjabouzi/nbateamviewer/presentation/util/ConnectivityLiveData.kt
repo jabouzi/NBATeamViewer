@@ -11,7 +11,7 @@ import androidx.annotation.RequiresApi
 import androidx.annotation.RequiresPermission
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
-import com.skanderjabouzi.nbateamviewer.domain.usecase.ConnectionType
+import com.skanderjabouzi.nbateamviewer.domain.helpers.ConnectionType
 
 /**
  * A LiveData class which wraps the network connection status

@@ -1,4 +1,4 @@
-package com.skanderjabouzi.nbateamviewer.domain.gateway
+package com.skanderjabouzi.nbateamviewer.data.repository.gateway
 
 import android.content.Context
 import com.skanderjabouzi.nbateamviewer.data.repository.db.PlayersDao

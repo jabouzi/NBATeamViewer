@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:id="@+id/team_layout">
 
     <TextView
         android:id="@+id/team_name_label"
@@ -17,7 +18,7 @@
         android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/team_wins_label"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
             android:id="@+id/team_wins_label"
@@ -29,7 +30,7 @@
             android:textStyle="bold"
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toStartOf="@+id/team_losses_label"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginRight="@dimen/midmedium"></TextView>
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginRight="@dimen/midmedium"/>
 
     <TextView
             android:id="@+id/team_losses_label"
@@ -42,6 +43,6 @@
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginRight="@dimen/tiny"></TextView>
+            android:layout_marginRight="@dimen/tiny"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

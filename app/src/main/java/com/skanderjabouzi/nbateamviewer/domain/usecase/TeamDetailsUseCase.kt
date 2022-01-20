@@ -2,7 +2,10 @@ package com.skanderjabouzi.nbateamviewer.domain.usecase
 
 import androidx.lifecycle.MutableLiveData
 import com.skanderjabouzi.nbateamviewer.data.model.TeamDetails
-import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamDetailsRepository
+import com.skanderjabouzi.nbateamviewer.data.repository.gateway.TeamDetailsRepository
+import com.skanderjabouzi.nbateamviewer.domain.helpers.ResultState
+import com.skanderjabouzi.nbateamviewer.domain.helpers.TeamDetailsEntityAdapter
+import com.skanderjabouzi.nbateamviewer.domain.helpers.UseCase
 
 class TeamDetailsUseCase(val repository: TeamDetailsRepository) : UseCase() {
     val teamDetails = MutableLiveData<TeamDetails>()

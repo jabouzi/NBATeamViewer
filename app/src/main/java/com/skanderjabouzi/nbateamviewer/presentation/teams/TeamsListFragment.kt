@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -17,15 +16,15 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.skanderjabouzi.nbateamviewer.R
 import com.skanderjabouzi.nbateamviewer.data.model.Team
+import com.skanderjabouzi.nbateamviewer.databinding.TeamsListFragmentBinding
 import com.skanderjabouzi.nbateamviewer.presentation.listener.TeamClickListener
-import kotlinx.android.synthetic.main.teams_list_fragment.*
-import kotlinx.android.synthetic.main.toolbar_layout.*
-import kotlinx.android.synthetic.main.toolbar_layout.view.*
 
 class TeamsListFragment : Fragment(), TeamClickListener {
 
     lateinit var viewModel: TeamsListViewModel
     lateinit var adapter: TeamsListAdapter
+    private var _binding: TeamsListFragmentBinding? = null
+    private val binding get() = _binding!!
     //lateinit var viewModelFactory: ViewModelFactory
 
     override fun onCreateView(
@@ -34,7 +33,8 @@ class TeamsListFragment : Fragment(), TeamClickListener {
     ): View? {
         //viewModel = ViewModelProvider(this, viewModelFactory).get(TeamsListViewModel::class.java)
         viewModel = ViewModelProvider(this).get(TeamsListViewModel::class.java)
-        return inflater.inflate(R.layout.teams_list_fragment, container, false)
+        _binding = TeamsListFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -49,16 +49,17 @@ class TeamsListFragment : Fragment(), TeamClickListener {
         view.findViewById<Toolbar>(R.id.toolbar)
             .setupWithNavController(navController, appBarConfiguration)
 
-        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
-        toolbar.team_toolbar_title.text = getString(R.string.teams_list)
-        toolbar.players_toolbar_title.isVisible = false
-        players_titles.isVisible = false
+        with(binding.toolbarView) {
+            teamToolbarTitle.text = getString(R.string.teams_list)
+            playersToolbarTitle.isVisible = false
+            playersTitles.root.isVisible = false
+        }
 
         setMenu(view)
 
         activity?.let {
             adapter =  TeamsListAdapter(this, it)
-            teamsRecyclerView.adapter = adapter
+            binding.teamsRecyclerView.adapter = adapter
         }
 
         showLoading()
@@ -67,29 +68,36 @@ class TeamsListFragment : Fragment(), TeamClickListener {
     }
 
     private fun showLoading() {
-        teamsRecyclerView.isEnabled = false
-        teamsProgressBar.isVisible = true
+        binding.teamsRecyclerView.isEnabled = false
+        binding.teamsProgressBar.isVisible = true
     }
 
     private fun setRetryButton() {
-        teamsRetryButton.setOnClickListener {
-            teamsRetryButton.isVisible = false
-            teamsErroMessage.isVisible = false
-            showLoading()
-            getTeams()
+        with(binding) {
+            teamsRetryButton.setOnClickListener {
+                teamsRetryButton.isVisible = false
+                teamsErroMessage.isVisible = false
+                showLoading()
+                getTeams()
+            }
         }
+
     }
 
     private fun hideLoading() {
-        teamsRecyclerView.isEnabled = true
-        teamsProgressBar.isVisible = false
+        with(binding) {
+            teamsRecyclerView.isEnabled = true
+            teamsProgressBar.isVisible = false
+        }
     }
 
     private fun showMessage(errorMessage: String) {
         if (errorMessage.isNotEmpty()) {
-            teamsRetryButton.isVisible = true
-            teamsErroMessage.isVisible = true
-            teamsErroMessage.text = errorMessage
+            with(binding) {
+                teamsRetryButton.isVisible = true
+                teamsErroMessage.isVisible = true
+                teamsErroMessage.text = errorMessage
+            }
         }
     }
 

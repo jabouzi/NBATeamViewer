@@ -19,18 +19,14 @@ import coil.load
 import coil.transform.CircleCropTransformation
 import com.skanderjabouzi.nbateamviewer.R
 import com.skanderjabouzi.nbateamviewer.data.model.Team
-import kotlinx.android.synthetic.main.players_titles.view.*
-import kotlinx.android.synthetic.main.team_players_fragment.*
-import kotlinx.android.synthetic.main.team_players_fragment.playersRecyclerView
-import kotlinx.android.synthetic.main.teams_details_fragment.*
-import kotlinx.android.synthetic.main.teams_item.view.*
-import kotlinx.android.synthetic.main.toolbar_layout.*
-import kotlinx.android.synthetic.main.toolbar_layout.view.*
+import com.skanderjabouzi.nbateamviewer.databinding.TeamsDetailsFragmentBinding
 
 
 class TeamDetailsFragment : Fragment() {
 
     private val viewModel: TeamDetailsViewModel by viewModels()
+    private var _binding: TeamsDetailsFragmentBinding? = null
+    private val binding get() = _binding!!
     //var viewModelFactory: ViewModelFactory = ViewModelFactory(this)
     var teamId = 0
     val imageLoader = activity?.imageLoader
@@ -41,7 +37,8 @@ class TeamDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         //viewModel = ViewModelProvider(this, viewModelFactory)[TeamPlayersViewModel::class.java]
-        return inflater.inflate(R.layout.teams_details_fragment, container, false)
+        _binding = TeamsDetailsFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -54,9 +51,10 @@ class TeamDetailsFragment : Fragment() {
         view.findViewById<Toolbar>(R.id.toolbar)
             .setupWithNavController(navController, appBarConfiguration)
 
-        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
-        toolbar.players_toolbar_title.isVisible = false
-        teams_titles.isVisible = false
+        with (binding.toolbarView) {
+            playersToolbarTitle.isVisible = false
+            teamsTitles.root.isVisible = false
+        }
 
         showLoading()
         setRetryButton()
@@ -67,7 +65,7 @@ class TeamDetailsFragment : Fragment() {
     }
 
     private fun setClickButton() {
-        teamPlayersButton.setOnClickListener {
+        binding.teamPlayersButton.setOnClickListener {
             val teamBumble = Bundle().apply {
                 putSerializable("team", team)
             }
@@ -83,38 +81,49 @@ class TeamDetailsFragment : Fragment() {
                 viewModel.getTeamDetails(team?.id!!)
                 teamId = team?.id!!
             }
-            toolbar.team_toolbar_title.text = it?.name
-            players_toolbar_title.isVisible = false
-            teams_titles.isVisible = false
-            players_titles.isVisible = false
+            with(binding.toolbarView) {
+                teamToolbarTitle.text = it?.name
+                playersToolbarTitle.isVisible = false
+                teamToolbarTitle.isVisible = false
+                playersTitles.root.isVisible = false
+            }
         }
     }
 
     private fun setRetryButton() {
-        teamRetryButton.setOnClickListener {
-            playersRetryButton.isVisible = false
-            playersErroMessage.isVisible = false
-            showLoading()
-            getPlayers(teamId)
+        with(binding) {
+            teamRetryButton.setOnClickListener {
+                teamRetryButton.isVisible = false
+                teamErroMessage.isVisible = false
+                showLoading()
+                getPlayers(teamId)
+            }
         }
+
     }
 
     private fun showLoading() {
-        teamDetailsLayout.isVisible = false
-        teamProgressBar.isVisible = true
+        with(binding) {
+            teamDetailsLayout.isVisible = false
+            teamProgressBar.isVisible = true
+        }
     }
 
     private fun hideLoading() {
-        teamDetailsLayout.isVisible = false
-        teamProgressBar.visibility = View.GONE
+        with(binding) {
+            teamDetailsLayout.isVisible = false
+            teamProgressBar.visibility = View.GONE
+        }
     }
 
     private fun showMessage(errorMessage: String) {
         if (errorMessage.isNotEmpty()) {
-            teamRetryButton.isVisible = true
-            teamErroMessage.isVisible = true
-            teamErroMessage.text = errorMessage
-            teamDetailsLayout.isEnabled = false
+            with(binding) {
+                teamRetryButton.isVisible = true
+                teamErroMessage.isVisible = true
+                teamErroMessage.text = errorMessage
+                teamDetailsLayout.isEnabled = false
+            }
         }
     }
 
@@ -125,15 +134,17 @@ class TeamDetailsFragment : Fragment() {
     private fun observeTeamDetails() {
         viewModel.teamDetails.observe(viewLifecycleOwner, Observer { teamDetails ->
             hideLoading()
-            teamDetailsLayout.isVisible = true
-            teamName.text = teamDetails.name
-            teamAbbrevaition.text = teamDetails.abbrev
-            teamRegion.text = teamDetails.region
-            teamPopularity.text = teamDetails.pop.toString()
-            teamImage.load(teamDetails.imgURL) {
-                crossfade(true)
-                placeholder(R.drawable.placeholder)
-                error(R.drawable.placeholder)
+            with(binding) {
+                teamDetailsLayout.isVisible = true
+                teamName.text = teamDetails.name
+                teamAbbrevaition.text = teamDetails.abbrev
+                teamRegion.text = teamDetails.region
+                teamPopularity.text = teamDetails.pop.toString()
+                teamImage.load(teamDetails.imgURL) {
+                    crossfade(true)
+                    placeholder(R.drawable.placeholder)
+                    error(R.drawable.placeholder)
+                }
             }
         })
     }

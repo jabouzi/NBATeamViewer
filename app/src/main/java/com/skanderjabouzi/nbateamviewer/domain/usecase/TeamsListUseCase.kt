@@ -2,10 +2,13 @@ package com.skanderjabouzi.nbateamviewer.domain.usecase
 
 import androidx.lifecycle.MutableLiveData
 import com.skanderjabouzi.nbateamviewer.data.model.Team
-import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
+import com.skanderjabouzi.nbateamviewer.data.repository.gateway.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.data.model.Teams
+import com.skanderjabouzi.nbateamviewer.domain.helpers.ResultState
+import com.skanderjabouzi.nbateamviewer.domain.helpers.SortType
+import com.skanderjabouzi.nbateamviewer.domain.helpers.TeamEntityAdapter
+import com.skanderjabouzi.nbateamviewer.domain.helpers.UseCase
 import kotlinx.coroutines.flow.collect
-import java.io.IOException
 
 class TeamsListUseCase (val repository: TeamsRepository): UseCase() {
     val teamsList = MutableLiveData<List<Team>>()

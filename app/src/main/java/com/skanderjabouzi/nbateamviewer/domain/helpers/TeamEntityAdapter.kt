@@ -1,4 +1,4 @@
-package com.skanderjabouzi.nbateamviewer.domain.usecase
+package com.skanderjabouzi.nbateamviewer.domain.helpers
 
 import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
 import com.skanderjabouzi.nbateamviewer.data.model.Team

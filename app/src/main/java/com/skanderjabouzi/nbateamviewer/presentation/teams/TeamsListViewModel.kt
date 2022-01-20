@@ -1,15 +1,16 @@
 package com.skanderjabouzi.nbateamviewer.presentation.teams
 
+import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.skanderjabouzi.nbateamviewer.data.model.Team
-import com.skanderjabouzi.nbateamviewer.domain.gateway.TeamsRepository
+import com.skanderjabouzi.nbateamviewer.data.repository.gateway.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamsListUseCase
 import kotlinx.coroutines.launch
 
-class TeamsListViewModel(application: TeamsListUseCase, savedStateHandle: SavedStateHandle?) : AndroidViewModel(application) {
+class TeamsListViewModel(application: Application, savedStateHandle: SavedStateHandle?) : AndroidViewModel(application) {
     var repository = TeamsRepository(application)
     val usecase = TeamsListUseCase(repository)
 

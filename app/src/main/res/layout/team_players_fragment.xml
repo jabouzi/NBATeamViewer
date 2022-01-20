@@ -25,7 +25,7 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbar_view"/>
 
     <TextView
-        android:id="@+id/playersErroMessage"
+        android:id="@+id/playersErrorMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/error_occured"
@@ -35,7 +35,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/playersRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_view"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_view"/>
 
     <Button
         android:id="@+id/playersRetryButton"
@@ -47,7 +47,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/playersRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playersErroMessage"/>
+        app:layout_constraintTop_toBottomOf="@+id/playersErrorMessage"/>
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/playersRecyclerView"

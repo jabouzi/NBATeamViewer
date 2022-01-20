@@ -9,21 +9,22 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.skanderjabouzi.nbateamviewer.R
-import com.skanderjabouzi.nbateamviewer.domain.usecase.ConnectionType.*
+import com.skanderjabouzi.nbateamviewer.databinding.ActivityMainBinding
+import com.skanderjabouzi.nbateamviewer.domain.helpers.ConnectionType.*
 import com.skanderjabouzi.nbateamviewer.presentation.action
 import com.skanderjabouzi.nbateamviewer.presentation.snack
 import com.skanderjabouzi.nbateamviewer.presentation.util.ConnectivityLiveData
 import com.skanderjabouzi.nbateamviewer.presentation.util.ConnectivityLiveData.Companion.STATE
-import kotlinx.android.synthetic.main.activity_main.*
-
 
 class MainActivity : AppCompatActivity(){
 
   private lateinit var navigationController: NavController
+  private lateinit var binding: ActivityMainBinding
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
+    binding = ActivityMainBinding.inflate(layoutInflater)
+    setContentView(binding.root)
     navigationController = findNavController(R.id.navigationHostFragment)
     val connectivityLiveData = ConnectivityLiveData((application))
     connectivityLiveData.observe(this, Observer<Boolean>(){
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity(){
   }
 
   private fun showMessage(message: String) {
-    mainLayout.snack(message, Snackbar.LENGTH_INDEFINITE) {
+    binding.mainLayout.snack(message, Snackbar.LENGTH_INDEFINITE) {
       action(getString(R.string.ok)) {}
     }
   }
