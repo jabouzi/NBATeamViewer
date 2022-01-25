@@ -47,19 +47,7 @@ import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
 abstract class TeamDatabase : RoomDatabase() {
 
   companion object {
-
-    private const val DATABASE_NAME = "nba.db"
-
-    private var instance: TeamDatabase? = null
-
-    private fun create(context: Context): TeamDatabase =
-      Room.databaseBuilder(context, TeamDatabase::class.java, DATABASE_NAME)
-        .fallbackToDestructiveMigration()
-        .build()
-
-
-    fun getInstance(context: Context): TeamDatabase =
-      (instance ?: create(context)).also { instance = it }
+    const val DATABASE_NAME = "nba.db"
   }
 
   abstract fun teamDao(): TeamDao

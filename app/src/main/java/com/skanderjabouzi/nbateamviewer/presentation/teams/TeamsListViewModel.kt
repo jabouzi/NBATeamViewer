@@ -1,36 +1,26 @@
 package com.skanderjabouzi.nbateamviewer.presentation.teams
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.skanderjabouzi.nbateamviewer.data.model.Team
 import com.skanderjabouzi.nbateamviewer.data.repository.gateway.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamsListUseCase
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class TeamsListViewModel(application: Application, savedStateHandle: SavedStateHandle?) : AndroidViewModel(application) {
-    var repository = TeamsRepository(application)
-    val usecase = TeamsListUseCase(repository)
-
-    private var savedStateHandle: SavedStateHandle? = null
-
-    init {
-        this.savedStateHandle = savedStateHandle
-    }
+@HiltViewModel
+class TeamsListViewModel @Inject constructor(
+    val usecase: TeamsListUseCase
+) : ViewModel() {
 
     var teams = usecase.teamsList
     val error = usecase.error
 
     fun getTeams() {
         viewModelScope.launch {
-            if (savedStateHandle!!.contains("EMPLOYEES_LIST")) {
-                getSavedStateEmployeesList()
-            } else {
-                usecase.getTeams()
-                saveStateEmployeesList(teams)
-            }
+            usecase.getTeams()
         }
     }
 
@@ -50,16 +40,5 @@ class TeamsListViewModel(application: Application, savedStateHandle: SavedStateH
         viewModelScope.launch {
            usecase.sortByLosses()
         }
-    }
-
-    fun getSavedStateEmployeesList() {
-        teams = savedStateHandle!!.getLiveData("EMPLOYEES_LIST")
-    }
-    fun saveStateEmployeesList(employees: LiveData<List<Team>>) {
-        savedStateHandle!!.set("EMPLOYEES_LIST", employees)
-    }
-
-    fun deleteSavedStateEmployeesList() {
-        savedStateHandle!!.remove<LiveData<List<Team>>>("EMPLOYEES_LIST")
     }
 }

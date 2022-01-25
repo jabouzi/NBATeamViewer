@@ -8,9 +8,12 @@ import com.skanderjabouzi.nbateamviewer.domain.helpers.ResultState
 import com.skanderjabouzi.nbateamviewer.domain.helpers.SortType
 import com.skanderjabouzi.nbateamviewer.domain.helpers.TeamEntityAdapter
 import com.skanderjabouzi.nbateamviewer.domain.helpers.UseCase
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.collect
+import javax.inject.Inject
 
-class TeamsListUseCase (val repository: TeamsRepository): UseCase() {
+@ViewModelScoped
+class TeamsListUseCase @Inject constructor(val repository: TeamsRepository): UseCase() {
     val teamsList = MutableLiveData<List<Team>>()
 
     suspend fun getTeams() {

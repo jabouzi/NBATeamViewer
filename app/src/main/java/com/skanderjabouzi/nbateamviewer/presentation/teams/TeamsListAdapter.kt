@@ -46,8 +46,9 @@ import com.skanderjabouzi.nbateamviewer.data.model.Team
 import com.skanderjabouzi.nbateamviewer.databinding.PlayersItemBinding
 import com.skanderjabouzi.nbateamviewer.databinding.TeamsItemBinding
 import com.skanderjabouzi.nbateamviewer.presentation.listener.TeamClickListener
+import javax.inject.Inject
 
-class TeamsListAdapter (private val itemClickListener: TeamClickListener,
+class TeamsListAdapter @Inject constructor(private val itemClickListener: TeamClickListener,
                         private val context: Context) :
         RecyclerView.Adapter<TeamsListAdapter.TeamHolder>() {
 

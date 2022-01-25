@@ -8,14 +8,17 @@ import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
 import com.skanderjabouzi.nbateamviewer.data.model.Teams
 import com.skanderjabouzi.nbateamviewer.data.repository.net.Network
 import com.skanderjabouzi.nbateamviewer.data.repository.net.RetrofitClient
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.Flow
 import retrofit2.Response
+import javax.inject.Inject
 
-class TeamsRepository(val context: Context) {
+@ViewModelScoped
+class TeamsRepository @Inject constructor() {
 
-  var db = TeamDatabase.getInstance(context)
-  var retrofitClient: RetrofitClient = RetrofitClient(Network.getRetrofit(context))
-  private val teamDao: TeamDao = db.teamDao()
+  @Inject lateinit var retrofitClient: RetrofitClient
+  @Inject lateinit var teamDao: TeamDao
 
   fun getSavedTeams(): Flow<List<TeamEntity>> {
     val temp = teamDao.getTeams()

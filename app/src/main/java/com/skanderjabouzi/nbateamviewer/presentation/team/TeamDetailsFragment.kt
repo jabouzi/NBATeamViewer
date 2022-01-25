@@ -20,8 +20,10 @@ import coil.transform.CircleCropTransformation
 import com.skanderjabouzi.nbateamviewer.R
 import com.skanderjabouzi.nbateamviewer.data.model.Team
 import com.skanderjabouzi.nbateamviewer.databinding.TeamsDetailsFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class TeamDetailsFragment : Fragment() {
 
     private val viewModel: TeamDetailsViewModel by viewModels()

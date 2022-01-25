@@ -4,6 +4,7 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -16,10 +17,6 @@ android {
         versionName = "1.0"
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        var testInstrumentationRunnerArguments = mapOf(
-            "disableAnalytics" to "true"
-        )
-
     }
 
     buildTypes {
@@ -38,7 +35,7 @@ android {
         jvmTarget = "1.8"
     }
 
-    flavorDimensions("NBATeamViewer")
+    flavorDimensions.add("NBATeamViewer")
     productFlavors {
         create("dev") {
             buildConfigField( "String", "TYPE", "\"dev\"")
@@ -87,6 +84,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
     implementation("io.coil-kt:coil:1.1.1")
+    implementation("com.google.dagger:hilt-android:2.40")
+    kapt("com.google.dagger:hilt-android-compiler:2.40")
 
     testImplementation("org.mockito:mockito-core:3.3.3")
     testImplementation("org.mockito:mockito-inline:3.3.3")
@@ -108,4 +107,8 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
     androidTestImplementation("androidx.test.espresso:espresso-contrib:3.4.0")
     androidTestImplementation("androidx.test.espresso:espresso-intents:3.4.0")
+}
+
+kapt {
+    correctErrorTypes = true
 }

@@ -18,7 +18,9 @@ import com.skanderjabouzi.nbateamviewer.R
 import com.skanderjabouzi.nbateamviewer.data.model.Team
 import com.skanderjabouzi.nbateamviewer.databinding.TeamsListFragmentBinding
 import com.skanderjabouzi.nbateamviewer.presentation.listener.TeamClickListener
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TeamsListFragment : Fragment(), TeamClickListener {
 
     lateinit var viewModel: TeamsListViewModel

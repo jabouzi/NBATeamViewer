@@ -1,16 +1,16 @@
 package com.skanderjabouzi.nbateamviewer.presentation.team
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.skanderjabouzi.nbateamviewer.data.repository.gateway.TeamDetailsRepository
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamDetailsUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class TeamDetailsViewModel(application: Application) : AndroidViewModel(application) {
-    val repository = TeamDetailsRepository(application)
-    val usecase = TeamDetailsUseCase(repository)
-
+@HiltViewModel
+class TeamDetailsViewModel @Inject constructor(
+    val usecase: TeamDetailsUseCase) : ViewModel()
+{
     val teamDetails = usecase.teamDetails
     val error = usecase.error
 

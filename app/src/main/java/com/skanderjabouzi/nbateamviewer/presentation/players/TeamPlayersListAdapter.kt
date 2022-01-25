@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.skanderjabouzi.nbateamviewer.R
 import com.skanderjabouzi.nbateamviewer.data.model.Player
 import com.skanderjabouzi.nbateamviewer.databinding.PlayersItemBinding
+import javax.inject.Inject
 
-class TeamPlayersListAdapter
+class TeamPlayersListAdapter @Inject constructor()
   : RecyclerView.Adapter<TeamPlayersListAdapter.PlayerViewHolder>() {
 
   private var players = mutableListOf<Player>()

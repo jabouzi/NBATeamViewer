@@ -6,8 +6,11 @@ import com.skanderjabouzi.nbateamviewer.data.repository.gateway.TeamDetailsRepos
 import com.skanderjabouzi.nbateamviewer.domain.helpers.ResultState
 import com.skanderjabouzi.nbateamviewer.domain.helpers.TeamDetailsEntityAdapter
 import com.skanderjabouzi.nbateamviewer.domain.helpers.UseCase
+import dagger.hilt.android.scopes.ViewModelScoped
+import javax.inject.Inject
 
-class TeamDetailsUseCase(val repository: TeamDetailsRepository) : UseCase() {
+@ViewModelScoped
+class TeamDetailsUseCase @Inject constructor(val repository: TeamDetailsRepository) : UseCase() {
     val teamDetails = MutableLiveData<TeamDetails>()
 
     suspend fun getTeamDetails(id: Int) {

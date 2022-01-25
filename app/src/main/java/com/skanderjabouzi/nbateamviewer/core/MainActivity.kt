@@ -15,7 +15,9 @@ import com.skanderjabouzi.nbateamviewer.presentation.action
 import com.skanderjabouzi.nbateamviewer.presentation.snack
 import com.skanderjabouzi.nbateamviewer.presentation.util.ConnectivityLiveData
 import com.skanderjabouzi.nbateamviewer.presentation.util.ConnectivityLiveData.Companion.STATE
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(){
 
   private lateinit var navigationController: NavController

@@ -9,9 +9,12 @@ import com.skanderjabouzi.nbateamviewer.domain.helpers.PlayerEntityAdapter
 import com.skanderjabouzi.nbateamviewer.domain.helpers.ResultState
 import com.skanderjabouzi.nbateamviewer.domain.helpers.SortType
 import com.skanderjabouzi.nbateamviewer.domain.helpers.UseCase
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.collect
+import javax.inject.Inject
 
-class TeamPlayersUseCase(val repository: TeamPlayersRepository): UseCase() {
+@ViewModelScoped
+class TeamPlayersUseCase @Inject constructor(val repository: TeamPlayersRepository): UseCase() {
     val playersList = MutableLiveData<List<Player>>()
 
     suspend fun getTeamPlayers(teamId: Int) {

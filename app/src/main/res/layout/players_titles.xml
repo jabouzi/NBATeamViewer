@@ -11,14 +11,14 @@
              app:layout_constraintTop_toTopOf="parent"
              app:layout_constraintStart_toStartOf="parent"
              app:layout_constraintEnd_toEndOf="parent"
-             android:layout_marginTop="@dimen/xxextrasmall"></include>
+             android:layout_marginTop="@dimen/xxextrasmall"/>
 
     <include android:id="@+id/player_team_values" layout="@layout/teams_item"
              android:layout_width="match_parent"
              android:layout_height="@dimen/zero"
              app:layout_constraintTop_toBottomOf="@+id/player_team_titles"
              app:layout_constraintStart_toStartOf="parent"
-             app:layout_constraintEnd_toEndOf="parent"></include>
+             app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/player_name_title"
@@ -32,7 +32,7 @@
         android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/player_position_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/player_team_values"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/player_team_values"/>
 
     <TextView
             android:id="@+id/player_position_title"
@@ -45,7 +45,7 @@
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toStartOf="@+id/player_number_title"
             app:layout_constraintTop_toBottomOf="@+id/player_team_values"
-            android:layout_marginRight="@dimen/midmedium"></TextView>
+            android:layout_marginRight="@dimen/midmedium"/>
 
     <TextView
             android:id="@+id/player_number_title"
@@ -58,6 +58,6 @@
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/player_team_values"
-            android:layout_marginRight="@dimen/tiny"></TextView>
+            android:layout_marginRight="@dimen/tiny"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

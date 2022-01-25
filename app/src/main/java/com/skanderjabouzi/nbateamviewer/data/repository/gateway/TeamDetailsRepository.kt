@@ -5,16 +5,16 @@ import androidx.lifecycle.LiveData
 import com.skanderjabouzi.nbateamviewer.data.entity.TeamDetailsEntity
 import com.skanderjabouzi.nbateamviewer.data.model.TeamDetails
 import com.skanderjabouzi.nbateamviewer.data.repository.db.TeamDao
-import com.skanderjabouzi.nbateamviewer.data.repository.db.TeamDatabase
-import com.skanderjabouzi.nbateamviewer.data.repository.net.Network
 import com.skanderjabouzi.nbateamviewer.data.repository.net.RetrofitClient
+import dagger.hilt.android.scopes.ViewModelScoped
 import retrofit2.Response
+import javax.inject.Inject
 
-class TeamDetailsRepository(val context: Context) {
+@ViewModelScoped
+class TeamDetailsRepository @Inject constructor() {
 
-    var db = TeamDatabase.getInstance(context)
-    var retrofitClient: RetrofitClient = RetrofitClient(Network.getRetrofit(context))
-    private val teamDao: TeamDao = db.teamDao()
+    @Inject lateinit var retrofitClient: RetrofitClient
+    @Inject lateinit var teamDao: TeamDao
 
     fun getSavedTeamDetails(id: Int): LiveData<TeamDetailsEntity?> {
         return teamDao.getTeamDetails(id)

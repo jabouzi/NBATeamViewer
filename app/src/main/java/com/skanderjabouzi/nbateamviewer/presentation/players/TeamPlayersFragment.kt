@@ -20,7 +20,9 @@ import coil.transform.CircleCropTransformation
 import com.skanderjabouzi.nbateamviewer.R
 import com.skanderjabouzi.nbateamviewer.data.model.Team
 import com.skanderjabouzi.nbateamviewer.databinding.TeamPlayersFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TeamPlayersFragment : Fragment() {
 
     private val viewModel: TeamPlayersViewModel by viewModels()
@@ -66,6 +68,11 @@ class TeamPlayersFragment : Fragment() {
         showLoading()
         setRetryButton()
         getTeamBundle()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
     private fun getTeamBundle() {
