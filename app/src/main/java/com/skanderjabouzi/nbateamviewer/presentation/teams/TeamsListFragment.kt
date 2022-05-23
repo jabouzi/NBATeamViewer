@@ -1,6 +1,7 @@
 package com.skanderjabouzi.nbateamviewer.presentation.teams
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -109,6 +110,7 @@ class TeamsListFragment : Fragment(), TeamClickListener {
 
     private fun observeTeams() {
         viewModel.teams.observe(viewLifecycleOwner, Observer { teams ->
+            Log.e("####3", "$teams")
             hideLoading()
             adapter.setTeams(teams)
         })

@@ -1,6 +1,6 @@
 package com.skanderjabouzi.nbateamviewer.domain.usecase
 
-import androidx.lifecycle.MutableLiveData
+import android.util.Log
 import com.skanderjabouzi.nbateamviewer.data.model.Team
 import com.skanderjabouzi.nbateamviewer.data.repository.gateway.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.data.model.Teams
@@ -14,12 +14,12 @@ import javax.inject.Inject
 
 @ViewModelScoped
 class TeamsListUseCase @Inject constructor(val repository: TeamsRepository): UseCase() {
-    val teamsList = MutableLiveData<List<Team>>()
 
-    suspend fun getTeams() {
+    suspend fun getTeams(): List<Team>? {
+        var teamsList: List<Team>? = null
         repository.getSavedTeams().collect { teamsFlow ->
             if (!teamsFlow.isNullOrEmpty()) {
-                teamsList.value = TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
+                teamsList = TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
             } else {
                 getRequestFromApi(repository.getTeams())?.let {
                     when (it) {
@@ -27,7 +27,7 @@ class TeamsListUseCase @Inject constructor(val repository: TeamsRepository): Use
                             val teams = (it.data as Teams).teams
                             teams?.let {
                                 saveTeamsToDb(it)
-                                teamsList.postValue(it)
+                                teamsList = it
                             }
                         }
                         else -> error.postValue((it as ResultState.Error).error)
@@ -35,51 +35,59 @@ class TeamsListUseCase @Inject constructor(val repository: TeamsRepository): Use
                 }
             }
         }
+        Log.e("####1", "${teamsList}")
+        return teamsList
     }
 
-    suspend fun sortByName() {
+    suspend fun sortByName(): List<Team>? {
+        var teamsList: List<Team>? = null
         repository.getSavedTeams().collect { teamsFlow ->
             if (sortName == SortType.ASCENDING) {
-                teamsList.value =
+                teamsList =
                     TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
                         .sortedWith(compareBy({ it.name }))
             } else {
-                teamsList.value =
+                teamsList =
                     TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
                         .sortedWith(compareByDescending({ it.name }))
             }
             sortName = getSortBy(sortName)
         }
+        return teamsList
     }
 
-    suspend fun sortByWins() {
+    suspend fun sortByWins(): List<Team>? {
+        var teamsList: List<Team>? = null
         repository.getSavedTeams().collect { teamsFlow ->
             if (sortWins == SortType.ASCENDING) {
-                teamsList.value =
+                teamsList =
                     TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
                         .sortedWith(compareBy({ it.wins }))
             } else {
-                teamsList.value =
+                teamsList =
                     TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
                         .sortedWith(compareByDescending({ it.wins }))
             }
             sortWins = getSortBy(sortWins)
         }
+        return teamsList
     }
 
-    suspend fun sortByLosses() {
+    suspend fun sortByLosses(): List<Team>? {
+        var teamsList: List<Team>? = null
         repository.getSavedTeams().collect { teamsFlow ->
             if (sortLosses == SortType.ASCENDING) {
-                teamsList.value =
+                teamsList =
                     TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
                         .sortedWith(compareBy({ it.losses }))
             } else {
-                teamsList.value =
+                teamsList =
                     TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
                         .sortedWith(compareByDescending({ it.losses }))
             }
             sortLosses = getSortBy(sortLosses)
         }
+        return teamsList
     }
 
     suspend private fun saveTeamsToDb(teams: List<Team>) {

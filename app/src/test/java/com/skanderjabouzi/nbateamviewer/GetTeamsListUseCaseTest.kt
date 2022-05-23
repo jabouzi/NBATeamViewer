@@ -8,6 +8,7 @@ import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import com.skanderjabouzi.nbateamviewer.BaseTest
 import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
+import com.skanderjabouzi.nbateamviewer.data.model.Players
 import com.skanderjabouzi.nbateamviewer.data.model.Team
 import com.skanderjabouzi.nbateamviewer.data.model.Teams
 import com.skanderjabouzi.nbateamviewer.data.repository.gateway.TeamsRepository
@@ -15,12 +16,16 @@ import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamsListUseCase
 import com.skanderjabouzi.nbateamviewer.domain.helpers.SortType
 import com.skanderjabouzi.nbateamviewer.domain.helpers.TeamEntityAdapter
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.*
 import org.junit.runner.RunWith
 import org.mockito.Mock
+import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
+import retrofit2.Response
 
 
 @RunWith(MockitoJUnitRunner::class)
@@ -52,10 +57,9 @@ class GetTeamsListUseCaseTest: BaseTest() {
     fun `Run getTeams and get repo from api is not called`() {
         runBlocking {
             doReturn(dummyTeamsFromDb).whenever(repository).getSavedTeams()
-            usecase.getTeams()            
+            val teams = usecase.getTeams()
             verify(repository, never()).getTeams()
-            val teams = usecase.teamsList.value!!
-            Assert.assertEquals(30, teams.size)
+            Assert.assertEquals(30, teams?.size)
         }
     }
 
@@ -64,10 +68,9 @@ class GetTeamsListUseCaseTest: BaseTest() {
         runBlocking {
             doReturn(dummyTeamsEmpty).whenever(repository).getSavedTeams()
             doReturn(dummyTeamsfromApi).whenever(repository).getTeams()
-            usecase.getTeams()
+            val teams = usecase.getTeams()
             verify(repository).getTeams()
-            val teams = usecase.teamsList.value!!
-            Assert.assertEquals(30, teams.size)
+            Assert.assertEquals(30, teams?.size)
         }
     }
 
@@ -76,10 +79,9 @@ class GetTeamsListUseCaseTest: BaseTest() {
         runBlocking {
             TeamsListUseCase.sortName = SortType.ASCENDING
             doReturn(dummyTeamsFromDb).whenever(repository).getSavedTeams()
-            usecase.sortByName()
-            val teams = usecase.teamsList.value!!
-            Assert.assertEquals("Atlanta Hawks", teams.first().name)
-            Assert.assertEquals("Washington Wizards", teams.last().name)
+            val teams = usecase.sortByName()
+            Assert.assertEquals("Atlanta Hawks", teams?.first()?.name)
+            Assert.assertEquals("Washington Wizards", teams?.last()?.name)
         }
     }
 
@@ -88,10 +90,9 @@ class GetTeamsListUseCaseTest: BaseTest() {
         runBlocking {
             TeamsListUseCase.sortName = SortType.DESCENDING
             doReturn(dummyTeamsFromDb).whenever(repository).getSavedTeams()
-            usecase.sortByName()
-            val teams = usecase.teamsList.value!!
-            Assert.assertEquals("Washington Wizards", teams.first().name)
-            Assert.assertEquals("Atlanta Hawks", teams.last().name)
+            val teams = usecase.sortByName()
+            Assert.assertEquals("Washington Wizards", teams?.first()?.name)
+            Assert.assertEquals("Atlanta Hawks", teams?.last()?.name)
         }
     }
 
@@ -100,10 +101,9 @@ class GetTeamsListUseCaseTest: BaseTest() {
         runBlocking {
             TeamsListUseCase.sortWins = SortType.ASCENDING
             doReturn(dummyTeamsFromDb).whenever(repository).getSavedTeams()
-            usecase.sortByWins()
-            val teams = usecase.teamsList.value!!
-            Assert.assertEquals(15, teams.first().wins)
-            Assert.assertEquals(56, teams.last().wins)
+            val teams = usecase.sortByWins()
+            Assert.assertEquals(15, teams?.first()?.wins)
+            Assert.assertEquals(56, teams?.last()?.wins)
         }
     }
 
@@ -112,10 +112,9 @@ class GetTeamsListUseCaseTest: BaseTest() {
         runBlocking {
             TeamsListUseCase.sortWins = SortType.DESCENDING
             doReturn(dummyTeamsFromDb).whenever(repository).getSavedTeams()
-            usecase.sortByWins()
-            val teams = usecase.teamsList.value!!
-            Assert.assertEquals(56, teams.first().wins)
-            Assert.assertEquals(15, teams.last().wins)
+            val teams = usecase.sortByWins()
+            Assert.assertEquals(56, teams?.first()?.wins)
+            Assert.assertEquals(15, teams?.last()?.wins)
         }
     }
 
@@ -124,10 +123,9 @@ class GetTeamsListUseCaseTest: BaseTest() {
         runBlocking {
             TeamsListUseCase.sortLosses = SortType.ASCENDING
             doReturn(dummyTeamsFromDb).whenever(repository).getSavedTeams()
-            usecase.sortByLosses()
-            val teams = usecase.teamsList.value!!
-            Assert.assertEquals(17, teams.first().losses)
-            Assert.assertEquals(50, teams.last().losses)
+            val teams = usecase.sortByLosses()
+            Assert.assertEquals(17, teams?.first()?.losses)
+            Assert.assertEquals(50, teams?.last()?.losses)
         }
     }
 
@@ -136,27 +134,34 @@ class GetTeamsListUseCaseTest: BaseTest() {
         runBlocking {
             TeamsListUseCase.sortLosses = SortType.DESCENDING
             doReturn(dummyTeamsFromDb).whenever(repository).getSavedTeams()
-             usecase.sortByLosses()
-            val teams = usecase.teamsList.value!!
-            Assert.assertEquals(50, teams.first().losses)
-            Assert.assertEquals(17, teams.last().losses)
+            val teams = usecase.sortByLosses()
+            Assert.assertEquals(50, teams?.first()?.losses)
+            Assert.assertEquals(17, teams?.last()?.losses)
         }
     }
 
-    private val dummyTeamsFromDb: List<TeamEntity>
+    private val dummyTeamsFromDb: Flow<List<TeamEntity>>?
         get() {
             val gson = GsonBuilder().create()
-            return TeamEntityAdapter.teamListToTeamEntityList(gson.fromJson(readJsonFile("mock.api/teams.json"), Teams::class.java).teams!!)
+            return flow {
+                emit(TeamEntityAdapter.teamListToTeamEntityList(gson.fromJson(readJsonFile("mock.api/teams.json"), Teams::class.java).teams!!))
+            }
         }
 
-    private val dummyTeamsfromApi: List<Team>?
+    private val dummyTeamsfromApi: Response<Teams>?
         get() {
+
             val gson = GsonBuilder().create()
-            return gson.fromJson(readJsonFile("mock.api/teams.json"), Teams::class.java).teams
+            val mockResponseBody = Mockito.mock(Response::class.java)
+            val mockResponse = Response.success(gson.fromJson(readJsonFile("mock.api/teams.json"), Teams::class.java)!!)
+            return mockResponse
+
         }
 
-    private val dummyTeamsEmpty: List<Team>
+    private val dummyTeamsEmpty: Flow<List<Team>>?
         get() {
-            return listOf()
+            return flow {
+                emit(emptyList())
+            }
         }
 }

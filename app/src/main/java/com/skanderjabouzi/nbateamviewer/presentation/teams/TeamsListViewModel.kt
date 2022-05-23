@@ -1,11 +1,9 @@
 package com.skanderjabouzi.nbateamviewer.presentation.teams
 
-import android.app.Application
+import android.util.Log
 import androidx.lifecycle.*
 import com.skanderjabouzi.nbateamviewer.data.model.Team
-import com.skanderjabouzi.nbateamviewer.data.repository.gateway.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamsListUseCase
-import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,30 +13,33 @@ class TeamsListViewModel @Inject constructor(
     val usecase: TeamsListUseCase
 ) : ViewModel() {
 
-    var teams = usecase.teamsList
+    private var _teams = MutableLiveData<List<Team>>()
+    val teams:  LiveData<List<Team>>
+        get() = _teams
     val error = usecase.error
 
     fun getTeams() {
         viewModelScope.launch {
-            usecase.getTeams()
+            _teams.value = usecase.getTeams()
+            Log.e("####2", "${teams.value}")
         }
     }
 
     fun sortByName() {
         viewModelScope.launch {
-             usecase.sortByName()
+            _teams.value = usecase.sortByName()
         }
     }
 
     fun sortByWins() {
         viewModelScope.launch {
-           usecase.sortByWins()
+            _teams.value = usecase.sortByWins()
         }
     }
 
     fun sortByLosses() {
         viewModelScope.launch {
-           usecase.sortByLosses()
+            _teams.value = usecase.sortByLosses()
         }
     }
 }
