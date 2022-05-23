@@ -8,6 +8,7 @@ import com.skanderjabouzi.nbateamviewer.data.repository.db.TeamDao
 import com.skanderjabouzi.nbateamviewer.data.repository.db.TeamDatabase
 import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.hamcrest.CoreMatchers.equalTo
@@ -54,10 +55,10 @@ class TeamDaoDababaseTest {
     @Throws(Exception::class)
     fun `write Team And Read In List`() {
         var teams : List<TeamEntity> = listOf()
-        val team: TeamEntity = TeamEntity(1, "Bummy Team", 44, 44)
+        val team: TeamEntity = TeamEntity(1, "Bummy Team", 44, 44, "")
         runBlocking(Dispatchers.IO) {
             teamDao.insert(team)
-            teams = teamDao.getTeams()
+            teams = teamDao.getTeams().first()
             assertThat(teams.get(0), equalTo(team))
         }
     }

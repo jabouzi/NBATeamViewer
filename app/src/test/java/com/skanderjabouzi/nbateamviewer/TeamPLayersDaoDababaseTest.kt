@@ -8,6 +8,7 @@ import com.skanderjabouzi.nbateamviewer.data.repository.db.PlayersDao
 import com.skanderjabouzi.nbateamviewer.data.repository.db.TeamDatabase
 import com.skanderjabouzi.nbateamviewer.data.entity.PlayerEntity
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.hamcrest.CoreMatchers.equalTo
@@ -56,7 +57,7 @@ class TeamPLayersDaoDababaseTest {
             val player: PlayerEntity = PlayerEntity(1, 1, "G", "1", "Skander Jabouzi", "0", "0", "0", "Town")
             runBlocking(Dispatchers.IO) {
                 playerDao.insert(player)
-                players = playerDao.getPlayers(1)
+                players = playerDao.getPlayers(1).first()
                 assertThat(players.get(0), equalTo(player))
             }
     }

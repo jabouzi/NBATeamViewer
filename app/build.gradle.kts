@@ -101,6 +101,7 @@ dependencies {
     androidTestImplementation("androidx.room:room-testing:2.4.1")
     testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.6.0")
     testImplementation("org.robolectric:robolectric:4.4")
     testImplementation("org.hamcrest:hamcrest:2.2")
 

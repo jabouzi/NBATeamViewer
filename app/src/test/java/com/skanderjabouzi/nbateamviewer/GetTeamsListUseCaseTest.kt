@@ -52,8 +52,9 @@ class GetTeamsListUseCaseTest: BaseTest() {
     fun `Run getTeams and get repo from api is not called`() {
         runBlocking {
             doReturn(dummyTeamsFromDb).whenever(repository).getSavedTeams()
-            val teams = usecase.getTeams()
+            usecase.getTeams()            
             verify(repository, never()).getTeams()
+            val teams = usecase.teamsList.value!!
             Assert.assertEquals(30, teams.size)
         }
     }
@@ -63,8 +64,9 @@ class GetTeamsListUseCaseTest: BaseTest() {
         runBlocking {
             doReturn(dummyTeamsEmpty).whenever(repository).getSavedTeams()
             doReturn(dummyTeamsfromApi).whenever(repository).getTeams()
-            val teams = usecase.getTeams()
+            usecase.getTeams()
             verify(repository).getTeams()
+            val teams = usecase.teamsList.value!!
             Assert.assertEquals(30, teams.size)
         }
     }
@@ -72,9 +74,10 @@ class GetTeamsListUseCaseTest: BaseTest() {
     @Test
     fun `Run sortbyName ascending and verify the order`() {
         runBlocking {
-            TeamsListUseCase.sortByName = SortType.ASCENDING
+            TeamsListUseCase.sortName = SortType.ASCENDING
             doReturn(dummyTeamsFromDb).whenever(repository).getSavedTeams()
-            val teams = usecase.sortByName()
+            usecase.sortByName()
+            val teams = usecase.teamsList.value!!
             Assert.assertEquals("Atlanta Hawks", teams.first().name)
             Assert.assertEquals("Washington Wizards", teams.last().name)
         }
@@ -83,9 +86,10 @@ class GetTeamsListUseCaseTest: BaseTest() {
     @Test
     fun `Run sortbyName descending and verify the order`() {
         runBlocking {
-            TeamsListUseCase.sortByName = SortType.DESCENDING
+            TeamsListUseCase.sortName = SortType.DESCENDING
             doReturn(dummyTeamsFromDb).whenever(repository).getSavedTeams()
-            val teams = usecase.sortByName()
+            usecase.sortByName()
+            val teams = usecase.teamsList.value!!
             Assert.assertEquals("Washington Wizards", teams.first().name)
             Assert.assertEquals("Atlanta Hawks", teams.last().name)
         }
@@ -94,9 +98,10 @@ class GetTeamsListUseCaseTest: BaseTest() {
     @Test
     fun `Run sortbyWins ascending and verify the order`() {
         runBlocking {
-            TeamsListUseCase.sortByWins = SortType.ASCENDING
+            TeamsListUseCase.sortWins = SortType.ASCENDING
             doReturn(dummyTeamsFromDb).whenever(repository).getSavedTeams()
-            val teams = usecase.sortByWins()
+            usecase.sortByWins()
+            val teams = usecase.teamsList.value!!
             Assert.assertEquals(15, teams.first().wins)
             Assert.assertEquals(56, teams.last().wins)
         }
@@ -105,9 +110,10 @@ class GetTeamsListUseCaseTest: BaseTest() {
     @Test
     fun `Run sortbyWins descending and verify the order`() {
         runBlocking {
-            TeamsListUseCase.sortByWins = SortType.DESCENDING
+            TeamsListUseCase.sortWins = SortType.DESCENDING
             doReturn(dummyTeamsFromDb).whenever(repository).getSavedTeams()
-            val teams = usecase.sortByWins()
+            usecase.sortByWins()
+            val teams = usecase.teamsList.value!!
             Assert.assertEquals(56, teams.first().wins)
             Assert.assertEquals(15, teams.last().wins)
         }
@@ -116,9 +122,10 @@ class GetTeamsListUseCaseTest: BaseTest() {
     @Test
     fun `Run sortbyLosses ascending and verify the order`() {
         runBlocking {
-            TeamsListUseCase.sortByLosses = SortType.ASCENDING
+            TeamsListUseCase.sortLosses = SortType.ASCENDING
             doReturn(dummyTeamsFromDb).whenever(repository).getSavedTeams()
-            val teams = usecase.sortByLosses()
+            usecase.sortByLosses()
+            val teams = usecase.teamsList.value!!
             Assert.assertEquals(17, teams.first().losses)
             Assert.assertEquals(50, teams.last().losses)
         }
@@ -127,18 +134,19 @@ class GetTeamsListUseCaseTest: BaseTest() {
     @Test
     fun `Run sortbyLosses descending and verify the order`() {
         runBlocking {
-            TeamsListUseCase.sortByLosses = SortType.DESCENDING
+            TeamsListUseCase.sortLosses = SortType.DESCENDING
             doReturn(dummyTeamsFromDb).whenever(repository).getSavedTeams()
-            val teams = usecase.sortByLosses()
+             usecase.sortByLosses()
+            val teams = usecase.teamsList.value!!
             Assert.assertEquals(50, teams.first().losses)
             Assert.assertEquals(17, teams.last().losses)
         }
     }
 
-    private val dummyTeamsFromDb: List<TeamEntity>?
+    private val dummyTeamsFromDb: List<TeamEntity>
         get() {
             val gson = GsonBuilder().create()
-            return TeamEntityAdapter.teamListToTeamEntityList(gson.fromJson(readJsonFile("mock.api/teams.json"), Teams::class.java).teams)
+            return TeamEntityAdapter.teamListToTeamEntityList(gson.fromJson(readJsonFile("mock.api/teams.json"), Teams::class.java).teams!!)
         }
 
     private val dummyTeamsfromApi: List<Team>?
@@ -147,7 +155,7 @@ class GetTeamsListUseCaseTest: BaseTest() {
             return gson.fromJson(readJsonFile("mock.api/teams.json"), Teams::class.java).teams
         }
 
-    private val dummyTeamsEmpty: List<Team>?
+    private val dummyTeamsEmpty: List<Team>
         get() {
             return listOf()
         }

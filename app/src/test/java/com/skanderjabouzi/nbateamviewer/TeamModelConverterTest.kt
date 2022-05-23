@@ -19,28 +19,32 @@ class TeamModelConverterTest {
         1,
         "Toronto",
         55,
-        22
+        22,
+        ""
     )
 
     val teamEntity2 = TeamEntity(
         2,
         "New York",
         44,
-        33
+        33,
+        ""
     )
 
     val team = Team(
         3,
         "Los Angeles",
         50,
-        30
+        30,
+        ""
     )
 
     val team2 = Team(
         4,
         "Boston",
         44,
-        28
+        28,
+        ""
     )
 
     @Test

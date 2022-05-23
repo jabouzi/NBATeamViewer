@@ -9,18 +9,23 @@ import com.nhaarman.mockitokotlin2.whenever
 import com.skanderjabouzi.nbateamviewer.data.entity.PlayerEntity
 import com.skanderjabouzi.nbateamviewer.data.model.Player
 import com.skanderjabouzi.nbateamviewer.data.model.Players
+import com.skanderjabouzi.nbateamviewer.data.repository.gateway.TeamPlayersRepository
 import com.skanderjabouzi.nbateamviewer.data.repository.gateway.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamPlayersUseCase
 import com.skanderjabouzi.nbateamviewer.domain.helpers.PlayerEntityAdapter
 import com.skanderjabouzi.nbateamviewer.domain.helpers.SortType
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.*
 import org.junit.runner.RunWith
 import org.mockito.ArgumentMatchers
 import org.mockito.Mock
+import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
+import retrofit2.Response
 
 @RunWith(MockitoJUnitRunner::class)
 class GetTeamPlayersListUseCaseTest: BaseTest() {
@@ -31,7 +36,7 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
     var rule = InstantTaskExecutorRule()
 
     @Mock
-    private lateinit var repository: TeamsRepository
+    private lateinit var repository: TeamPlayersRepository
 
     private lateinit var usecase: TeamPlayersUseCase
 
@@ -53,7 +58,8 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
             val players = usecase.getTeamPlayers(1)
             verify(repository, never()).getPlayers(ArgumentMatchers.anyInt())
-            Assert.assertEquals(17, players.size)
+            usecase.playersList.value
+            Assert.assertEquals(15, usecase.playersList.value?.size)
         }
     }
 
@@ -62,9 +68,9 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
         runBlocking {
             doReturn(dummyPlayersEmpty).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
             doReturn(dummyPlayersFromApi).whenever(repository).getPlayers(ArgumentMatchers.anyInt())
-            val players = usecase.getTeamPlayers(1)
+            usecase.getTeamPlayers(1)
             verify(repository).getPlayers(ArgumentMatchers.anyInt())
-            Assert.assertEquals(17, players.size)
+            Assert.assertEquals(15, usecase.playersList.value?.size)
         }
     }
 
@@ -72,31 +78,32 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
     @Test
     fun `Run sortbyName ascending and verify the order`() {
         runBlocking {
-            TeamPlayersUseCase.sortByName = SortType.ASCENDING
+            TeamPlayersUseCase.sortName = SortType.ASCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
             val players = usecase.sortByName(1)
-            Assert.assertEquals("Aldridge, LaMarcus", players.first().full_name.trim())
-            Assert.assertEquals("Šamanić, Luka", players.last().full_name.trim())
+            Assert.assertEquals("Bembry, DeAndre' (FA)", usecase.playersList.value?.first()?.full_name?.trim())
+            Assert.assertEquals("Young, Trae", usecase.playersList.value?.last()?.full_name?.trim())
         }
     }
 
     @Test
     fun `Run sortbyName descending and verify the order`() {
         runBlocking {
-            TeamPlayersUseCase.sortByName = SortType.DESCENDING
+            TeamPlayersUseCase.sortName = SortType.DESCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
             val players = usecase.sortByName(1)
-            Assert.assertEquals("Šamanić, Luka", players.first().full_name.trim())
-            Assert.assertEquals("Aldridge, LaMarcus", players.last().full_name.trim())
+            Assert.assertEquals("Young, Trae", usecase.playersList.value?.first()?.full_name?.trim())
+            Assert.assertEquals("Bembry, DeAndre' (FA)", usecase.playersList.value?.last()?.full_name?.trim())
         }
     }
 
     @Test
     fun `Run sortbyPosition ascending and verify the order`() {
         runBlocking {
-            TeamPlayersUseCase.sortByPosition = SortType.ASCENDING
+            TeamPlayersUseCase.sortPosition = SortType.ASCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
-            val players = usecase.sortByPosition(1)
+            usecase.sortByPosition(1)
+            val players = usecase.playersList.value!!
             Assert.assertEquals("C", players.first().position)
             Assert.assertEquals("G/F", players.last().position)
         }
@@ -105,9 +112,10 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
     @Test
     fun `Run sortbyPosition descending and verify the order`() {
         runBlocking {
-            TeamPlayersUseCase.sortByPosition = SortType.DESCENDING
+            TeamPlayersUseCase.sortPosition = SortType.DESCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
-            val players = usecase.sortByPosition(1)
+            usecase.sortByPosition(1)
+            val players = usecase.playersList.value!!
             Assert.assertEquals("G/F", players.first().position)
             Assert.assertEquals("C", players.last().position)
         }
@@ -116,39 +124,48 @@ class GetTeamPlayersListUseCaseTest: BaseTest() {
     @Test
     fun `Run sortbyNumber ascending and verify the order`() {
         runBlocking {
-            TeamPlayersUseCase.sortByNumber = SortType.ASCENDING
+            TeamPlayersUseCase.sortNumber = SortType.ASCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
-            val players = usecase.sortByNumber(1)
-            Assert.assertEquals("1", players.first().number)
-            Assert.assertEquals("45", players.last().number)
+            usecase.sortByNumber(1)
+            val players = usecase.playersList.value!!
+            Assert.assertEquals("0", players.first().number)
+            Assert.assertEquals("95", players.last().number)
         }
     }
 
     @Test
     fun `Run sortbyNumber descending and verify the order`() {
         runBlocking {
-            TeamPlayersUseCase.sortByNumber = SortType.DESCENDING
+            TeamPlayersUseCase.sortNumber = SortType.DESCENDING
             doReturn(dummyPlayersFromDb).whenever(repository).getSavedPlayers(ArgumentMatchers.anyInt())
-            val players = usecase.sortByNumber(1)
-            Assert.assertEquals("45", players.first().number)
-            Assert.assertEquals("1", players.last().number)
+            usecase.sortByNumber(1)
+            val players = usecase.playersList.value!!
+            Assert.assertEquals("95", players.first().number)
+            Assert.assertEquals("0", players.last().number)
         }
     }
 
-    private val dummyPlayersFromDb: List<PlayerEntity>
+    private val dummyPlayersFromDb: Flow<List<PlayerEntity>>
         get() {
             val gson = GsonBuilder().create()
-            return PlayerEntityAdapter.playerListToPlayerEntityList(1, gson.fromJson(readJsonFile("mock.api/1.json"), Players::class.java).players)
+            return flow {
+                emit(PlayerEntityAdapter.playerListToPlayerEntityList(1, gson.fromJson(readJsonFile("mock.api/1.json"), Players::class.java).players!!))
+            }
         }
 
-    private val dummyPlayersFromApi: List<Player>
+    private val dummyPlayersFromApi: Response<Players>
         get() {
             val gson = GsonBuilder().create()
-            return gson.fromJson(readJsonFile("mock.api/1.json"), Players::class.java).players
+            val mockResponseBody = Mockito.mock(Response::class.java)
+            val mockResponse = Response.success(gson.fromJson(readJsonFile("mock.api/1.json"), Players::class.java)!!)
+            return mockResponse
         }
 
-    private val dummyPlayersEmpty: List<PlayerEntity>?
+    private val dummyPlayersEmpty: Flow<List<PlayerEntity>>
         get() {
-            return listOf()
+            val gson = GsonBuilder().create()
+            return flow {
+                emit(PlayerEntityAdapter.playerListToPlayerEntityList(1, gson.fromJson(readJsonFile("mock.api/emptyPlayers.json"), Players::class.java).players!!))
+            }
         }
 }
