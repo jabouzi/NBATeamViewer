@@ -6,7 +6,7 @@ import com.skanderjabouzi.nbateamviewer.data.model.Teams
 import retrofit2.Response
 import javax.inject.Inject
 
-class RetrofitClient @Inject constructor(val teamsApi: TeamsApi) {
+class RetrofitClient @Inject constructor(private val teamsApi: TeamsApi) {
 
   suspend fun getTeams(): Response<Teams> {
     return teamsApi.getTeams()

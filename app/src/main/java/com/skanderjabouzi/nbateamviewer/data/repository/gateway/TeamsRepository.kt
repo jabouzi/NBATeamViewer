@@ -11,6 +11,7 @@ import com.skanderjabouzi.nbateamviewer.data.repository.net.RetrofitClient
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -32,7 +33,11 @@ class TeamsRepository @Inject constructor() {
     }
   }
 
-  suspend fun getTeams(): Response<Teams> {
-    return retrofitClient.getTeams()
+  suspend fun getTeams(): Flow<Response<Teams>> {
+    val teams = retrofitClient.getTeams()
+    Log.e("####1","${teams.body()}")
+    return flow {
+      emit(teams)
+    }
   }
 }

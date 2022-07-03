@@ -9,22 +9,25 @@ import com.skanderjabouzi.nbateamviewer.domain.helpers.SortType
 import com.skanderjabouzi.nbateamviewer.domain.helpers.TeamEntityAdapter
 import com.skanderjabouzi.nbateamviewer.domain.helpers.UseCase
 import dagger.hilt.android.scopes.ViewModelScoped
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
 @ViewModelScoped
 class TeamsListUseCase @Inject constructor(val repository: TeamsRepository): UseCase() {
 
-    suspend fun getTeams(): List<Team>? {
+    suspend fun getTeams(): Flow<List<Team>> {
         var teamsList: List<Team>? = null
-        repository.getSavedTeams().collect { teamsFlow ->
-            if (!teamsFlow.isNullOrEmpty()) {
+        //repository.getSavedTeams().collect { teamsFlow ->
+            if (repository.getSavedTeams() != null) {
                 teamsList = TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
             } else {
                 getRequestFromApi(repository.getTeams())?.let {
                     when (it) {
                         is ResultState.Success -> {
                             val teams = (it.data as Teams).teams
+                            teamsList = teams
+                            Log.e("####2", "${teamsList}")
                             teams?.let {
                                 saveTeamsToDb(it)
                                 teamsList = it
@@ -35,7 +38,7 @@ class TeamsListUseCase @Inject constructor(val repository: TeamsRepository): Use
                 }
             }
         }
-        Log.e("####1", "${teamsList}")
+        Log.e("####22", "${teamsList}")
         return teamsList
     }
 
