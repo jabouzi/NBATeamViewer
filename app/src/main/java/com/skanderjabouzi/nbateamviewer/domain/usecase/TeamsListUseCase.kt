@@ -18,7 +18,7 @@ class TeamsListUseCase @Inject constructor(val repository: TeamsRepository): Use
 
     suspend fun getTeams(): Flow<List<Team>> {
         var teamsList: List<Team>? = null
-        //repository.getSavedTeams().collect { teamsFlow ->
+        repository.getSavedTeams().collect { teamsFlow ->
             if (repository.getSavedTeams() != null) {
                 teamsList = TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
             } else {
