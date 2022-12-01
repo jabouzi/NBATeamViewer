@@ -8,11 +8,11 @@ import javax.inject.Inject
 
 class RetrofitClient @Inject constructor(val retrofit: Retrofit) {
 
-  private val teamsApi: TeamsApi
+  @Inject lateinit var teamsApi: TeamsApi
 
-  init {
-    teamsApi = retrofit.create(TeamsApi::class.java)
-  }
+//  init {
+//    teamsApi = retrofit.create(TeamsApi::class.java)
+//  }
 
   suspend fun getTeams(): Teams {
     return teamsApi.getTeams()

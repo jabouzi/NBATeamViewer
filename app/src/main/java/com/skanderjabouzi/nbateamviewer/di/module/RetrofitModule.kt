@@ -3,6 +3,7 @@ package com.skanderjabouzi.nbateamviewer.di.module
 import com.google.gson.GsonBuilder
 import com.skanderjabouzi.nbateamviewer.BuildConfig
 import com.skanderjabouzi.nbateamviewer.data.net.MockInterceptor
+import com.skanderjabouzi.nbateamviewer.data.net.TeamsApi
 import com.skanderjabouzi.nbateamviewer.di.scope.AppScope
 import dagger.Module
 import dagger.Provides
@@ -52,4 +53,8 @@ class RetrofitModule {
 
         return retrofit
     }
+
+    @AppScope
+    @Provides
+    fun provideTeamsApi(retrofit: Retrofit): TeamsApi = retrofit.create(TeamsApi::class.java)
 }
