@@ -1,6 +1,8 @@
 package com.skanderjabouzi.nbateamviewer.domain.helpers
 
 import androidx.lifecycle.MutableLiveData
+import com.skanderjabouzi.nbateamviewer.data.model.Teams
+import kotlinx.coroutines.flow.Flow
 import retrofit2.Response
 import java.io.IOException
 
@@ -15,7 +17,7 @@ open class UseCase {
         }
     }
 
-     fun getRequestFromApi(response: Response<*>): ResultState? {
+     fun getRequestFromApi(response: Flow<Response<Teams>>): ResultState? {
         return try {
             if (response.isSuccessful) {
                 response.body()?.let { ResultState.Success(it) }
