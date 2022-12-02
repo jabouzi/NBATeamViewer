@@ -61,7 +61,6 @@ class GetTeamPlayersUseCase @Inject constructor(val repository: TeamsRepository)
     suspend fun getTeamPlayersFromApi(teamId: Int): List<Player> {
         var players: List<Player> = listOf()
         players = repository.getPlayers(teamId)
-
         return players
     }
 
