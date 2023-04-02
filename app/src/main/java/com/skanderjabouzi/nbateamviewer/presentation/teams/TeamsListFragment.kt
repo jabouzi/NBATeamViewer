@@ -11,6 +11,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -20,6 +21,7 @@ import com.skanderjabouzi.nbateamviewer.data.model.Team
 import com.skanderjabouzi.nbateamviewer.databinding.TeamsListFragmentBinding
 import com.skanderjabouzi.nbateamviewer.presentation.listener.TeamClickListener
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
 class TeamsListFragment : Fragment(), TeamClickListener {
@@ -109,11 +111,12 @@ class TeamsListFragment : Fragment(), TeamClickListener {
     }
 
     private fun observeTeams() {
-        viewModel.teams.observe(viewLifecycleOwner, Observer { teams ->
-            Log.e("####3", "$teams")
-            hideLoading()
-            adapter.setTeams(teams)
-        })
+        lifecycleScope.launchWhenStarted {
+            viewModel.teams.collect { teams ->
+                hideLoading()
+                adapter.setTeams(teams)
+            }
+        }
     }
 
     private fun observeErrors() {

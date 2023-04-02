@@ -1,6 +1,9 @@
 package com.skanderjabouzi.nbateamviewer.domain.usecase
 
 import android.util.Log
+import androidx.compose.samples.crane.di.DefaultDispatcher
+import androidx.compose.samples.crane.di.DispatchersModule
+import androidx.compose.samples.crane.di.IODispatcher
 import com.skanderjabouzi.nbateamviewer.data.model.Team
 import com.skanderjabouzi.nbateamviewer.data.repository.gateway.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.data.model.Teams
@@ -9,50 +12,121 @@ import com.skanderjabouzi.nbateamviewer.domain.helpers.SortType
 import com.skanderjabouzi.nbateamviewer.domain.helpers.TeamEntityAdapter
 import com.skanderjabouzi.nbateamviewer.domain.helpers.UseCase
 import dagger.hilt.android.scopes.ViewModelScoped
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @ViewModelScoped
-class TeamsListUseCase @Inject constructor(val repository: TeamsRepository): UseCase() {
+class TeamsListUseCase @Inject constructor(
+    private val repository: TeamsRepository,
+    @DefaultDispatcher private val dispatcher: CoroutineDispatcher
+): UseCase() {
 
     suspend fun getTeams(): Flow<List<Team>> {
-        var teamsList: List<Team>? = null
-        //repository.getSavedTeams().collect { teamsFlow ->
-            if (repository.getSavedTeams() != null) {
-                teamsList = TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
+        var teamsDbList = emptyList<Team>()
+        val dbFlow = repository.getSavedTeams().map { databaseList ->
+            Log.e("#####2", "$teamsDbList")
+            if (databaseList.isNotEmpty()) {
+                teamsDbList = TeamEntityAdapter.teamEntityListToTeamList(databaseList)
+                teamsDbList
             } else {
-                getRequestFromApi(repository.getTeams())?.let {
-                    when (it) {
+                emptyList()
+            }
+        }
+
+        Log.e("#####22", "$teamsDbList")
+
+        //var teamsList: List<Team> = emptyList()
+//        repository.getSavedTeams().map { databaseList ->
+//            if (databaseList.isNotEmpty()) {
+//                TeamEntityAdapter.teamEntityListToTeamList(databaseList)
+//            } else {
+        if (teamsDbList.isNotEmpty()) {
+            return dbFlow
+        } else {
+            return repository.getTeams().map { teamsResponse ->
+                Log.e("####3", "$teamsResponse")
+                val resultState = getRequestFromApi(teamsResponse)
+                if (resultState != null) {
+                    //getRequestFromApi(teamsResponse)?.let { resultState ->
+                    when (resultState) {
                         is ResultState.Success -> {
-                            val teams = (it.data as Teams).teams
-                            teamsList = teams
-                            Log.e("####2", "${teamsList}")
-                            teams?.let {
-                                saveTeamsToDb(it)
-                                teamsList = it
-                            }
+                            val teams = (resultState.data as Teams).teams
+                            if (teams != null) {
+                                Log.e("####33", "$teams")
+                                //teams?.let {
+                                saveTeamsToDb(teams)
+                                teams
+                            } else emptyList<Team>()
                         }
-                        else -> error.postValue((it as ResultState.Error).error)
+                        else -> emptyList<Team>()
                     }
+                } else {
+                    emptyList<Team>()
                 }
             }
         }
-        Log.e("####22", "${teamsList}")
-        return teamsList
     }
+//            }
+//        } as Flow<List<Team>>
+
+
+//            repository.getSavedTeams().map DB@{ databaseList ->
+//                Log.e("####0", "${databaseList.isNotEmpty()}")
+//                if (databaseList.isNotEmpty()) {
+//                    teamsList = TeamEntityAdapter.teamEntityListToTeamList(databaseList)
+//                }
+//            }
+
+
+
+//        repository.getSavedTeams().collect { databaseList ->
+//            Log.e("####1", "$databaseList")
+//            //if (databaseList.isNotEmpty()) {
+//            TeamEntityAdapter.teamEntityToTeam
+//                teamsList = TeamEntityAdapter.teamEntityListToTeamList(databaseList)
+//                Log.e("####11", "$teamsList")
+//            //}
+//        }
+//
+////            else {
+////                Log.e("####111", "$teamsList")
+//                repository.getTeams().collect { TeamsResponse ->
+//                    Log.e("####2", "$TeamsResponse")
+//                    getRequestFromApi(TeamsResponse)?.let { resultState ->
+//                        when (resultState) {
+//                            is ResultState.Success -> {
+//                                val teams = (resultState.data as Teams).teams
+//                                Log.e("####3", "$teamsList")
+//                                teams?.let {
+//                                    saveTeamsToDb(it)
+//                                    teamsList = it
+//                                }
+//                            }
+//                            else -> teamsList = emptyList<Team>()
+//                        }
+//                    }
+//                }
+////            }
+////        }
+
 
     suspend fun sortByName(): List<Team>? {
         var teamsList: List<Team>? = null
         repository.getSavedTeams().collect { teamsFlow ->
             if (sortName == SortType.ASCENDING) {
                 teamsList =
-                    TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
-                        .sortedWith(compareBy({ it.name }))
+                    teamsFlow?.let {
+                        TeamEntityAdapter.teamEntityListToTeamList(it)
+                            .sortedWith(compareBy { it.name })
+                    }
             } else {
                 teamsList =
-                    TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
-                        .sortedWith(compareByDescending({ it.name }))
+                    teamsFlow?.let {
+                        TeamEntityAdapter.teamEntityListToTeamList(it)
+                            .sortedWith(compareByDescending { it.name })
+                    }
             }
             sortName = getSortBy(sortName)
         }
@@ -64,12 +138,16 @@ class TeamsListUseCase @Inject constructor(val repository: TeamsRepository): Use
         repository.getSavedTeams().collect { teamsFlow ->
             if (sortWins == SortType.ASCENDING) {
                 teamsList =
-                    TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
-                        .sortedWith(compareBy({ it.wins }))
+                    teamsFlow?.let {
+                        TeamEntityAdapter.teamEntityListToTeamList(it)
+                            .sortedWith(compareBy { it.wins })
+                    }
             } else {
                 teamsList =
-                    TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
-                        .sortedWith(compareByDescending({ it.wins }))
+                    teamsFlow?.let {
+                        TeamEntityAdapter.teamEntityListToTeamList(it)
+                            .sortedWith(compareByDescending { it.wins })
+                    }
             }
             sortWins = getSortBy(sortWins)
         }
@@ -81,19 +159,23 @@ class TeamsListUseCase @Inject constructor(val repository: TeamsRepository): Use
         repository.getSavedTeams().collect { teamsFlow ->
             if (sortLosses == SortType.ASCENDING) {
                 teamsList =
-                    TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
-                        .sortedWith(compareBy({ it.losses }))
+                    teamsFlow?.let {
+                        TeamEntityAdapter.teamEntityListToTeamList(it)
+                            .sortedWith(compareBy { it.losses })
+                    }
             } else {
                 teamsList =
-                    TeamEntityAdapter.teamEntityListToTeamList(teamsFlow)
-                        .sortedWith(compareByDescending({ it.losses }))
+                    teamsFlow?.let {
+                        TeamEntityAdapter.teamEntityListToTeamList(it)
+                            .sortedWith(compareByDescending { it.losses })
+                    }
             }
             sortLosses = getSortBy(sortLosses)
         }
         return teamsList
     }
 
-    suspend private fun saveTeamsToDb(teams: List<Team>) {
+    private suspend fun saveTeamsToDb(teams: List<Team>) {
         repository.saveTeams(TeamEntityAdapter.teamListToTeamEntityList(teams))
     }
 

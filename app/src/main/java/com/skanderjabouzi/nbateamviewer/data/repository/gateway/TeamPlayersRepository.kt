@@ -14,10 +14,10 @@ import retrofit2.Response
 import javax.inject.Inject
 
 @ViewModelScoped
-class TeamPlayersRepository @Inject constructor() {
-
-  @Inject lateinit var retrofitClient: RetrofitClient
-  @Inject lateinit var playersDao: PlayersDao
+class TeamPlayersRepository @Inject constructor(
+  private val retrofitClient: RetrofitClient,
+  private val playersDao: PlayersDao
+) {
 
   fun getSavedPlayers(teamId: Int): Flow<List<PlayerEntity>> {
     return playersDao.getPlayers(teamId)

@@ -11,10 +11,10 @@ import retrofit2.Response
 import javax.inject.Inject
 
 @ViewModelScoped
-class TeamDetailsRepository @Inject constructor() {
-
-    @Inject lateinit var retrofitClient: RetrofitClient
-    @Inject lateinit var teamDao: TeamDao
+class TeamDetailsRepository @Inject constructor(
+    private val retrofitClient: RetrofitClient,
+    private val teamDao: TeamDao
+) {
 
     fun getSavedTeamDetails(id: Int): LiveData<TeamDetailsEntity?> {
         return teamDao.getTeamDetails(id)

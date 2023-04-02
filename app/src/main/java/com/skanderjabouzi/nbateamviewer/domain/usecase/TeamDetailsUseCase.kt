@@ -1,7 +1,5 @@
 package com.skanderjabouzi.nbateamviewer.domain.usecase
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.skanderjabouzi.nbateamviewer.data.model.TeamDetails
 import com.skanderjabouzi.nbateamviewer.data.repository.gateway.TeamDetailsRepository
 import com.skanderjabouzi.nbateamviewer.domain.helpers.ResultState
@@ -11,7 +9,9 @@ import dagger.hilt.android.scopes.ViewModelScoped
 import javax.inject.Inject
 
 @ViewModelScoped
-class TeamDetailsUseCase @Inject constructor(val repository: TeamDetailsRepository) : UseCase() {
+class TeamDetailsUseCase @Inject constructor(
+    private val repository: TeamDetailsRepository
+) : UseCase() {
 
     suspend fun getTeamDetails(id: Int): TeamDetails? {
         var teamDetailResult: TeamDetails? = null

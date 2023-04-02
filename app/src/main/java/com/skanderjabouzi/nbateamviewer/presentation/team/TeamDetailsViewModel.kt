@@ -12,8 +12,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TeamDetailsViewModel @Inject constructor(
-    val usecase: TeamDetailsUseCase) : ViewModel()
-{
+    private val usecase: TeamDetailsUseCase
+) : ViewModel() {
+
     private var _teamDetails = MutableLiveData<TeamDetails>()
     val teamDetails:  LiveData<TeamDetails>
         get() = _teamDetails
