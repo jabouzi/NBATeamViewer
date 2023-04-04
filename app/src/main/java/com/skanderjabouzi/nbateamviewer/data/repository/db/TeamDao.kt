@@ -52,4 +52,7 @@ interface TeamDao {
   @Query("select * from teamdetailsentity where id = :id")
   fun getTeamDetails(id: Int?): LiveData<TeamDetailsEntity?>
 
+  @Query("select count(*) from teamentity where 1")
+  fun getTeamsCount(): Int
+
 }

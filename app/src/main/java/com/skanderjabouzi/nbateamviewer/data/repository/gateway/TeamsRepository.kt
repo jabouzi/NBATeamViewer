@@ -28,10 +28,12 @@ class TeamsRepository @Inject constructor(
 
 
 
-  fun getSavedTeams(): Flow<List<TeamEntity>> {
-    val temp = teamDao.getTeams()
-    Log.e("####","$temp")
-    return temp
+  suspend fun getSavedTeams(): Flow<List<TeamEntity>> {
+    return withContext(dispatcher) {
+      val temp = teamDao.getTeams()
+      Log.e("# TeamsRepository 1", "$temp")
+      temp
+    }
   }
 
   suspend fun saveTeams(teams: List<TeamEntity>) {
@@ -44,9 +46,15 @@ class TeamsRepository @Inject constructor(
 
   suspend fun getTeams(): Flow<Response<Teams>> {
     val teams = retrofitClient.getTeams()
-    Log.e("####1","${teams.body()}")
+    Log.e("# TeamsRepository 2","${teams.body()}")
     return flow {
       emit(teams)
+    }
+  }
+
+  suspend fun getTeamsCount(): Int {
+    return withContext(dispatcher) {
+      teamDao.getTeamsCount()
     }
   }
 }

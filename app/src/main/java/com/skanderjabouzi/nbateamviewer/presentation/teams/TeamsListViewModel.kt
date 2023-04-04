@@ -28,14 +28,14 @@ class TeamsListViewModel @Inject constructor(
         viewModelScope.launch {
             usecase.getTeams().collect {
                 _teams.value = it as List<Team>
-                Log.e("####4", "${teams.value}")
+                Log.e("# TeamsListViewModel", "${teams.value}")
             }
         }
     }
 
     fun sortByName() {
         viewModelScope.launch {
-            usecase.sortByName()?.let {
+            usecase.sortByName().collect {
                 _teams.value = it
             }
         }
@@ -43,7 +43,7 @@ class TeamsListViewModel @Inject constructor(
 
     fun sortByWins() {
         viewModelScope.launch {
-            usecase.sortByWins()?.let {
+            usecase.sortByWins().collect {
                 _teams.value = it
             }
         }
@@ -51,7 +51,7 @@ class TeamsListViewModel @Inject constructor(
 
     fun sortByLosses() {
         viewModelScope.launch {
-            usecase.sortByLosses()?.let {
+            usecase.sortByLosses().collect {
                 _teams.value = it
             }
         }
