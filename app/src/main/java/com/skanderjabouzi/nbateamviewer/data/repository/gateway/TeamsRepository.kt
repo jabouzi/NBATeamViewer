@@ -25,9 +25,6 @@ class TeamsRepository @Inject constructor(
   private val teamDao: TeamDao,
   @IODispatcher private val dispatcher: CoroutineDispatcher,
 ) {
-
-
-
   suspend fun getSavedTeams(): Flow<List<TeamEntity>> {
     return withContext(dispatcher) {
       val temp = teamDao.getTeams()
