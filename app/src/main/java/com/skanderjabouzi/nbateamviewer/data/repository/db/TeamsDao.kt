@@ -30,28 +30,18 @@
 
 package com.skanderjabouzi.nbateamviewer.data.repository.db
 
-import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
-import com.skanderjabouzi.nbateamviewer.data.entity.PlayerEntity
-import com.skanderjabouzi.nbateamviewer.data.entity.TeamDetailsEntity
+import androidx.room.*
 import com.skanderjabouzi.nbateamviewer.data.entity.TeamEntity
+import kotlinx.coroutines.flow.Flow
 
-@Database(
-  entities = [TeamEntity::class, PlayerEntity::class, TeamDetailsEntity::class],
-  version = 2,
-  exportSchema = false
-)
+@Dao
+interface TeamsDao {
+  @Insert(onConflict = OnConflictStrategy.REPLACE)
+  suspend fun insert(team: TeamEntity)
 
-abstract class  TeamDatabase : RoomDatabase() {
+  @Query("select * from teamentity")
+  fun getTeams(): Flow<List<TeamEntity>>
 
-  companion object {
-    const val DATABASE_NAME = "nba.db"
-  }
-
-  abstract fun teamDao(): TeamDao
-
-  abstract fun playersDao(): PlayersDao
-
+  @Query("select count(*) from teamentity where 1")
+  fun getTeamsCount(): Int
 }

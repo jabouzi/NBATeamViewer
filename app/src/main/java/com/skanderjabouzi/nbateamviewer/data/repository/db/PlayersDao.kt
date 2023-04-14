@@ -13,5 +13,8 @@ interface PlayersDao {
     suspend fun insert(players: PlayerEntity)
 
     @Query("SELECT * FROM playerentity WHERE teamId = :id")
-    fun getPlayers(id: Int?): Flow<List<PlayerEntity>>
+    fun getPlayers(id: Int): Flow<List<PlayerEntity>>
+
+    @Query("SELECT count(*) FROM playerentity WHERE id = :id")
+    fun getPlayerExists(id: Int): Int
 }

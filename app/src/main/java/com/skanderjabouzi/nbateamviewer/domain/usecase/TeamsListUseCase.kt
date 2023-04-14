@@ -1,9 +1,6 @@
 package com.skanderjabouzi.nbateamviewer.domain.usecase
 
 import android.util.Log
-import androidx.compose.samples.crane.di.DefaultDispatcher
-import androidx.compose.samples.crane.di.DispatchersModule
-import androidx.compose.samples.crane.di.IODispatcher
 import com.skanderjabouzi.nbateamviewer.data.model.Team
 import com.skanderjabouzi.nbateamviewer.data.repository.gateway.TeamsRepository
 import com.skanderjabouzi.nbateamviewer.data.model.Teams
@@ -20,7 +17,6 @@ import javax.inject.Inject
 @ViewModelScoped
 class TeamsListUseCase @Inject constructor(
     private val repository: TeamsRepository,
-    @DefaultDispatcher private val dispatcher: CoroutineDispatcher
 ): UseCase() {
 
     suspend fun getTeams(): Flow<List<Team>> {

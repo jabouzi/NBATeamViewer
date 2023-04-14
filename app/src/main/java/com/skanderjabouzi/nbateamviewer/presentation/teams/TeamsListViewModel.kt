@@ -1,9 +1,9 @@
 package com.skanderjabouzi.nbateamviewer.presentation.teams
 
 import android.util.Log
-import androidx.compose.samples.crane.di.DefaultDispatcher
 import androidx.lifecycle.*
 import com.skanderjabouzi.nbateamviewer.data.model.Team
+import com.skanderjabouzi.nbateamviewer.di.DefaultDispatcher
 import com.skanderjabouzi.nbateamviewer.domain.usecase.TeamsListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
